@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>login</h1>
+@extends('layouts.website')
+@section('title', 'Login')
+
+@section('content')
+
+    <h1>Login</h1>
 
     <div class="login">
         <form action="{{ route('login') }}" method="POST">
@@ -24,5 +21,5 @@
             <button type="submit" class="">Login</button>
         </form>
     </div>
-</body>
-</html>
+
+@endsection

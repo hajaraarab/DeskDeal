@@ -27,19 +27,4 @@ class UserController extends Controller
         auth()->logout();
         return redirect('/')->with('success', 'Je bent succesvol uitgelogd!'); 
     }
-
-    public function register(Request $request)
-    {
-        $incomingFields = $request->validate([
-            'name' => ['required'],
-            'email' => ['required', 'email', Rule::unique('users', 'email')], 
-            'password' => 'required|min:4'
-        ]); 
-
-        $incomingFields['password'] = bcrypt($incomingFields['password']); //wachtwoord hashen voor het in de database te steken
-        $user = User::create($incomingFields); 
-        auth()->login($user); //automatisch inloggen na registratie
-
-        return redirect('/')->with('success', 'Je bent succesvol geregistreerd!'); //doorsturen naar homepagina na registratie
-    }
 }
