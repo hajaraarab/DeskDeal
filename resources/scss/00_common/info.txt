@@ -1,0 +1,14 @@
+Heel concreet: in common zet je dingen die je overal opnieuw gebruikt, maar die geen echte component zijn.
+Dus NIET:
+buttons
+cards
+hero
+footer
+Maar WEL:
+containers
+helper classes
+spacing helpers
+algemene layout tools
+
+
+NEW FILE NEW 

@@ -1,0 +1,12 @@
+kleuren
+fonts
+body styling
+CSS reset
+spacing vars
+z-index vars
+breakpoints
+mixins
+
+Eigenlijk alles dat de fundering van je design bepaalt.
+= de basis van je hele website
+Hier zet je dingen die OVERAL gelden.
