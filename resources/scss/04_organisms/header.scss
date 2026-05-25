@@ -5,46 +5,64 @@ nav {
     justify-content: space-between;
     align-items: center;
 
-    ul {
-        gap: variables.$gap-32; //NOG AAN TE PASSEN 
-        list-style: none;
+    margin: variables.$margin-16 variables.$margin-64 0;
 
-        //Vanaf mobile
+    border: 3px solid variables.$primary-color;
+    border-radius: 16px;
+
+    padding: variables.$padding-4 0;
+
+    // TABLET & DESKTOP
+    @media (min-width: 768px) {
+        padding-inline: variables.$padding-32;
+    }
+
+    // Shared layout
+    .logo,
+    .user-menu,
+    ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        list-style: none;
+        gap: variables.$gap-32;
+
         @media (min-width: 768px) {
             gap: variables.$gap-48;
         }
     }
-    .logo, .user-menu, ul{
-        display:flex; 
-        align-items: center;
-        justify-content: center;
-    }
 
     .logo {
         gap: variables.$gap-8;
+    }
 
-        //Vanaf mobile
+    .logo-img {
+        width: 30px;
+        height: 30px;
+
         @media (min-width: 768px) {
-            gap: variables.$gap-16;
+            width: 35px;
+            height: 35px;
+            margin-top: -5px;
         }
     }
 
-    .logo-img{
-        width: 30px; 
-        height: 30px;
+    .h6 {
+        transition: color 0.2s ease;
 
-        //Vanaf mobile
-        @media (min-width: 768px) {
-            width: 54px; 
-            height: 54px;
+        &:hover,
+        &.active {
+            color: variables.$primary-color;
         }
-}
-}
 
-.logo-img{
-    //Vanaf mobile
-    @media (min-width: 768px) {
-        width: 54px; 
-        height: 54px;
+        &.active {
+            font-weight: 600;
+        }
     }
 }
