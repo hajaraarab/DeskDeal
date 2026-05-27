@@ -25,8 +25,14 @@
         <li><a href="{{ route('marketplace') }}" class="h6 {{ request()->routeIs('marketplace') ? 'active' : '' }}">Marketplace</a></li>
         <li><a href="{{ route('contact') }}" class="h6 {{ request()->routeIs('contact') ? 'active' : '' }}">Contact</a></li>
     </ul>
+
+    @guest
     <div class="user-menu">
-        <p>login</p>
-        <p>register</p>
+        <a href="{{ route('login') }}" class="">Login</a>
+        <a href="{{ route('register') }}" class="">Register</a>
     </div>
+    @endguest
+
+    @auth
+    @endauth
 </nav>
