@@ -5,4 +5,9 @@
 
 @use '02_atoms/buttons';
 
+@use '03_molecules/alert';
+@use '03_molecules/forms';
+
 @use '04_organisms/header';
+
+@use '06_pages/register'; 

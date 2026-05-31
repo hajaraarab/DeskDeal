@@ -28,13 +28,18 @@ a {
     font-size: 20px;
     font-weight: 400; 
 }
-.body-md {
+.body-md{
     font-family: variables.$primary-font;
     font-size: 18px;
-    font-weight: 600; 
+    font-weight: 400;
 }
 .body-sm {
     font-family: variables.$secondary-font;
     font-size: 15px;
     font-weight: 500;
-}    
+}
+label, placeholder, input, textarea {
+    font-family: variables.$primary-font;
+    font-size: 15px;
+    font-weight: 400;
+}

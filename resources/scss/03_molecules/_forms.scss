@@ -1,0 +1,22 @@
+@use '../01_fundaments/variables';
+
+.form-field.required label:after {
+    content: " *";
+    color: variables.$error-color; 
+}
+
+.form-group {
+    display: flex;
+    gap: variables.$gap-16;
+    width:100%; 
+
+    .form-field {
+        flex: 1; 
+    }
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: variables.$gap-4;
+}

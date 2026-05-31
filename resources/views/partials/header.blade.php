@@ -38,11 +38,15 @@
     @endguest
 
     @auth
+    <form action="{{ route('logout') }}" method="POST">
+        @csrf
+        <button type="submit" >Logout</button>
+    </form> 
     @endauth
 </nav>
 
 @if(session('success'))
-    <div class="alert alert-success">
+    <div class="alert success body-sm">
         {{ session('success') }}
     </div>
 @endif
