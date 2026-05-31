@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
@@ -20,10 +21,13 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
-Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
+Route::get('/login', [RegisterController::class, 'showLogin'])->name('login');
+Route::post('/login', [RegisterController::class, 'login']);
 
-Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
-Route::post('/register', [AuthController::class, 'register']);
+Route::get('/register', [RegisterController::class, 'show'])
+    ->name('register.form');
 
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('/register', [RegisterController::class, 'register'])
+    ->name('register');
+
+Route::post('/logout', [RegisterController::class, 'logout'])->name('logout');

@@ -17,7 +17,7 @@ nav {
     @media (min-width: 768px) {
         margin-left: variables.$margin-64;
         margin-right: variables.$margin-64;
-        margin-top: variables.$margin-16;
+        margin-top: variables.$margin-32;
     }
 
     // Shared layout
@@ -68,4 +68,8 @@ nav {
             font-weight: 600;
         }
     }
+}
+
+.user-menu {
+    gap: variables.$gap-16;
 }

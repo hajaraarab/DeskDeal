@@ -14,10 +14,15 @@
    <form method="POST" action="{{ route('register') }}">
         @csrf
 
-        <input type="text" name="name" placeholder="Name" value="{{ old('name') }}" required>
-        <input type="email" name="email" placeholder="Email" value="{{ old('email') }}" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <input type="password" name="password_confirmation" placeholder="Confirm Password" required>
+        <input type="text" name="firstname" placeholder="Bv. Jan" value="{{ old('firstname') }}" required>
+        <input type="text" name="lastname" placeholder="Bv. Peeters" value="{{ old('lastname') }}" required>
+
+        <input type="text" name="companyname" placeholder="Bv. DeskDeal B.V." value="{{ old('companyname') }}" required>
+        <input type="text" name="companyregisternumber" placeholder="Bv. 0123.456.789" value="{{ old('companyregisternumber') }}" required>
+
+        <input type="email" name="email" placeholder="Bv. jan.peeters@deskdeal.be" value="{{ old('email') }}" required>
+        <input type="password" name="password" placeholder="Minimaal 8 tekens" required>
+
         <button type="submit">Register</button>
         
     </form>
