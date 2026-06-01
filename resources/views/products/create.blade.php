@@ -1,6 +1,7 @@
 @include('partials.header')
 
 <div class="content">
+
     <h1>Create Product</h1>
     <form action="{{ route('products.store') }}" method="POST">
         @csrf

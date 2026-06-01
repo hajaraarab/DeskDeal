@@ -1,5 +1,9 @@
 @include('partials.header')
 
+<div class="hero-banner">
+    <h1>@yield('title')</h1>
+</div>
+
 <div class="content">
     <h1>Welcome to the marketplace Page</h1>
     <p>This is the content of the marketplaces page.</p>

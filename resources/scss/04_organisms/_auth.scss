@@ -17,3 +17,14 @@
         }
     }
 }
+.form-container {
+    display: flex; 
+    width: 55%; 
+    flex-direction: column;
+    margin-left: auto; 
+}
+.register-form, .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: variables.$gap-32;
+}

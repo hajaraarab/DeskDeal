@@ -9,6 +9,6 @@
 @use '03_molecules/forms';
 
 @use '04_organisms/header';
-@use '04_organisms/auth-container';
+@use '04_organisms/auth';
 
-@use '06_pages/register'; 
+@use '06_pages/marketplace';
