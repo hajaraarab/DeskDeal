@@ -4,6 +4,16 @@
     }
 </style>
 
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 @include('partials.header')
 
 <div class="content create-product">
@@ -16,8 +26,18 @@
         <p class="body-sm">Vul de gegevens hieronder in. Hoe completer je advertentie, hoe sneller je item een nieuwe eigenaar vindt.</p>
     </div>
 
-    <form class="create-product-form" action="{{ route('products.store') }}" method="POST">
+    <form enctype="multipart/form-data" class="create-product-form" action="{{ route('products.store') }}" method="POST">
         @csrf
+        <!-- MAX 2MB PER FOTO -->
+        <div class="form-field">
+            <label for="product-images">Foto's</label>
+            <input
+                type="file"
+                name="images[]"
+                accept="image/*"
+                multiple
+            >
+        </div>
 
         <div class="form-group">
             <div class="form-field">

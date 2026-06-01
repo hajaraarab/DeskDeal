@@ -52,7 +52,12 @@
         <div class="product-listing">
             @foreach($products as $product)
                 <div class="product-card">
-                    <img src="{{ asset('') }}" alt="Product Image">
+                    @if($product->images->isNotEmpty())
+                        <img
+                            src="{{ asset('storage/' . $product->images->first()->image_path) }}"
+                            alt="{{ $product->title }}"
+                        >
+                    @endif
                     <h3>{{ $product->title }}</h3>
                     <p>{{ $product->description }}</p>
                     <p>{{ $product->location }}</p>
