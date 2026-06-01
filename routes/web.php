@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -13,9 +14,15 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-Route::get('/marketplace', function () {
-    return view('marketplace');
-})->name('marketplace');
+Route::get('/marketplace', [ProductController::class, 'index'])
+    ->name('marketplace');
+
+Route::get('/marketplace/create', [ProductController::class, 'create'])
+    ->name('products.create');
+
+Route::post('/marketplace', [ProductController::class, 'store'])
+    ->middleware('auth')
+    ->name('products.store');
 
 Route::get('/contact', function () {
     return view('contact');

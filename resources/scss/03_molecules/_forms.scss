@@ -27,3 +27,7 @@ input:focus {
     border-radius: variables.$radius-4;
     padding: variables.$padding-4;
 }
+
+.error-label {
+    color: #dc2626;
+}

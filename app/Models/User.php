@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Product;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
@@ -18,7 +19,9 @@ use Illuminate\Notifications\Notifiable;
     'email',
     'password'
     ])]
+
 #[Hidden(['password', 'remember_token'])]
+
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
@@ -35,5 +38,9 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    public function products()
+    {
+        return $this->hasMany(Product::class);
     }
 }
