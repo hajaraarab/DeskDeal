@@ -38,10 +38,12 @@
     @endguest
 
     @auth
-    <form action="{{ route('logout') }}" method="POST">
-        @csrf
-        <button type="submit" >Logout</button>
-    </form> 
+    <div class="user-menu">
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button class="primary-btn darkblue body-md" type="submit">Logout</button>
+        </form> 
+    </div>
     @endauth
 </nav>
 

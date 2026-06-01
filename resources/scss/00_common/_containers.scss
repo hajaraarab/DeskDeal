@@ -13,5 +13,10 @@ body {
         padding-left: variables.$padding-64; 
         padding-right: variables.$padding-64;
     }
+}
 
+.section-header {
+    gap: 0;
+    display: flex;
+    flex-direction: column;
 }

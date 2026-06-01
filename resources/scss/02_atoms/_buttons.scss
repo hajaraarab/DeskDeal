@@ -71,3 +71,13 @@
     background-color: rgba(variables.$primary-color, 0.5); 
     font-weight: 500;
 }
+
+//LINKS
+.back-link {
+    display: inline-block;
+    color: variables.$secondary-color; 
+}
+.back-link:hover {
+    text-decoration: underline;
+    color: variables.$secondary-color; 
+}

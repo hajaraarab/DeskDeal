@@ -18,6 +18,7 @@ Route::get('/marketplace', [ProductController::class, 'index'])
     ->name('marketplace');
 
 Route::get('/marketplace/create', [ProductController::class, 'create'])
+    ->middleware('auth')
     ->name('products.create');
 
 Route::post('/marketplace', [ProductController::class, 'store'])

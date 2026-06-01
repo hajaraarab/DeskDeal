@@ -1,21 +1,6 @@
 @use '../01_fundaments/variables';
 
-.marketplace {
-    h2 {
-        color: variables.$secondary-color;
-        margin: 0; 
-        padding: 0; 
-    }
-    .subtitle {
-        color: variables.$primary-color;
-        margin: 0; 
-        padding: 0; 
-    }
-}
-.marketplace-text {
-    gap: 0;
-    display: flex;
-    flex-direction: column;
+.marketplace .section-header{
     padding-top: variables.$padding-32;
     padding-bottom: variables.$padding-32;
 }
@@ -47,6 +32,8 @@
 .marketplace-container {
     padding-top: variables.$padding-32;
     padding-bottom: variables.$padding-32;
+    display: flex; 
+    gap: variables.$gap-32;
 
     .sidebar {
         width: 20%; 
@@ -60,4 +47,10 @@
         display:flex; 
         width: 100%; 
     }
+}
+.categories {
+    margin-top: variables.$padding-32;
+    display: flex; 
+    flex-direction: column;
+    gap: variables.$gap-12;
 }

@@ -14,7 +14,7 @@
 
 <div class="content marketplace">
 
-    <div class="marketplace-text">
+    <div class="section-header">
         <p class="subtitle">new subtitle</p>
         <div class="marplace-description">
             <h2>Vind je volgende kantoorvonst</h2>
@@ -36,23 +36,26 @@
             @auth
                 <a class="round-btn darkblue body-lg" href="{{ route('products.create') }}" >+ Voeg product toe</a>
             @endauth
-            
-            <p>Categorieën</p>
 
-            <a href="#" class="">Alle categorieën</a>
+            <div class="categories">
+                <p class="subtitle">Categorieën</p>
 
-            @foreach($categories as $category)
-                <p>{{ $category->name }}</p>
-            @endforeach
+                <a href="#" class="">Alle categorieën</a>
+
+                @foreach($categories as $category)
+                    <p>{{ $category->name }}</p>
+                @endforeach
+            </div>
+
         </div>
         
         <div class="product-listing">
             @foreach($products as $product)
                 <div class="product-card">
                     <img src="{{ asset('') }}" alt="Product Image">
-                    <h3>{{ $product->name }}</h3>
+                    <h3>{{ $product->title }}</h3>
                     <p>{{ $product->description }}</p>
-                    <p class="price">€{{ number_format($product->price, 2) }}</p>
+                    <p>{{ $product->location }}</p>
                 </div>
             @endforeach
         </div>

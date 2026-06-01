@@ -14,20 +14,27 @@
         flex: 1; 
     }
 }
-
 .form-field {
     display: flex;
     flex-direction: column;
     gap: variables.$gap-4;
 }
-
-input:focus {
+input, textarea, select {
+    padding: variables.$padding-4;
+    border: 2px solid #DBE1EB; 
+    border-radius: variables.$radius-4;
+}
+input:focus, textarea:focus, select:focus {
     outline: none;
     border: 2px solid variables.$primary-color;
     border-radius: variables.$radius-4;
     padding: variables.$padding-4;
 }
-
 .error-label {
     color: #dc2626;
+}
+
+//Select styling was niet gelijk op elke browser (dit zorgt ervoor dat het wel zo is)
+select {
+    box-sizing: border-box;
 }
