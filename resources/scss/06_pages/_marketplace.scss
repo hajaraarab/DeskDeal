@@ -1,1 +1,63 @@
 @use '../01_fundaments/variables';
+
+.marketplace {
+    h2 {
+        color: variables.$secondary-color;
+        margin: 0; 
+        padding: 0; 
+    }
+    .subtitle {
+        color: variables.$primary-color;
+        margin: 0; 
+        padding: 0; 
+    }
+}
+.marketplace-text {
+    gap: 0;
+    display: flex;
+    flex-direction: column;
+    padding-top: variables.$padding-32;
+    padding-bottom: variables.$padding-32;
+}
+.marplace-description {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.search-container {
+    background-color: variables.$white;
+    border: 2px solid rgba(variables.$primary-color, 0.5);
+    border-radius: 16px;
+    padding: variables.$padding-16;
+    display: flex;
+    align-items: center;
+    gap: variables.$gap-16;
+
+    input {
+        width: 100%;
+        border: none; 
+        background-color: #F1F3F7; 
+        padding-top: variables.$padding-8;
+        padding-bottom: variables.$padding-8;
+        padding-left: variables.$padding-32;
+        padding-right: variables.$padding-32;
+        border-radius: variables.$radius-16;
+    }
+}
+.marketplace-container {
+    padding-top: variables.$padding-32;
+    padding-bottom: variables.$padding-32;
+
+    .sidebar {
+        width: 20%; 
+        background-color: variables.$white;
+        padding: variables.$padding-16;
+        border: 2px solid rgba(variables.$primary-color, 0.5);
+        border-radius: variables.$radius-16;
+    }
+    .sidebar .round-btn {
+        box-sizing: border-box;
+        display:flex; 
+        width: 100%; 
+    }
+}

@@ -1,5 +1,9 @@
 @use '../01_fundaments/variables';
 
+body {
+    margin: 0;
+    padding: 0;
+}
 .content {
     padding-left: variables.$padding-16;
     padding-right: variables.$padding-16;
@@ -10,5 +14,4 @@
         padding-right: variables.$padding-64;
     }
 
-    margin-top: variables.$margin-32;
 }
