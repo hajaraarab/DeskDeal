@@ -1,21 +1,13 @@
 @include('partials.header')
 
-@if ($errors->any())
-    <div class="errors">
-        @foreach ($errors->all() as $error)
-            <p>{{ $error }}</p>
-        @endforeach
-    </div>
-@endif
-
 <div class="content">
 
-    <div class="register-container">
+    <div class="auth-container">
         <div class="background">
             <img src="{{ asset('/images/contact-background.png') }}" alt="Register Background">
         </div>
 
-        <div class="register-form-container">
+        <div class="form-container">
             <form class="register-form" method="POST" action="{{ route('register') }}">
                 @csrf
 
@@ -43,11 +35,14 @@
                             type="text"
                             name="companyregisternumber"
                             placeholder="Bv. BE0123456789"
-                            value="BE{{ old('companyregisternumber') }}"
+                            value="{{ old('companyregisternumber', 'BE') }}"
                             maxlength="12"
                             inputmode="numeric"
                             oninput="
-                                this.value = 'BE' + this.value.replace(/[^0-9]/g, '').slice(0,10);
+                                if (!this.value.startsWith('BE')) {
+                                    this.value = 'BE' + this.value.replace(/^BE/i, '');
+                                }
+                                this.value = 'BE' + this.value.slice(2).replace(/[^0-9]/g, '').slice(0,10);
                             "
                             required
                         >
@@ -66,7 +61,7 @@
                     </div>
                 </div>
 
-                <button type="submit">Register</button>
+                <button class="round-btn darkblue body-lg" type="submit">Register</button>
                 
             </form>
         </div>

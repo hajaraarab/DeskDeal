@@ -32,8 +32,8 @@
 
     @guest
     <div class="user-menu">
-        <a class="primary-btn-darkblue body-md" href="{{ route('register') }}" class="">Register</a>
-        <a class="primary-btn-border body-md" href="{{ route('login') }}" class="">Login</a>
+        <a class="primary-btn darkblue body-md" href="{{ route('register') }}" class="">Register</a>
+        <a class="primary-btn border body-md" href="{{ route('login') }}" class="">Login</a>
     </div>
     @endguest
 
@@ -48,5 +48,11 @@
 @if(session('success'))
     <div class="alert success body-sm">
         {{ session('success') }}
+    </div>
+@endif
+
+@if(session('error'))
+    <div class="alert error body-sm">
+        {{ session('error') }}
     </div>
 @endif

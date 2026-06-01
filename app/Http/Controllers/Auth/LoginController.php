@@ -27,9 +27,9 @@ class LoginController extends Controller
             ->with('success', 'Je bent succesvol ingelogd!');
         }
 
-        return back()->withErrors([
-            'email' => 'Ongeldige inloggegevens.',
-        ]);
+        return back()
+            ->withInput($request->except('password'))
+            ->with('error', 'Ongeldige inloggegevens. Probeer het opnieuw.');
     }
     public function logout(Request $request)
     {

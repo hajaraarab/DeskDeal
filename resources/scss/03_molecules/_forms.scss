@@ -20,3 +20,10 @@
     flex-direction: column;
     gap: variables.$gap-4;
 }
+
+input:focus {
+    outline: none;
+    border: 2px solid variables.$primary-color;
+    border-radius: variables.$radius-4;
+    padding: variables.$padding-4;
+}

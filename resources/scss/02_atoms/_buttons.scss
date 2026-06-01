@@ -1,27 +1,46 @@
 @use '../01_fundaments/variables';
 
-.primary-btn-darkblue {
+//PRIMARY BUTTON
+.primary-btn.darkblue {
     background-color: variables.$secondary-color;
     color: variables.$white;
     border: 2px solid variables.$secondary-color; 
 }
-.primary-btn-darkblue:hover {
+.primary-btn.darkblue:hover {
     background-color: variables.$white; 
     color: variables.$secondary-color;
+    font-weight: 500;
 }
-.primary-btn-border {
+.primary-btn.border {
     background-color: variables.$white;
     border: 2px solid variables.$primary-color;
     color: variables.$primary-color;
 }
-.primary-btn-border:hover {
+.primary-btn.border:hover {
     background-color: variables.$primary-color;
     color: variables.$white;
+    font-weight: 500;
 }
-.primary-btn-darkblue, .primary-btn-border {
+.primary-btn.darkblue, .primary-btn.border {
     padding-top: variables.$padding-4;
     padding-bottom: variables.$padding-4;
     padding-left: variables.$padding-32;
     padding-right: variables.$padding-32;
     border-radius: variables.$radius-4;
+}
+
+//ROUND BUTTON
+.round-btn.darkblue {
+    background-color: variables.$secondary-color;
+    color: variables.$white;
+    border: 2px solid variables.$secondary-color;
+
+    padding-left: variables.$padding-16; 
+    padding-right: variables.$padding-16;
+    border-radius: variables.$radius-16;
+}
+.round-btn.darkblue:hover {
+    background-color: variables.$white; 
+    color: variables.$secondary-color;
+    font-weight: 500;
 }

@@ -1,30 +1,12 @@
 @use '../01_fundaments/variables';
 
-.register-container {
-    position: relative;
-
-    .background {
-        background-color: variables.$primary-color-light; 
-        position: absolute; 
-        padding-top: 250px;
-        margin-top: -140px;
-        margin-left: -64px;
-        z-index: -1;
-
-        img {
-            height: 70%;
-            width: 70%; 
-        }
-    }
-}
-
-.register-form-container {
+.form-container {
     display: flex; 
     width: 55%; 
     flex-direction: column;
     margin-left: auto; 
 }
-.register-form {
+.register-form, .login-form {
     display: flex;
     flex-direction: column;
     gap: variables.$gap-32;
