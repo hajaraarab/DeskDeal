@@ -142,6 +142,10 @@
       "_lib-DQaXjcfw.js"
     ]
   },
+  "public/images/hero-image.jpg": {
+    "file": "assets/hero-image-DaIb-2Fr.jpg",
+    "src": "public/images/hero-image.jpg"
+  },
   "resources/js/app.js": {
     "file": "assets/app-9ugiF6sP.js",
     "name": "app",
@@ -165,12 +169,15 @@
     ]
   },
   "resources/scss/index.scss": {
-    "file": "assets/index-J_hDrDJk.css",
+    "file": "assets/index-CVf9U1Rn.css",
     "name": "index",
     "names": [
       "index.css"
     ],
     "src": "resources/scss/index.scss",
-    "isEntry": true
+    "isEntry": true,
+    "assets": [
+      "assets/hero-image-DaIb-2Fr.jpg"
+    ]
   }
 }
