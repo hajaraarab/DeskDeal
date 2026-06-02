@@ -131,7 +131,7 @@
             </textarea>
         </div>
 
-        <div class="create-product-buttons">
+        <div class="form-actions">
             <a href="" class="back-link body-lg">Annuleren</a>
             <button class="round-btn darkblue body-lg"type="submit">Create Product</button>
         </div>

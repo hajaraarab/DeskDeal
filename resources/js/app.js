@@ -1,1 +1,2 @@
 import './marketplace';
+import './register'; 

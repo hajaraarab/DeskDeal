@@ -1,0 +1,22 @@
+@use '../01_fundaments/variables';
+
+.step-two {
+    display: none; 
+
+    button {
+        background: none; 
+        border: none; 
+        cursor: pointer; 
+    }
+}
+.step-one .form-action{
+    text-align: right;
+}
+.step-one .form-group, .step-two .form-field{
+    margin-bottom: variables.$margin-32; 
+}
+
+.step-one .subtitle, .step-two .subtitle {
+    margin-top: variables.$margin-12; 
+    margin-bottom: variables.$margin-32; 
+}

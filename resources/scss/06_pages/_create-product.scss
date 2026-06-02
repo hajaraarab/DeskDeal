@@ -29,18 +29,6 @@
     border-radius: variables.$radius-16;
 }
 
-.create-product-buttons {
-    display: flex; 
-    justify-content: space-between;
-    align-items: center !important;
-    border-top: 1px solid variables.$primary-color-light;
-    padding-top: variables.$padding-48;
-
-    .back-link {
-        padding-bottom: 0; 
-    }
-}
-
 .create-product-form textarea {
     margin-bottom: variables.$padding-32;
 }

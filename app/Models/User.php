@@ -15,6 +15,7 @@ use Illuminate\Notifications\Notifiable;
     'lastname',
     'companyname',
     'companyregisternumber',
+    'city',
     'email',
     'password'
     ])]

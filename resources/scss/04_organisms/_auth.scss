@@ -23,7 +23,7 @@
     flex-direction: column;
     margin-left: auto; 
 }
-.register-form, .login-form {
+.login-form {
     display: flex;
     flex-direction: column;
     gap: variables.$gap-32;
@@ -38,4 +38,12 @@
     .back-link h6 {
         font-weight: 600; 
     }
+}
+
+.form-field.error label {
+    color: variables.$error-color;
+}
+
+.form-field.error input {
+    border: 2px solid variables.$error-color;
 }

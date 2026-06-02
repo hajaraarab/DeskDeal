@@ -23,6 +23,7 @@ class RegisterController extends Controller
                     'lastname' => 'required|string|max:255',
                     'companyname' => 'required|string|max:255',
                     'companyregisternumber' => ['required', 'regex:/^BE\d{10}$/'],
+                    'city' => 'required|string|max:255',
                     'email' => 'required|email|unique:users,email',
                     'password' => 'required|min:8',
                 ],
@@ -30,6 +31,7 @@ class RegisterController extends Controller
                     'companyregisternumber.required' => 'Enkel bedrijven kunnen deze site gebruiken.',
                     'companyregisternumber.digits' => 'Enkel bedrijven kunnen deze site gebruiken.',
                     'companyregisternumber.regex' => 'Gelieve een geldig ondernemingsnummer in te vullen (bv. BE0123456789).', 
+                    'email.unique' => 'Er bestaat al een account met dit e-mailadres.', 
                 ]
             ); 
 
@@ -39,6 +41,7 @@ class RegisterController extends Controller
                 'companyname' => $validated['companyname'],
                 'companyregisternumber' => $validated['companyregisternumber'],
                 'email' => $validated['email'],
+                'city' => $validated['city'],
                 'password' => Hash::make($validated['password']),
             ]);
 
@@ -48,9 +51,10 @@ class RegisterController extends Controller
                 ->with('success', 'Je account is succesvol aangemaakt ! Welkom bij DeskDeal, ' . $user->firstname);
         }
         catch (\Exception $e) {
-            return back()
-            ->withInput()
-            ->with('error', 'Er is een fout opgetreden tijdens het registreren. Probeer het opnieuw.')
+            dd($e->getMessage());
+            //return back()
+            //->withInput()
+            //->with('error', 'Er is een fout opgetreden tijdens het registreren. Probeer het opnieuw.')
             ;
         }
     }
