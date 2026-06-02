@@ -1,1 +1,0 @@
-document.querySelectorAll(`.category-link`).forEach(e=>{e.addEventListener(`click`,async t=>{t.preventDefault(),document.querySelectorAll(`.category-link`).forEach(e=>e.classList.remove(`active-category`)),e.classList.add(`active-category`);let n=await(await fetch(e.href)).text();document.getElementById(`product-listing`).innerHTML=n})});

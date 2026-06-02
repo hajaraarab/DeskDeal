@@ -46,8 +46,28 @@ class ProductController extends Controller
             'description' => 'required|string',
             'category_id' => 'required|exists:categories,id',
             'location' => 'required|string|max:255',
+            
+            'free_product' => 'nullable|boolean',
+
+            'price' => [
+                'nullable', 
+                'numeric', 
+                'min:0'
+            ],
+
             'images.*' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
+
+        $isFree = $request->boolean('free_product'); 
+
+        if(!$isFree) {
+            $request->validate([
+                'price' => 'required|numeric|min:0.01'
+            ], [
+                'price.required' => 'Gelieve een prijs in te vullen of "Gratis aanbieden" aan te vinken.', 
+                'price.min' => 'De prijs moet groter zijn dan €0.'
+            ]);
+        }
 
         $product = Product::create([
             'user_id' => Auth::id(),
@@ -55,6 +75,10 @@ class ProductController extends Controller
             'title' => $validated['title'],
             'description' => $validated['description'],
             'location' => $validated['location'],
+
+            'price' => $isFree ? null : $validated['price'], 
+            'is_free' => $isFree, 
+            
             'status' => 'available',
         ]);
 

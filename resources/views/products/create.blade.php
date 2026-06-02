@@ -85,15 +85,16 @@
                 <input 
                     type="number" 
                     name="price" 
+                    id="price"
                     placeholder="€ 22"
                     step="0.01" 
-                    required
                 >
 
             <label class="checkbox-label">
                 <input 
                     type="checkbox"
                     name="free_product"
+                    id="free_product"
                     value="1"
                 >
                 Gratis aanbieden

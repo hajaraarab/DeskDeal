@@ -76,3 +76,21 @@ select {
         padding-bottom: 0; 
     }
 }
+
+.form-field.disabled label {
+    color: #9ca3af;
+}
+
+.form-field.disabled input {
+    border-color: #d1d5db;
+    background-color: #f3f4f6;
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.form-field.disabled input::placeholder {
+    color: #9ca3af;
+}
+.form-field.disabled label::after {
+    content: " (gratis) "; 
+}

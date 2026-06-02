@@ -14,6 +14,8 @@ use Illuminate\Database\Eloquent\Model;
     'description',
     'location',
     'status',
+    'price', 
+    'is_free',
 ])]
 
 class Product extends Model
