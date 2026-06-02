@@ -50,7 +50,7 @@
 
                     <div class="form-action">
                         <button class="round-btn darkblue body-lg" type="button" id="next-step">
-                            Volgende
+                            Volgende stap
                         </button>
                     </div>
                 </div>
@@ -98,9 +98,9 @@
 
 
                     <div class="form-actions">
-                        <button class="back-link body-lg" type="button" id="prev-step">Vorige</button>
+                        <button class="back-link body-lg" type="button" id="prev-step">Vorige stap</button>
 
-                        <button class="round-btn darkblue body-lg" type="submit">Register</button>
+                        <button class="round-btn darkblue body-lg" type="submit">Maak account aan</button>
                     </div>
                 </div>
 

@@ -4,16 +4,6 @@
     }
 </style>
 
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
 @include('partials.header')
 
 <div class="content create-product">
@@ -39,11 +29,14 @@
                 <input
                     type="file"
                     name="images[]"
+                    id="image-upload"
                     class="image-upload"
                     accept="image/*"
                     multiple
                 >
             </div>
+
+            <div id="image-preview" class="image-preview-container"></div>
         </div>
 
         <div class="form-group">

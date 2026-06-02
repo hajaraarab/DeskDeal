@@ -108,4 +108,8 @@ class ProductController extends Controller
             'products' => $products->latest()->get()
         ]);
     }
+    public function show(Product $product)
+    {
+        return view('products.show', compact('product'));
+    }
 }

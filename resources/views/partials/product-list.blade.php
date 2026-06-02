@@ -1,5 +1,6 @@
 
-    @forelse($products as $product)
+@forelse($products as $product)
+    <a href="{{ route('products.show', $product) }}" class="product-card-link">
         <div class="product-card">
             @if($product->images->isNotEmpty())
                 <img
@@ -28,4 +29,5 @@
     <div class="empty-state">
         <h3>Er zijn momenteel geen producten beschikbaar.</h3>
     </div>
-    @endforelse
+</a>
+@endforelse

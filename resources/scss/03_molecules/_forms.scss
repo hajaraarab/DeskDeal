@@ -34,33 +34,6 @@ input:focus, textarea:focus, select:focus {
     color: #dc2626;
 }
 
-.image-upload-wrapper {
-    position: relative;
-    height: 200px; 
-    border: 2px dashed rgba(variables.$primary-color, 0.5); 
-    border-radius: variables.$radius-16; 
-    display: flex; 
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: variables.$gap-8; 
-
-    .icon {
-        width: 40px; 
-        height: 40px; 
-    }
-}
-.image-upload {
-    position: absolute;
-    inset: 0; /* top/right/bottom/left: 0 */
-
-    width: 100%;
-    height: 100%;
-
-    opacity: 0;
-    cursor: pointer;
-}
-
 //Select styling was niet gelijk op elke browser (dit zorgt ervoor dat het wel zo is)
 select {
     box-sizing: border-box;
@@ -93,4 +66,78 @@ select {
 }
 .form-field.disabled label::after {
     content: " (gratis) "; 
+}
+
+
+//IMAGE UPLOADER
+.image-upload-wrapper {
+    position: relative;
+    height: 200px; 
+    border: 2px dashed rgba(variables.$primary-color, 0.5); 
+    border-radius: variables.$radius-16; 
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: variables.$gap-8; 
+
+    .icon {
+        width: 40px; 
+        height: 40px; 
+    }
+}
+.image-upload {
+    position: absolute;
+    inset: 0; /* top/right/bottom/left: 0 */
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+    cursor: pointer;
+}
+.image-preview-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: variables.$gap-8;
+    margin-top: variables.$gap-16;
+}
+
+.preview-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    border-radius: variables.$radius-4;
+}
+
+.preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 2px solid variables.$primary-color-light;
+    border-radius: variables.$radius-4;
+}
+
+.delete-preview-btn {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 32px;
+    height: 32px;
+    background-color: variables.$error-color;
+    color: white;
+    border: none;
+    border-radius: variables.$radius-8;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    line-height: 1;
+    transition: background-color 0.2s ease;
+}
+
+.delete-preview-btn:hover {
+    background-color: #b91c1c;
 }

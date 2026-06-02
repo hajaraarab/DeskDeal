@@ -28,6 +28,9 @@ Route::post('/marketplace', [ProductController::class, 'store'])
 Route::get('/marketplace/filter', [ProductController::class, 'filter'])
     ->name('marketplace.filter');
 
+Route::get('/products/{product}', [ProductController::class, 'show'])
+    ->name('products.show');
+
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
