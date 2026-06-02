@@ -10,14 +10,20 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $products = Product::with([
             'user',
             'category',
             'images'
-        ])->latest()->get();
+        ]); 
 
+        if ($request->filled('category')) {
+            $products->where('category_id', $request->category);
+        }
+
+        $products = $products->latest()->get();
+        
         $categories = Category::all();
 
         return view('marketplace', compact(
@@ -65,5 +71,17 @@ class ProductController extends Controller
 
         return redirect('/marketplace')
             ->with('success', 'Je product werd succesvol toegevoegd.');
+    }
+    public function filter(Request $request)
+    {
+        $products = Product::with(['images', 'category']);
+
+        if ($request->filled('category')) {
+            $products->where('category_id', $request->category);
+        }
+
+        return view('partials.product-list', [
+            'products' => $products->latest()->get()
+        ]);
     }
 }

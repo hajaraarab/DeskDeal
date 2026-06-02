@@ -25,6 +25,9 @@ Route::post('/marketplace', [ProductController::class, 'store'])
     ->middleware('auth')
     ->name('products.store');
 
+Route::get('/marketplace/filter', [ProductController::class, 'filter'])
+    ->name('marketplace.filter');
+
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
@@ -43,3 +46,5 @@ Route::post('/login', [LoginController::class, 'login'])
 
 Route::post('/logout', [LoginController::class, 'logout'])
     ->name('logout');
+
+

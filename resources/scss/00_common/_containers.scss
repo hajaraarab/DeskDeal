@@ -1,5 +1,8 @@
 @use '../01_fundaments/variables';
 
+html {
+    scroll-behavior: smooth;
+}
 body {
     margin: 0;
     padding: 0;

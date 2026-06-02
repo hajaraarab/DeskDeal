@@ -23,7 +23,7 @@
     </div>
 
     <div class="search-container">
-        <input type="text" placeholder="Search for products...">
+        <input type="text" placeholder="🔍   Search for products...">
         <button class="button-with-icon body-sm" type="submit">
             <img src="{{ asset('images/icons/filter-icon.png') }}" alt="Filter Icon">
             Filter
@@ -40,44 +40,46 @@
             <div class="categories">
                 <p class="subtitle">Categorieën</p>
 
-                <a href="#" class="">Alle categorieën</a>
+                <a 
+                    href="{{ route('marketplace.filter') }}" 
+                    class="category-link active-category body-sm"
+                >
+                    Alle categorieën
+                </a>
 
                 @foreach($categories as $category)
-                    <p>{{ $category->name }}</p>
+                    <a 
+                        href="{{ route('marketplace.filter', ['category' => $category->id]) }}"
+                        class="category-link body-sm"
+                    >
+                        {{ $category->name }}
+                    </a>
                 @endforeach
             </div>
 
         </div>
-        
-        <div class="product-listing">
-            @foreach($products as $product)
-                <div class="product-card">
-                    @if($product->images->isNotEmpty())
-                        <img
-                            src="{{ asset('storage/' . $product->images->first()->image_path) }}"
-                            alt="{{ $product->title }}"
-                        >
-                    @endif
-
-                    <div class="product-details">
-                        <h6>{{ $product->title }}</h6>
-                    
-                        <div class="product-meta">
-                            <div class="meta-item">
-                                <img src="{{ asset('images/icons/pricetag.png') }}" alt="Filter Icon">
-                                <p>{{ $product->category?->name }}</p>
-                            </div>
-
-                            <div class="meta-item">
-                                <img src="{{ asset('images/icons/location.png') }}" alt="Filter Icon">
-                                <p>{{ $product->location }}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
+        <div class="product-listing" id="product-listing">
+            @include('partials.product-list')
         </div>
     </div>
 </div>
 
 @include('partials.footer')
+
+<script>
+document.querySelectorAll('.category-link').forEach(link => {
+    link.addEventListener('click', async (e) => {
+        e.preventDefault();
+
+        document.querySelectorAll('.category-link')
+            .forEach(l => l.classList.remove('active-category'));
+
+        link.classList.add('active-category');
+
+        const response = await fetch(link.href);
+        const html = await response.text();
+
+        document.getElementById('product-listing').innerHTML = html;
+    });
+});
+</script>
