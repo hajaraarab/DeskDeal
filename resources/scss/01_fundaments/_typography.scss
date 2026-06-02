@@ -54,7 +54,10 @@ h6, .h6 {
     font-size: 15px;
     font-weight: 500;
 }
-
+p {
+    font-family: variables.$primary-font; 
+    font-size: 14px; 
+}
 label, input::placeholder, input, textarea, select {
     font-family: variables.$primary-font;
     font-size: 15px;

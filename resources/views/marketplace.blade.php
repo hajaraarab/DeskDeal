@@ -58,9 +58,22 @@
                             alt="{{ $product->title }}"
                         >
                     @endif
-                    <h3>{{ $product->title }}</h3>
-                    <p>{{ $product->description }}</p>
-                    <p>{{ $product->location }}</p>
+
+                    <div class="product-details">
+                        <h6>{{ $product->title }}</h6>
+                    
+                        <div class="product-meta">
+                            <div class="meta-item">
+                                <img src="{{ asset('images/icons/pricetag.png') }}" alt="Filter Icon">
+                                <p>{{ $product->category?->name }}</p>
+                            </div>
+
+                            <div class="meta-item">
+                                <img src="{{ asset('images/icons/location.png') }}" alt="Filter Icon">
+                                <p>{{ $product->location }}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             @endforeach
         </div>
