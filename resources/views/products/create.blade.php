@@ -11,7 +11,7 @@
     <a href="{{ route('marketplace') }}" class="back-link body-md"><- Terug naar Marketplace</a>
 
     <div class="section-header">
-        <p class="subtitle">new subtitle</p>
+        <p class="subtitle">Plaats je product</p>
         <h2>Vind je volgende kantoorvonst</h2>
         <p class="body-sm">Vul de gegevens hieronder in. Hoe completer je advertentie, hoe sneller je item een nieuwe eigenaar vindt.</p>
     </div>

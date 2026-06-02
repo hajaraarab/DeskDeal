@@ -110,6 +110,8 @@ class ProductController extends Controller
     }
     public function show(Product $product)
     {
+        $product->load(['images', 'category', 'user']);
+        
         return view('products.show', compact('product'));
     }
 }

@@ -16,7 +16,11 @@ h2 {
     font-size: 40px;
     font-weight: 400; 
 }
-
+h3 {
+    font-family: variables.$primary-font;
+    font-size: 30px; 
+    font-weight: 600; 
+}
 h4 {
     font-family: variables.$primary-font;
     font-weight: 600;
@@ -83,11 +87,18 @@ a {
     text-decoration: none;
 }
 
+.info-message {
+    font-family: variables.$secondary-font;
+    font-size: 16px; 
+    letter-spacing: 0.05em;
+    color: rgba(variables.$primary-color, 0.7); 
+}
+
+//OVERALTOEGEPAST
 h1, h2, h3, h4, h5, h6, .subtitle, .body-lg, .body-md, .body-sm {
     margin: 0; 
     padding: 0;
 }
-
 .marketplace h2, .create-product h2 {
     font-weight: 600;
 }
