@@ -28,3 +28,14 @@
     flex-direction: column;
     gap: variables.$gap-32;
 }
+.auth-redirect {
+    display: flex; 
+    gap: variables.$gap-8; 
+    align-items: center;
+    padding-top: variables.$padding-64; 
+    padding-bottom: variables.$padding-32; 
+
+    .back-link h6 {
+        font-weight: 600; 
+    }
+}

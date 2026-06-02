@@ -13,8 +13,8 @@ h1 {
 h2 {
     font-family: variables.$primary-font;
     color: variables.$secondary-color;
-    font-weight: 600;
     font-size: 40px;
+    font-weight: 400; 
 }
 
 h4 {
@@ -58,11 +58,23 @@ p {
     font-family: variables.$primary-font; 
     font-size: 14px; 
 }
-label, input::placeholder, input, textarea, select {
+label{
     font-family: variables.$primary-font;
-    font-size: 15px;
-    font-weight: 400;
+    font-size: 16px;
+    font-weight: 500;
 }
+.checkbox-label {
+    font-family: variables.$primary-font;
+    font-size: 14px; 
+    font-style: italic;
+    font-weight: 400; 
+    color: variables.$main-grey; 
+}
+input::placeholder, input, textarea, select  {
+    font-family: variables.$primary-font;
+    font-size: 15px; 
+    font-weight: 400;
+ }
 input::placeholder, select {
     color: rgba(variables.$primary-color, 0.7);
 }
@@ -74,4 +86,8 @@ a {
 h1, h2, h3, h4, h5, h6, .subtitle, .body-lg, .body-md, .body-sm {
     margin: 0; 
     padding: 0;
+}
+
+.marketplace h2, .create-product h2 {
+    font-weight: 600;
 }

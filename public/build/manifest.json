@@ -1,28 +1,4 @@
 {
-  "__vite-optional-peer-dep:esbuild:vite": {
-    "file": "assets/__vite-optional-peer-dep_esbuild_vite-BtRSvyyp.js",
-    "name": "__vite-optional-peer-dep_esbuild_vite",
-    "src": "__vite-optional-peer-dep:esbuild:vite",
-    "isDynamicEntry": true
-  },
-  "__vite-optional-peer-dep:fontaine:laravel-vite-plugin": {
-    "file": "assets/__vite-optional-peer-dep_fontaine_laravel-vite-plugin-DTYnX3Fl.js",
-    "name": "__vite-optional-peer-dep_fontaine_laravel-vite-plugin",
-    "src": "__vite-optional-peer-dep:fontaine:laravel-vite-plugin",
-    "isDynamicEntry": true
-  },
-  "__vite-optional-peer-dep:tsx/cjs/api:vite": {
-    "file": "assets/api_vite-CfctXM_X.js",
-    "name": "api_vite",
-    "src": "__vite-optional-peer-dep:tsx/cjs/api:vite",
-    "isDynamicEntry": true
-  },
-  "__vite-optional-peer-dep:yaml:vite": {
-    "file": "assets/__vite-optional-peer-dep_yaml_vite-LwOiHwVr.js",
-    "name": "__vite-optional-peer-dep_yaml_vite",
-    "src": "__vite-optional-peer-dep:yaml:vite",
-    "isDynamicEntry": true
-  },
   "_fonts-DkuEHybc.css": {
     "file": "assets/fonts-DkuEHybc.css",
     "src": "_fonts-DkuEHybc.css"
@@ -75,101 +51,18 @@
     "file": "assets/instrument-sans-600-normal-DMks36a2.woff",
     "src": "_instrument-sans-600-normal-DMks36a2.woff"
   },
-  "_lib-DQaXjcfw.js": {
-    "file": "assets/lib-DQaXjcfw.js",
-    "name": "lib",
-    "imports": [
-      "resources/js/app.js"
-    ]
-  },
-  "node_modules/jiti/lib/jiti.mjs": {
-    "file": "assets/jiti-B8D2osXA.js",
-    "name": "jiti",
-    "src": "node_modules/jiti/lib/jiti.mjs",
-    "isDynamicEntry": true,
-    "imports": [
-      "resources/js/app.js"
-    ]
-  },
-  "node_modules/laravel-vite-plugin/dist/index.js": {
-    "file": "assets/index-R7aingaS.js",
-    "src": "node_modules/laravel-vite-plugin/dist/index.js"
-  },
-  "node_modules/lightningcss/node/index.mjs": {
-    "file": "assets/node-CRLq-X4J.js",
-    "name": "node",
-    "src": "node_modules/lightningcss/node/index.mjs",
-    "isDynamicEntry": true,
-    "imports": [
-      "resources/js/app.js"
-    ]
-  },
-  "node_modules/postcss/lib/postcss.mjs": {
-    "file": "assets/postcss-u5L1xnFu.js",
-    "name": "postcss",
-    "src": "node_modules/postcss/lib/postcss.mjs",
-    "isDynamicEntry": true,
-    "imports": [
-      "resources/js/app.js"
-    ]
-  },
-  "node_modules/rolldown/dist/shared/prompt-DewH0PjV.mjs": {
-    "file": "assets/prompt-DewH0PjV-B7_zrGkU.js",
-    "name": "prompt-DewH0PjV",
-    "src": "node_modules/rolldown/dist/shared/prompt-DewH0PjV.mjs",
-    "isDynamicEntry": true,
-    "imports": [
-      "resources/js/app.js"
-    ]
-  },
-  "node_modules/vite/dist/node/chunks/build.js": {
-    "file": "assets/build-BfGTpqrZ.js",
-    "name": "build",
-    "src": "node_modules/vite/dist/node/chunks/build.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "resources/js/app.js",
-      "_lib-DQaXjcfw.js"
-    ]
-  },
-  "node_modules/vite/dist/node/chunks/postcss-import.js": {
-    "file": "assets/postcss-import-CygiZ_uq.js",
-    "name": "postcss-import",
-    "src": "node_modules/vite/dist/node/chunks/postcss-import.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "resources/js/app.js",
-      "_lib-DQaXjcfw.js"
-    ]
-  },
   "public/images/hero-image.jpg": {
     "file": "assets/hero-image-DaIb-2Fr.jpg",
     "src": "public/images/hero-image.jpg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-9ugiF6sP.js",
+    "file": "assets/app-JusNbfAu.js",
     "name": "app",
     "src": "resources/js/app.js",
-    "isEntry": true,
-    "dynamicImports": [
-      "node_modules/rolldown/dist/shared/prompt-DewH0PjV.mjs",
-      "__vite-optional-peer-dep:esbuild:vite",
-      "resources/js/app.js",
-      "__vite-optional-peer-dep:tsx/cjs/api:vite",
-      "node_modules/jiti/lib/jiti.mjs",
-      "__vite-optional-peer-dep:yaml:vite",
-      "node_modules/vite/dist/node/chunks/postcss-import.js",
-      "node_modules/vite/dist/node/chunks/build.js",
-      "node_modules/postcss/lib/postcss.mjs",
-      "node_modules/lightningcss/node/index.mjs",
-      "__vite-optional-peer-dep:fontaine:laravel-vite-plugin"
-    ],
-    "assets": [
-      "assets/index-R7aingaS.js"
-    ]
+    "isEntry": true
   },
   "resources/scss/index.scss": {
-    "file": "assets/index-W2VdEsW3.css",
+    "file": "assets/index-CMARuTbW.css",
     "name": "index",
     "names": [
       "index.css"

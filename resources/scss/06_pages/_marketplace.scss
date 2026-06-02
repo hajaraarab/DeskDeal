@@ -4,7 +4,7 @@
     padding-top: variables.$padding-32;
     padding-bottom: variables.$padding-32;
 }
-.marplace-description {
+.marketplace-description {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -87,6 +87,7 @@
     border-radius: variables.$radius-16; 
     overflow: hidden; 
     width: 100%;
+    background-color: variables.$white; 
 
     h6 {
         font-weight: 600; 

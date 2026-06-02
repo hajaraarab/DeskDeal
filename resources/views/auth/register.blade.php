@@ -8,6 +8,16 @@
         </div>
 
         <div class="form-container">
+
+            <div class="auth-redirect">
+                <h6>Al een account ? </h6>
+                <a class="back-link" href="{{ route('login') }}"><h6>Login</h6></a>
+            </div>
+            <div class="section-header">
+                <h2>Sign up</h2>
+                <p class="body-sm">Maak een account en ontdek hergebruikte kantoormeubilair. </p>
+            </div>
+
             <form class="register-form" method="POST" action="{{ route('register') }}">
                 @csrf
 

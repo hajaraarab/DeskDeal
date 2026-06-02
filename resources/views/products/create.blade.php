@@ -31,17 +31,24 @@
         <!-- MAX 2MB PER FOTO -->
         <div class="form-field">
             <label for="product-images">Foto's</label>
-            <input
-                type="file"
-                name="images[]"
-                accept="image/*"
-                multiple
-            >
+
+            <div class="image-upload-wrapper">
+                <img class="icon" src="{{ asset('images/icons/upload.png') }}" alt="Filter Icon">
+                <p class="body-md">Sleep foto's hierheen of klik om te uploaden</p>
+                <p class="body-sm">PNG, JPG of JPEG, max 2 MB per foto</p>
+                <input
+                    type="file"
+                    name="images[]"
+                    class="image-upload"
+                    accept="image/*"
+                    multiple
+                >
+            </div>
         </div>
 
         <div class="form-group">
             <div class="form-field">
-                <label for="title">Title:</label>
+                <label for="title">Titel:</label>
                 <input 
                     type="text" 
                     name="title" 
@@ -76,12 +83,14 @@
             <div class="form-field">
                 <label for="price">Prijs:</label>
                 <input 
-                type="number" 
-                name="price" 
-                placeholder="€ 22"
-                step="0.01" 
-                required>
-            <label>
+                    type="number" 
+                    name="price" 
+                    placeholder="€ 22"
+                    step="0.01" 
+                    required
+                >
+
+            <label class="checkbox-label">
                 <input 
                     type="checkbox"
                     name="free_product"
@@ -100,7 +109,7 @@
                     value="{{ old('location') }}"
                     required
                 >
-                <label>
+                <label class="checkbox-label">
                 <input 
                     type="checkbox"
                     name="use_company_location"

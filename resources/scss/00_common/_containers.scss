@@ -19,7 +19,12 @@ body {
 }
 
 .section-header {
-    gap: 0;
+    gap: variables.$gap-12;
     display: flex;
     flex-direction: column;
+    padding-bottom: variables.$padding-32;
+
+    .body-sm {
+        color: variables.$main-grey; 
+    }
 }

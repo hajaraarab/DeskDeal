@@ -16,7 +16,7 @@
 
     <div class="section-header">
         <p class="subtitle">new subtitle</p>
-        <div class="marplace-description">
+        <div class="marketplace-description">
             <h2>Vind je volgende kantoorvonst</h2>
             <p>6 items beschikbaar - bekijk per categorie</p>
         </div>

@@ -3,26 +3,25 @@
 .create-product {
     padding-top: variables.$padding-64;
 
-    .body-sm {
-        color: grey; 
-    }
     .back-link {
         padding-bottom: variables.$padding-32;
     }
     padding-bottom: variables.$padding-32;
+    margin: auto; 
 }
 
 .create-product-form {
+    max-width: 700px; 
     background-color: variables.$white;    
     display: flex; 
     flex-direction: column;
 
     padding-left: variables.$padding-48; 
     padding-right: variables.$padding-48;
-    padding-top: variables.$padding-24;
-    padding-bottom: variables.$padding-24;
+    padding-top: variables.$padding-48;
+    padding-bottom: variables.$padding-48;
 
-    gap: variables.$gap-24;
+    gap: variables.$gap-32;
 
     margin-top: variables.$padding-32;
 
@@ -34,10 +33,14 @@
     display: flex; 
     justify-content: space-between;
     align-items: center !important;
-    border-top: 1px solid rgba(variables.$primary-color, 0.5);
-    padding-top: variables.$padding-16;
+    border-top: 1px solid variables.$primary-color-light;
+    padding-top: variables.$padding-48;
 
     .back-link {
         padding-bottom: 0; 
     }
+}
+
+.create-product-form textarea {
+    margin-bottom: variables.$padding-32;
 }
