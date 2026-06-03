@@ -8,7 +8,10 @@
 
 <div class="content create-product">
 
-    <a href="{{ route('marketplace') }}" class="back-link body-md"><- Terug naar Marketplace</a>
+    <a href="{{ route('marketplace') }}" class="back-link body-md">
+        <img src="{{ asset('images/icons/back.png') }} " alt="">
+         Terug naar Marketplace
+        </a>
 
     <div class="section-header">
         <p class="subtitle">Plaats je product</p>

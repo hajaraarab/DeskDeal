@@ -75,8 +75,15 @@
 
 //LINKS
 .back-link {
-    display: inline-block;
+    display: flex;
     color: variables.$secondary-color; 
+    gap: variables.$gap-8; 
+    align-items: center;
+
+    img {
+        width: 20px; 
+        height: 20px; 
+    }
 }
 .back-link:hover {
     text-decoration: underline;

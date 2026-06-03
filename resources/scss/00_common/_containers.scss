@@ -28,3 +28,18 @@ body {
         color: variables.$main-grey; 
     }
 }
+
+.info-block{
+    margin-top: variables.$margin-64; 
+    border: 2px solid variables.$primary-color-light; 
+    padding: variables.$padding-32; 
+    border-radius: variables.$radius-16; 
+
+    iframe {
+        margin-top: variables.$margin-24; 
+        height: 350px; 
+        width: 100%; 
+        border-radius: variables.$radius-16; 
+        border: 0; 
+    }
+}

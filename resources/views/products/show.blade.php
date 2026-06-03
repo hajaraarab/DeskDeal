@@ -1,7 +1,10 @@
 @include('partials.header')
 
 <div class="content view-product">
-        <a href="{{ route('marketplace') }}" class="back-link body-md"><- Terug naar Marketplace</a>
+        <a href="{{ route('marketplace') }}" class="back-link body-md">
+            <img src="{{ asset('images/icons/back.png') }} " alt="">
+            Terug naar Marketplace
+        </a>
 
         <div class="product-detail">
             <div class="product-detail-media">
@@ -55,6 +58,44 @@
                 <a class="round-btn darkblue body-lg" href="">Reserveren</a>
             </div>
         </div>
+
+    <div class="info-block">
+        <div class="product-detail-header">
+            <p class="subtitle">Locatie</p>
+            <h3>Waar staat dit item? </h3>
+            <p class="body-sm">{{ $product->location }} - open in Google Maps</p>
+        </div>
+
+        <iframe
+            loading="lazy"
+            allowfullscreen
+            src="https://maps.google.com/maps?q={{ urlencode($product->location) }}&t=&z=13&ie=UTF8&iwloc=&output=embed">
+        </iframe>
+    </div>
+
+    <div class="info-block">
+        <div class="product-detail-header">
+            <p class="subtitle">duurzaamheid</p>
+            <h3>Duurzaamheidsmeter </h3>
+        </div>
+    </div>
+
+    @if($relatedProducts->isNotEmpty())
+        <div class="info-block">
+            <div class="related-products-block">
+                <div class="product-detail-header">
+                    <p class="subtitle">duurzaamheid</p>
+                    <h3>Duurzaamheidsmeter </h3>
+                </div>
+                
+                <div class="related-products">
+                    @include('partials.product-list', [
+                        'products' => $relatedProducts
+                    ])
+                </div>
+            </div>
+        </div>
+    @endif
 </div>
 
 @include('partials.footer')

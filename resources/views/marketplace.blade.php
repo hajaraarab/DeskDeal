@@ -18,7 +18,7 @@
         <p class="subtitle">Slim kiezen begint hier</p>
         <div class="marketplace-description">
             <h2>Vind je volgende kantoorvonst</h2>
-            <p class="info-message">6 items beschikbaar - bekijk per categorie</p>
+            <p class="info-message">{{ $products->count() }} items beschikbaar - bekijk per categorie</p>
         </div>
     </div>
 

@@ -98,7 +98,9 @@
 
 
                     <div class="form-actions">
-                        <button class="back-link body-lg" type="button" id="prev-step">Vorige stap</button>
+                        <button class="back-link body-lg" type="button" id="prev-step">
+                            Vorige stap
+                        </button>
 
                         <button class="round-btn darkblue body-lg" type="submit">Maak account aan</button>
                     </div>
