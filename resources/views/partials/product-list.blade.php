@@ -3,6 +3,11 @@
     <a href="{{ route('products.show', $product) }}" class="product-card-link">
         <div class="product-card">
             @if($product->images->isNotEmpty())
+            
+                <div class="reserved-status body-sm">
+                    <p>{{ $product->status === 'available' ? 'Beschikbaar' : 'Niet beschikbaar' }}</p>
+                </div>
+
                 <img
                     src="{{ asset('storage/' . $product->images->first()->image_path) }}"
                     alt="{{ $product->title }}"

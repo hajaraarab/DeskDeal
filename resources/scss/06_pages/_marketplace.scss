@@ -78,6 +78,7 @@
     align-self: start; 
 }
 .product-card {
+    position: relative;
     box-sizing: border-box;
     display: flex; 
     flex-direction: column;
