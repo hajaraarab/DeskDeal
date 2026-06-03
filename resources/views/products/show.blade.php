@@ -55,7 +55,7 @@
                     <p class="body-sm">Lid sinds {{ $product->user->created_at->format('Y') }}</p>
                 </div>
 
-                <a class="round-btn darkblue body-lg" href="">Reserveren</a>
+                <a class="round-btn darkblue body-lg" href="{{ route('reservations.create', $product) }}">Reserveren</a>
             </div>
         </div>
 
@@ -84,8 +84,8 @@
         <div class="info-block">
             <div class="related-products-block">
                 <div class="product-detail-header">
-                    <p class="subtitle">duurzaamheid</p>
-                    <h3>Duurzaamheidsmeter </h3>
+                    <p class="subtitle">Ontdek meer</p>
+                    <h3>Misschien ook interessant </h3>
                 </div>
                 
                 <div class="related-products">

@@ -1,0 +1,124 @@
+@php
+    $user = auth()->user();
+@endphp
+
+@include('partials.header')
+
+<div class="content create-reservation">
+
+    <a href="{{ route('products.show', $product) }}" class="back-link body-md">
+        <img src="{{ asset('images/icons/back.png') }} " alt="">
+         Terug naar product
+    </a>
+
+    <div class="section-header">
+        <h2>Reserveren</h2>
+        <p class="body-sm">Vul je gegevens in om dit artikel gratis te reserveren. De verkoper krijgt direct een melding.</p>
+    </div>
+
+    <div class="reserve-product">
+        <div class="reservation-sidebar">
+
+            <div class="product-overview">
+                <img
+                    class="product-detail-main-image"
+                    src="{{ asset('storage/' . $product->images->first()->image_path) }}"
+                    alt="{{ $product->title }}"
+                >
+
+                <div class="product-info">
+                    <p class="subtitle">{{ $product->category?->name }}</p>
+                    <h3>{{ $product->title }}</h3>
+                    <h5>€ {{ $product->price }}</h5>
+
+                    <div class="attributes">
+                        <div class="single-attribute">
+                            <img src="{{ asset('images/icons/location-green.png') }}" alt="">
+                            <p class="body-sm">Locatie: {{ $product->location }}</p>
+                        </div>
+                        <div class="single-attribute">
+                            <img src="{{ asset('images/icons/clock.png') }}" alt="">
+                            <p class="body-sm">Geplaatst {{ $product->created_at->diffForHumans() }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <div class="user-info">
+                <p class="subtitle">Verkoper</p>
+
+                <h5>
+                    {{ $product->user->firstname }}
+                    {{ $product->user->lastname }}
+                </h5>
+
+                <div class="attributes">
+                    <div class="single-attribute">
+                        <img src="{{ asset('images/icons/location-green.png') }}" alt="">
+                        <p class="body-sm">
+                            {{ $product->location }}
+                        </p>
+                    </div>
+
+                    <div class="single-attribute">
+                        <img src="{{ asset('images/icons/user.png') }}" alt="">
+                        <p class="body-sm">
+                            Actief sinds {{ $product->user->created_at->format('Y') }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="reserve-form-container">
+
+            <form class="reserve-form" action="">
+                <div class="form-field required">
+                    <label for="firstname">Voornaam</label>
+                    <input 
+                        type="text" 
+                        name="firstname" 
+                        placeholder="Bv. Jan" 
+                        value="{{ old('firstname', $user->firstname) }}"
+                    >
+                </div>
+
+                <div class="form-field required">
+                    <label for="lastname">Achternaam</label>
+                    <input 
+                        type="text" 
+                        name="lastname" 
+                        placeholder="Bv. Peeters" 
+                        value="{{ old('lastname', $user->lastname) }}"
+                    >
+                </div>
+
+                <div class="form-field required">
+                    <label for="email">Email</label>
+                    <input 
+                        type="email" 
+                        name="email" 
+                        placeholder="Bv. jan.peeters@deskdeal.be" 
+                        value="{{ old('email', $user->email) }}"
+                    >
+                </div>
+
+                <div class="form-field">
+                    <label for="message">Bericht:</label>
+                    <textarea 
+                        name="message" 
+                        placeholder="Voeg eventueel een bericht toe voor de verkoper..."
+                    > 
+                    </textarea>
+                </div>
+
+                <button class="round-btn darkblue body-lg"type="submit">Reservering bevestigen</button>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+
+@include('partials.footer')
