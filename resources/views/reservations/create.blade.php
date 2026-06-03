@@ -72,7 +72,10 @@
 
         <div class="reserve-form-container">
 
-            <form class="reserve-form" action="">
+            @if(!$hasReservation)
+            <form class="reserve-form" action="{{ route('reservations.store', $product) }}" method="POST">
+                @csrf 
+
                 <div class="form-field required">
                     <label for="firstname">Voornaam</label>
                     <input 
@@ -112,9 +115,28 @@
                     </textarea>
                 </div>
 
-                <button class="round-btn darkblue body-lg"type="submit">Reservering bevestigen</button>
+                <button class="round-btn darkblue body-lg" type="submit">Reservering bevestigen</button>
             </form>
 
+            @else
+
+                <div class="reservation-confirmed">
+                    <div class="icon-container">
+                        <img src="{{ asset('images/icons/check-mark.png') }} " alt="Checkmark icon">
+                    </div>
+
+                    <h4>Reservering bevestigd !</h4>
+                    <p class="body-sm">
+                        Thomas de Vries is op de hoogte gesteld. Je ontvangt binnen 24 uur een reactie met een ophaaltijdvoorstel.
+                    </p>
+
+                    <a class="round-btn darkblue body-lg" href="{{ route('products.show', $product) }}">
+                        Terug naar product
+                    </a>
+
+                </div>
+            
+            @endif
         </div>
     </div>
 

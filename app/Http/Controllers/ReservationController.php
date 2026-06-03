@@ -9,14 +9,19 @@ class ReservationController extends Controller
 {
     public function create(Product $product)
     {
+        $hasReservation = Reservation::where('product_id', $product->id)
+            ->where('buyer_id', auth()->id())
+            ->exists();
+
         return view('reservations.create', [
             'product' => $product,
-            'buyer' => auth()->user(),
-            'seller' => $product->user,
+            'hasReservation' => $hasReservation,
         ]);
     }
     public function store(Product $product)
     {
+
+
         Reservation::create([
             'product_id' => $product->id,
             'buyer_id' => auth()->id(),
@@ -24,8 +29,11 @@ class ReservationController extends Controller
             'status' => 'pending',
         ]);
 
+        $product->update([
+            'status' => 'reserved'
+        ]);
+
         return redirect()
-            ->route('reservations.create', $product)
-            ->with('success', 'Reservering bevestigd.');
+        ->route('reservations.create', $product);
     }
 }

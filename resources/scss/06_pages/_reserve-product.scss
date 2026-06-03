@@ -3,6 +3,10 @@
 .create-reservation {
     margin-top: variables.$margin-64;
 
+    h2 {
+        font-weight: 600; 
+    }
+
     .back-link {
         margin-bottom: variables.$margin-32;
     }
@@ -94,4 +98,36 @@
 
 .view-product, .create-reservation {
     margin-top: variables.$margin-64; 
+}
+
+.reservation-confirmed  {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    gap: variables.$gap-24; 
+    padding: variables.$padding-24; 
+
+    p {
+        color: variables.$main-grey; 
+        text-align: center;
+    }
+
+    .icon-container {
+        background-color: rgba(variables.$success-color, 0.2); 
+        width: fit-content;
+        padding-top: variables.$padding-16; 
+        padding-bottom: variables.$padding-16; 
+        padding-right: variables.$padding-4; 
+        padding-left: variables.$padding-4; 
+        display:flex; 
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+
+        img {
+            width: 60%; 
+            margin: 0; 
+            padding: 0; 
+        }
+    }
 }

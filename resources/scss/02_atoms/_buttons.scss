@@ -47,6 +47,19 @@
     color: variables.$secondary-color;
     font-weight: 500;
 }
+.round-btn.disabled {
+    border: none;
+    text-align: center; 
+    color: variables.$white; 
+    background-color: rgba(variables.$main-grey, 0.4);
+
+    padding-left: variables.$padding-16; 
+    padding-right: variables.$padding-16;
+    padding-top: variables.$padding-4;
+    padding-bottom: variables.$padding-4;
+    border-radius: variables.$radius-16;
+    cursor: not-allowed; 
+}
 
 //ICON BUTTON
 .button-with-icon {

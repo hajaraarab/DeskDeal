@@ -8,6 +8,11 @@
 
         <div class="product-detail">
             <div class="product-detail-media">
+
+                <div class="reserved-status">
+                    {{ $product->status === 'available' ? 'Beschikbaar' : 'Niet beschikbaar' }}
+                </div>
+
                 @if($product->images->isNotEmpty())
 
                     {{-- Grote hoofdafbeelding --}}
@@ -55,7 +60,25 @@
                     <p class="body-sm">Lid sinds {{ $product->user->created_at->format('Y') }}</p>
                 </div>
 
-                <a class="round-btn darkblue body-lg" href="{{ route('reservations.create', $product) }}">Reserveren</a>
+                @if(auth()->id() === $product->user_id)
+                    <a
+                        class="round-btn darkblue body-lg"
+                        href=""
+                    >
+                        Product bewerken
+                    </a>
+                @elseif($product->status === 'available')
+                    <a class="round-btn darkblue body-lg" href="{{ route('reservations.create', $product) }}">
+                        Reserveren
+                    </a>
+                @else 
+                    <button
+                        class="round-btn disabled body-lg"
+                        disabled
+                    >
+                        Reeds gereserveerd
+                    </button>
+                @endif
             </div>
         </div>
 
