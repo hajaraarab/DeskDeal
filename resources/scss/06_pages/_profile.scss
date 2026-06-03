@@ -78,6 +78,9 @@
     flex-direction: column;
     gap: variables.$gap-8; 
 }
+.reservation-action {
+    text-align: right;
+}
 
 .profile-page {
 
@@ -101,4 +104,5 @@
     border-radius: variables.$radius-16; 
     margin-top: variables.$margin-16; 
     width: fit-content; 
+    font-style: italic;
 }

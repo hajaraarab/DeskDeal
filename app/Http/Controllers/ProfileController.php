@@ -13,11 +13,13 @@ class ProfileController extends Controller
         $user = auth()->user();
 
         $reservations = Reservation::with([
-            'buyer',
-            'product'
+        'buyer',
+        'product'
         ])
-        ->where('seller_id', $user->id)
-        ->where('status', 'pending')
+        ->where(function ($query) use ($user) {
+            $query->where('seller_id', $user->id)
+                ->orWhere('buyer_id', $user->id);
+        })
         ->latest()
         ->get();
 

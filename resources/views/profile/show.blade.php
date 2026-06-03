@@ -58,8 +58,8 @@
         <div class="section-header">
             <p class="subtitle">inbox</p>
             <div class="marketplace-description">
-                <h3>Reserveringsaanvragen</h3>
-                <p class="">aantal pending</p>
+                <h3>Reservaties</h3>
+                <a class="notification-btn darkblue body-md" href="">Bekijk alle reservaties</a>
             </div>
         </div>
 

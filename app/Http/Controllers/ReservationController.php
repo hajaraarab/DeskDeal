@@ -29,10 +29,6 @@ class ReservationController extends Controller
             'message' => $request->message, 
         ]);
 
-        $product->update([
-            'status' => 'reserved'
-        ]);
-
         return redirect()
         ->route('reservations.create', $product);
     }
@@ -40,6 +36,10 @@ class ReservationController extends Controller
     {
         $reservation->update([
             'status' => 'accepted',
+        ]);
+
+        $reservation->product->update([
+            'status' => 'reserved',
         ]);
 
         return back();

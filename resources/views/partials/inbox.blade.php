@@ -1,4 +1,4 @@
-@foreach($reservations as $reservation)
+@foreach($reservations->take(4) as $reservation)
 <div class="reserve-message">
 
     <div class="reservation-info">
@@ -20,7 +20,7 @@
 
             @if($reservation->message)
                 <p class="reservation-message">
-                    {{ $reservation->message }}
+                    "{{ $reservation->message }}"
                 </p>
             @endif
 
@@ -89,4 +89,32 @@
     </div>
 
 </div>
+
+@if($reservation->buyer_id === auth()->id() && $reservation->status === 'accepted')
+
+    <div class="reserve-message">
+
+        <div class="reservation-info">
+            <h5>Reservatie geaccepteerd 🎉</h5>
+
+            <p class="body-sm">
+                Jouw reservatie voor
+                <strong>{{ $reservation->product->title }}</strong>
+                werd geaccepteerd door de verkoper.
+            </p>
+        </div>
+
+        <div class="reservation-action">
+            <a
+                href="{{ route('reservations.accept', $reservation->product) }}"
+                class="round-btn darkblue body-lg"
+            >
+                Aankopen
+            </a>
+        </div>
+
+    </div>
+
+@endif
 @endforeach
+
