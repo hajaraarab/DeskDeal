@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
 
@@ -63,4 +64,9 @@ Route::middleware('auth')->group(function () {
         '/products/{product}/reserve',
         [ReservationController::class, 'store']
     )->name('reservations.store');
+
 });
+
+Route::get('/profile', [ProfileController::class, 'show'])
+    ->name('profile.show');
+    

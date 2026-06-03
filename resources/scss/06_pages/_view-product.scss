@@ -67,6 +67,7 @@
 .attributes {
     display: flex; 
     gap: variables.$gap-24; 
+    color: variables.$main-grey; 
 }
 
 .single-attribute, .user-details {

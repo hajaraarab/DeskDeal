@@ -51,10 +51,10 @@ class RegisterController extends Controller
                 ->with('success', 'Je account is succesvol aangemaakt ! Welkom bij DeskDeal, ' . $user->firstname);
         }
         catch (\Exception $e) {
-            dd($e->getMessage());
-            //return back()
-            //->withInput()
-            //->with('error', 'Er is een fout opgetreden tijdens het registreren. Probeer het opnieuw.')
+            //dd($e->getMessage());
+            return back()
+            ->withInput()
+            ->with('error', 'Er is een fout opgetreden tijdens het registreren. Probeer het opnieuw.')
             ;
         }
     }

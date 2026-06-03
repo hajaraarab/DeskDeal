@@ -39,9 +39,19 @@
 
     @auth
     <div class="user-menu">
+        <a class="header-actions" href="">
+            <img src="{{ asset('/images/icons/notifications.png') }}" alt="">
+        </a>
+
+        <a class="header-actions" href="{{ route('profile.show') }}">
+            <img src="{{ asset('/images/icons/people.png') }}" alt="">
+        </a>
+
         <form action="{{ route('logout') }}" method="POST">
             @csrf
-            <button class="primary-btn darkblue body-md" type="submit">Logout</button>
+            <button class="logout-btn" type="submit">
+                <img src="{{ asset('/images/icons/logout.png') }}" alt="">
+            </button>
         </form> 
     </div>
     @endauth

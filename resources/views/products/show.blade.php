@@ -42,7 +42,7 @@
                     <p class="body-md">{{ $product->description }}</p>
                 </div>
 
-                <h3>€ {{ $product->price }}</h3>
+                <h3> {{ $product->is_free ? 'Gratis' : '€ ' . $product->price }}</h3>
 
                 <div class="attributes">
                     <div class="single-attribute">
