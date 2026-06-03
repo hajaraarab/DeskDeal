@@ -9,8 +9,8 @@
         <div class="product-detail">
             <div class="product-detail-media">
 
-                <div class="reserved-status">
-                    {{ $product->status === 'available' ? 'Beschikbaar' : 'Niet beschikbaar' }}
+                <div class="reserved-status body-sm">
+                    <p>{{ $product->status === 'available' ? 'Beschikbaar' : 'Niet beschikbaar' }}</p>
                 </div>
 
                 @if($product->images->isNotEmpty())
