@@ -63,3 +63,42 @@
 .reserve-messages {
     margin-top: variables.$margin-64; 
 }
+.reserve-message {
+    border: 2px solid variables.$primary-color-light; 
+    padding: variables.$padding-24; 
+    border-radius: variables.$radius-16; 
+    margin-top: variables.$margin-24; 
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.reservation-info, .reservation-action {
+    display: flex; 
+    flex-direction: column;
+    gap: variables.$gap-8; 
+}
+
+.profile-page {
+
+    .grey {
+        color: variables.$main-grey; 
+    }
+    .body-sm {
+        font-size: 14px; 
+    }
+    .section-header {
+    padding-bottom: variables.$padding-4; 
+    } 
+}
+
+.reservation-message {
+    padding-top: variables.$padding-8; 
+    padding-bottom: variables.$padding-8; 
+    padding-left: variables.$padding-24; 
+     padding-right: variables.$padding-24; 
+    background-color: variables.$primary-color-light;
+    border-radius: variables.$radius-16; 
+    margin-top: variables.$margin-16; 
+    width: fit-content; 
+}

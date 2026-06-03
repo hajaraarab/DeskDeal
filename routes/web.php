@@ -70,3 +70,8 @@ Route::middleware('auth')->group(function () {
 Route::get('/profile', [ProfileController::class, 'show'])
     ->name('profile.show');
     
+Route::patch('/reservations/{reservation}/accept', [ReservationController::class, 'accept'])
+->name('reservations.accept');
+
+Route::patch('/reservations/{reservation}/reject', [ReservationController::class, 'reject'])
+    ->name('reservations.reject');

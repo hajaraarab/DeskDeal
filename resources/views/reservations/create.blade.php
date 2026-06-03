@@ -111,6 +111,7 @@
                     <textarea 
                         name="message" 
                         placeholder="Voeg eventueel een bericht toe voor de verkoper..."
+                        value="{{ old('message') }}"
                     > 
                     </textarea>
                 </div>
@@ -133,7 +134,6 @@
                     <a class="round-btn darkblue body-lg" href="{{ route('products.show', $product) }}">
                         Terug naar product
                     </a>
-
                 </div>
             
             @endif

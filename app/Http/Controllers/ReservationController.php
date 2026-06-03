@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Reservation;
+use Illuminate\Http\Request;
 
 class ReservationController extends Controller
 {
@@ -18,15 +19,14 @@ class ReservationController extends Controller
             'hasReservation' => $hasReservation,
         ]);
     }
-    public function store(Product $product)
+    public function store(Request $request, Product $product)
     {
-
-
         Reservation::create([
             'product_id' => $product->id,
             'buyer_id' => auth()->id(),
             'seller_id' => $product->user_id,
             'status' => 'pending',
+            'message' => $request->message, 
         ]);
 
         $product->update([
@@ -35,5 +35,22 @@ class ReservationController extends Controller
 
         return redirect()
         ->route('reservations.create', $product);
+    }
+    public function accept(Reservation $reservation)
+    {
+        $reservation->update([
+            'status' => 'accepted',
+        ]);
+
+        return back();
+    }
+
+    public function reject(Reservation $reservation)
+    {
+        $reservation->update([
+            'status' => 'rejected',
+        ]);
+
+        return back();
     }
 }

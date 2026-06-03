@@ -54,11 +54,17 @@
     </div>
 
     <div class="reserve-messages">
-        
+
         <div class="section-header">
-            <p class="subtitle">Slim kiezen begint hier</p>
-            <h3>Reserveringsaanvragen</h3>
+            <p class="subtitle">inbox</p>
+            <div class="marketplace-description">
+                <h3>Reserveringsaanvragen</h3>
+                <p class="">aantal pending</p>
+            </div>
         </div>
+
+        @include('partials.inbox')
+
     </div>
 
 </div>
