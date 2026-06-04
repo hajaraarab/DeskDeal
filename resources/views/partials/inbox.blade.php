@@ -1,120 +1,108 @@
 @foreach($reservations->take(4) as $reservation)
-<div class="reserve-message">
 
-    <div class="reservation-info">
+    @if($reservation->seller_id === auth()->id() && $reservation->status === 'pending')
 
-        @if($reservation->status === 'pending')
+        <div class="reserve-message">
 
-            <p class="body-sm grey">{{ $reservation->created_at->diffForHumans() }}</p>
+            <div class="reservation-info">
 
-            <h5>
-                {{ $reservation->buyer->firstname }}
-                {{ $reservation->buyer->lastname }}
-            </h5>
+                <p class="body-sm grey">{{ $reservation->created_at->diffForHumans() }}</p>
 
-            <p class="body-sm">
-                Wilt
-                <strong>{{ $reservation->product->title }}</strong>
-                reserveren
-            </p>
+                <h5>
+                    {{ $reservation->buyer->firstname }}
+                    {{ $reservation->buyer->lastname }}
+                </h5>
 
-            @if($reservation->message)
-                <p class="reservation-message">
-                    "{{ $reservation->message }}"
+                <p class="body-sm">
+                    Wilt
+                    <strong>{{ $reservation->product->title }}</strong>
+                    reserveren
                 </p>
-            @endif
 
-        @elseif($reservation->status === 'accepted')
+                @if($reservation->message)
+                    <p class="reservation-message">
+                        "{{ $reservation->message }}"
+                    </p>
+                @endif
 
-            <h5>Reservatie geaccepteerd</h5>
+            </div>
 
-            <p class="body-sm">
-                Je hebt de reservatie van
-                <strong>{{ $reservation->buyer->firstname }}</strong>
-                geaccepteerd voor
-                <strong>{{ $reservation->product->title }}</strong>.
-            </p>
+            <div class="reservation-action">
 
-        @elseif($reservation->status === 'rejected')
+                <form action="{{ route('reservations.accept', $reservation) }}" method="POST">
+                    @csrf
+                    @method('PATCH')
 
-            <h5>Reservatie geweigerd</h5>
+                    <button class="round-btn accept body-lg" type="submit">
+                        Accepteren
+                    </button>
+                </form>
 
-            <p class="body-sm">
-                Je hebt de reservatie van
-                <strong>{{ $reservation->buyer->firstname }}</strong>
-                geweigerd voor
-                <strong>{{ $reservation->product->title }}</strong>.
-            </p>
+                <form action="{{ route('reservations.reject', $reservation) }}" method="POST">
+                    @csrf
+                    @method('PATCH')
 
-        @endif
+                    <button class="round-btn border body-lg" type="submit">
+                        Weigeren
+                    </button>
+                </form>
 
-    </div>
+            </div>
 
-    <div class="reservation-action">
-
-        @if($reservation->status === 'pending')
-
-            <form action="{{ route('reservations.accept', $reservation) }}" method="POST">
-                @csrf
-                @method('PATCH')
-
-                <button class="round-btn accept body-lg" type="submit">
-                    Accepteren
-                </button>
-            </form>
-
-            <form action="{{ route('reservations.reject', $reservation) }}" method="POST">
-                @csrf
-                @method('PATCH')
-
-                <button class="round-btn border body-lg" type="submit">
-                    Weigeren
-                </button>
-            </form>
-
-        @elseif($reservation->status === 'accepted')
-
-            <span class="status accepted">
-                Geaccepteerd
-            </span>
-
-        @elseif($reservation->status === 'rejected')
-
-            <span class="status rejected">
-                Geweigerd
-            </span>
-
-        @endif
-
-    </div>
-
-</div>
-
-@if($reservation->buyer_id === auth()->id() && $reservation->status === 'accepted')
-
-    <div class="reserve-message">
-
-        <div class="reservation-info">
-            <h5>Reservatie geaccepteerd 🎉</h5>
-
-            <p class="body-sm">
-                Jouw reservatie voor
-                <strong>{{ $reservation->product->title }}</strong>
-                werd geaccepteerd door de verkoper.
-            </p>
         </div>
 
-        <div class="reservation-action">
-            <a
-                href="{{ route('reservations.accept', $reservation->product) }}"
-                class="round-btn darkblue body-lg"
-            >
-                Aankopen
-            </a>
+    @elseif($reservation->buyer_id === auth()->id() && $reservation->status === 'accepted')
+
+        <div class="reserve-message">
+
+            <div class="reservation-info">
+
+                <h5>Reservatie geaccepteerd 🎉</h5>
+
+                <p class="body-sm">
+                    Jouw reservatie voor
+                    <strong>{{ $reservation->product->title }}</strong>
+                    werd geaccepteerd door de verkoper.
+                </p>
+
+            </div>
+
+            <div class="reservation-action">
+
+                <a
+                    href=""
+                    class="notification-btn darkblue"
+                >
+                    Aankopen
+                </a>
+
+            </div>
+
         </div>
 
-    </div>
+    @elseif($reservation->buyer_id === auth()->id() && $reservation->status === 'rejected')
 
-@endif
+        <div class="reserve-message">
+
+            <div class="reservation-info">
+
+                <h5>Reservatie geweigerd</h5>
+
+                <p class="body-sm">
+                    Jouw reservatie voor
+                    <strong>{{ $reservation->product->title }}</strong>
+                    werd geweigerd.
+                </p>
+
+            </div>
+
+            <div class="reservation-action">
+                <p class="notification-btn border">Geweigerd</p>
+            </div>
+
+        </div>
+
+    @endif
+
 @endforeach
 
