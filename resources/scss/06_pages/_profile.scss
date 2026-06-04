@@ -78,6 +78,25 @@
     flex-direction: column;
     gap: variables.$gap-8; 
 }
+.reservation-content {
+    display:flex; 
+    align-items: center;
+    gap:variables.$gap-24; 
+
+    .profile-picture {
+        width: 5%; 
+        height: 5%; 
+
+        img {
+            width: 100%; 
+        }
+    }
+    .reserve-message-info {
+        display:flex; 
+        flex-direction: column;
+        gap: variables.$gap-4; 
+    }
+}
 .reservation-action {
     text-align: right;
 }

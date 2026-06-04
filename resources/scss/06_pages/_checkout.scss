@@ -1,0 +1,99 @@
+@use '../01_fundaments/variables';
+
+.checkout {
+    margin-top: variables.$margin-64;
+    display: flex; 
+    flex-direction: column;
+    gap: variables.$gap-64;  
+}
+.product-reserved {
+    border: 2px solid variables.$primary-color-light; 
+    padding: variables.$padding-32;
+    display: flex; 
+    flex-direction: column;
+    gap: variables.$gap-64; 
+    border-radius: variables.$radius-16;
+}
+.product-reserved-top {
+    display: flex; 
+    gap: variables.$gap-32; 
+
+    p {
+        color: variables.$main-grey; 
+    }
+    .subtitle {
+        color: variables.$primary-color; 
+    }
+}
+.reservation-product-bottom {
+    display: flex; 
+    gap: variables.$gap-32; 
+
+    img {
+        width: 20px; 
+        height: 20px; 
+    }
+}
+.reservation-product-info {
+    border: 2px solid variables.$primary-color-light; 
+    width: 100%; 
+    padding: variables.$padding-12; 
+    border-radius: variables.$radius-16;
+    display: flex; 
+    flex-direction: column;
+    gap: variables.$gap-8; 
+
+    .attributes {
+        gap: variables.$gap-16; 
+    }
+}
+
+.reservation-filters {
+    display: flex; 
+    margin: 0; 
+    padding: 0; 
+    gap: variables.$gap-16; 
+}
+
+.transport {
+    border: 2px solid variables.$primary-color-light; 
+    padding: variables.$padding-32;
+    display: flex; 
+    flex-direction: column;
+    border-radius: variables.$radius-16;
+}
+
+.transport-options {
+    display: flex; 
+    width: 100%; 
+    gap: variables.$gap-32; 
+    margin-top: variables.$margin-32; 
+}
+.transport-option {
+    border-radius: variables.$radius-16;
+    border: 2px solid variables.$primary-color-light;
+    display: flex; 
+    justify-content: space-between;
+    padding: variables.$padding-16;
+    cursor: pointer; 
+    width: 100%; 
+
+    .body-sm {
+        color: variables.$main-grey; 
+    }
+}
+
+.icon-wrapper {
+    background-color: variables.$primary-color-light; 
+    max-width: 30px; 
+    max-height: 30px; 
+    border-radius: 50px;
+    padding: variables.$padding-8; 
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+
+    img {
+        width: 90%; 
+    }
+}

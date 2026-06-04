@@ -75,3 +75,9 @@ Route::patch('/reservations/{reservation}/accept', [ReservationController::class
 
 Route::patch('/reservations/{reservation}/reject', [ReservationController::class, 'reject'])
     ->name('reservations.reject');
+
+Route::get('/reservations/{reservation}/checkout', [ReservationController::class, 'checkout'])
+    ->name('reservations.checkout');
+
+Route::get('/reservations', [ReservationController::class, 'index'])
+    ->name('reservations.index');

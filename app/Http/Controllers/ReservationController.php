@@ -53,4 +53,53 @@ class ReservationController extends Controller
 
         return back();
     }
+    public function checkout(Reservation $reservation)
+    {
+        abort_unless(
+            $reservation->buyer_id === auth()->id(),
+            403
+        );
+
+        abort_unless(
+            $reservation->status === 'accepted',
+            403
+        );
+
+        return view('reservations.checkout', [
+            'reservation' => $reservation,
+            'product' => $reservation->product,
+        ]);
+    }
+    public function index(Request $request)
+    {
+        $user = auth()->user();
+
+        $tab = $request->get('tab', 'requests');
+
+        if ($tab === 'my-reservations') {
+
+            $reservations = Reservation::with([
+                'product',
+                'seller'
+            ])
+            ->where('buyer_id', $user->id)
+            ->latest()
+            ->get();
+
+        } else {
+
+            $reservations = Reservation::with([
+                'buyer',
+                'product'
+            ])
+            ->where('seller_id', $user->id)
+            ->latest()
+            ->get();
+        }
+
+        return view('reservations.index', [
+            'reservations' => $reservations,
+            'tab' => $tab,
+        ]);
+    }
 }

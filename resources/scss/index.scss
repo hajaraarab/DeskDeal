@@ -5,6 +5,7 @@
 
 @use '02_atoms/buttons';
 @use '02_atoms/reserved-status'; 
+@use '02_atoms/icons'; 
 
 @use '03_molecules/alert';
 @use '03_molecules/forms';
@@ -19,3 +20,5 @@
 @use '06_pages/view-product'; 
 @use '06_pages/reserve-product'; 
 @use '06_pages/profile'; 
+@use '06_pages/checkout'; 
+@use '06_pages/reservations'; 

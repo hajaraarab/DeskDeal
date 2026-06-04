@@ -1,0 +1,12 @@
+@use '../01_fundaments/variables';
+
+.reservations-index {
+    display: flex; 
+    flex-direction: column;
+    gap: variables.$gap-64; 
+    margin-top: variables.$margin-64; 
+
+    h2 {
+        font-weight: 600; 
+    }
+}

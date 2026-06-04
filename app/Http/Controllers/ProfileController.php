@@ -28,5 +28,6 @@ class ProfileController extends Controller
             'reservations' => $reservations,
         ]);
     }
+    
 
 }

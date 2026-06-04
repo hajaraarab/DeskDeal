@@ -41,7 +41,7 @@
                 <p class="subtitle">aangekocht</p>
             </div>
             <div class="stat-card">
-                <img src="{{ asset('images/icons/box.png') }}" alt="">
+                <img src="{{ asset('images/icons/box-green.png') }}" alt="">
                 <h4>4</h4>
                 <p class="subtitle">actief</p>
             </div>
@@ -59,7 +59,7 @@
             <p class="subtitle">inbox</p>
             <div class="marketplace-description">
                 <h3>Reservaties</h3>
-                <a class="notification-btn darkblue body-md" href="">Bekijk alle reservaties</a>
+                <a class="notification-btn darkblue body-md" href="{{ route('reservations.index') }}">Bekijk alle reservaties</a>
             </div>
         </div>
 

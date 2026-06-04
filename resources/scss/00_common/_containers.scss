@@ -43,3 +43,14 @@ body {
         border: 0; 
     }
 }
+
+.icon-and-title {
+    display: flex; 
+    align-items: center;
+    gap: variables.$gap-12; 
+
+    img {
+        width: 2%; 
+        height: auto; 
+    }
+}

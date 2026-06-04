@@ -106,23 +106,4 @@
         color: variables.$main-grey; 
         text-align: center;
     }
-
-    .icon-container {
-        background-color: rgba(variables.$success-color, 0.2); 
-        width: fit-content;
-        padding-top: variables.$padding-16; 
-        padding-bottom: variables.$padding-16; 
-        padding-right: variables.$padding-4; 
-        padding-left: variables.$padding-4; 
-        display:flex; 
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-
-        img {
-            width: 60%; 
-            margin: 0; 
-            padding: 0; 
-        }
-    }
 }

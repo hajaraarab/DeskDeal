@@ -55,23 +55,29 @@
 
         <div class="reserve-message">
 
-            <div class="reservation-info">
+            <div class="reservation-content">
 
-                <h5>Reservatie geaccepteerd 🎉</h5>
+                <div class="profile-picture">
+                    <img src="{{ asset('images/icons/box-darkblue.png') }} " alt="">
+                </div>
 
-                <p class="body-sm">
-                    Jouw reservatie voor
-                    <strong>{{ $reservation->product->title }}</strong>
-                    werd geaccepteerd door de verkoper.
-                </p>
+                <div class="reserve-message-info">
+                    <h5>Reservatie geaccepteerd 🎉</h5>
+
+                    <p class="body-sm">
+                        Jouw reservatie voor
+                        <strong>{{ $reservation->product->title }}</strong>
+                        werd geaccepteerd door de verkoper.
+                    </p>
+                </div>
 
             </div>
 
             <div class="reservation-action">
 
                 <a
-                    href=""
-                    class="notification-btn darkblue"
+                    href="{{ route('reservations.checkout', $reservation) }}"
+                    class="round-btn darkblue body-lg"
                 >
                     Aankopen
                 </a>
