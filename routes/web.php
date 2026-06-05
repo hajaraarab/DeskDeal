@@ -81,3 +81,10 @@ Route::get('/reservations/{reservation}/checkout', [ReservationController::class
 
 Route::get('/reservations', [ReservationController::class, 'index'])
     ->name('reservations.index');
+
+
+Route::get('/products/{product}/edit', [ProductController::class, 'edit'])
+    ->name('products.edit');
+
+Route::patch('/products/{product}', [ProductController::class, 'update'])
+    ->name('products.update');

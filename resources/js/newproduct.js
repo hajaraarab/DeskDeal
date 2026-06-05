@@ -79,3 +79,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+const deleteImagesInput = document.getElementById('delete-images-input');
+
+let imagesToDelete = [];
+
+document.addEventListener('click', function(e) {
+
+    if (e.target.classList.contains('delete-existing-btn')) {
+
+        const wrapper = e.target.closest('.existing-image');
+        const imageId = wrapper.dataset.imageId;
+
+        imagesToDelete.push(imageId);
+
+        deleteImagesInput.value = imagesToDelete.join(',');
+
+        wrapper.remove();
+    }
+
+});

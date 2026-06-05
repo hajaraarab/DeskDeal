@@ -14,13 +14,33 @@
     </a>
 
     <div class="section-header">
-        <p class="subtitle">Plaats je product</p>
+        <p class="subtitle">{{ isset($isEdit) ? 'Product bewerken' : 'Plaats je product' }}</p>
         <h2>Vind je volgende kantoorvonst</h2>
         <p class="body-sm">Vul de gegevens hieronder in. Hoe completer je advertentie, hoe sneller je item een nieuwe eigenaar vindt.</p>
     </div>
 
-    <form enctype="multipart/form-data" class="create-product-form" action="{{ route('products.store') }}" method="POST">
+    <form
+        enctype="multipart/form-data"
+        class="create-product-form"
+        action="{{ isset($isEdit)
+            ? route('products.update', $product)
+            : route('products.store') }}"
+        method="POST"
+    >
+
         @csrf
+
+        @if(isset($isEdit))
+            @method('PATCH')
+        @endif
+
+            <input
+                type="hidden"
+                name="delete_images"
+                id="delete-images-input"
+                value=""
+            >
+
         <!-- MAX 2MB PER FOTO -->
         <div class="form-field">
             <label for="product-images">Foto's</label>
@@ -40,6 +60,35 @@
             </div>
 
             <div id="image-preview" class="image-preview-container"></div>
+
+            @if(isset($isEdit) && $product->images->isNotEmpty())
+
+            <div class="current-images">
+            @foreach($product->images as $image)
+
+                <div
+                    class="preview-image-wrapper existing-image"
+                    data-image-id="{{ $image->id }}"
+                >
+
+                    <img
+                        src="{{ asset('storage/' . $image->image_path) }}"
+                        class="preview-image"
+                        alt=""
+                    >
+
+                    <button
+                        type="button"
+                        class="delete-preview-btn delete-existing-btn"
+                    >
+                        &times;
+                    </button>
+
+                </div>
+            @endforeach
+            </div>
+
+    @endif
         </div>
 
         <div class="form-group">
@@ -48,7 +97,7 @@
                 <input 
                     type="text" 
                     name="title" 
-                    value="{{ old('title') }}"
+                    value="{{ old('title', $product->title ?? '') }}"
                     placeholder="Bv. Ergonomische bureaustoel"
                     required
                 >
@@ -66,7 +115,7 @@
                 @foreach($categories as $category)
                     <option
                         value="{{ $category->id }}"
-                        {{ old('category_id') == $category->id ? 'selected' : '' }}
+                        {{ old('category_id', $product->category_id ?? '') == $category->id ? 'selected' : '' }}
                         >
                         {{ $category->name }}
                     </option>
@@ -82,6 +131,7 @@
                     type="number" 
                     name="price" 
                     id="price"
+                    value="{{ old('price', $product->price ?? '') }}"
                     placeholder="€ 22"
                     step="0.01" 
                 >
@@ -92,6 +142,7 @@
                     name="free_product"
                     id="free_product"
                     value="1"
+                    {{ old('free_product', $product->is_free ?? false) ? 'checked' : '' }}
                 >
                 Gratis aanbieden
             </label>
@@ -103,7 +154,7 @@
                     type="text" 
                     name="location" 
                     placeholder="Bv. Antwerpen"
-                    value="{{ old('location') }}"
+                    value="{{ old('location', $product->location ?? '') }}"
                     required
                 >
                 <label class="checkbox-label">
@@ -115,7 +166,7 @@
                 Gebruik bedrijfslocatie
                 </label>
             </div>
-        </div>
+        </div>  
 
         <div class="form-field">
             <label for="description">Beschrijving:</label>
@@ -124,13 +175,13 @@
                 placeholder="Beschrijf je item: afmetingen, staat, ..."
                 required
             >
-                {{ old('description') }}
+                {{ old('description', $product->description ?? '') }}
             </textarea>
         </div>
 
         <div class="form-actions">
             <a href="" class="back-link body-lg">Annuleren</a>
-            <button class="round-btn darkblue body-lg"type="submit">Create Product</button>
+            <button class="round-btn darkblue body-lg"type="submit">{{ isset($isEdit) ? 'Product bijwerken' : 'Product plaatsen' }}</button>
         </div>
         
     </form>

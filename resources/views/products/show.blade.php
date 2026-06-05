@@ -63,7 +63,7 @@
                 @if(auth()->id() === $product->user_id)
                     <a
                         class="round-btn darkblue body-lg"
-                        href=""
+                        href="{{ route('products.edit', $product) }}"
                     >
                         Product bewerken
                     </a>

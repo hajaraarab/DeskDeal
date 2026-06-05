@@ -32,3 +32,12 @@
 .create-product-form textarea {
     margin-bottom: variables.$padding-32;
 }
+
+.current-images {
+    display:flex; 
+    gap: variables.$gap-16; 
+    flex-wrap: wrap;
+}
+.current-images .preview-image-wrapper {
+    width: calc(25% - 12px);
+}

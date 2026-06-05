@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\ProductImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -120,5 +121,72 @@ class ProductController extends Controller
                 ->get();
         
         return view('products.show', compact('product', 'relatedProducts'));
+    }
+    public function edit(Product $product)
+    {
+        if ($product->user_id !== auth()->id()) {
+            abort(403);
+        }
+
+        $categories = Category::all();
+
+        return view('products.create', [
+            'product' => $product,
+            'categories' => $categories,
+            'isEdit' => true,
+        ]);
+    }
+    public function update(Request $request, Product $product)
+    {
+        if ($product->user_id !== auth()->id()) {
+            abort(403);
+        }
+
+        $validated = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'location' => 'required',
+            'category_id' => 'required',
+            'price' => 'nullable|numeric',
+        ]);
+
+        $product->update([
+            'title' => $validated['title'],
+            'description' => $validated['description'],
+            'location' => $validated['location'],
+            'category_id' => $validated['category_id'],
+            'price' => $request->has('free_product') ? null : $validated['price'],
+            'is_free' => $request->has('free_product'),
+        ]);
+        
+        if ($request->delete_images) {
+
+            $imageIds = explode(',', $request->delete_images);
+
+            $images = ProductImage::whereIn('id', $imageIds)->get();
+
+            foreach ($images as $image) {
+
+                Storage::disk('public')->delete($image->image_path);
+
+                $image->delete();
+            }
+        }
+        if ($request->hasFile('images')) {
+
+            foreach ($request->file('images') as $image) {
+
+                $path = $image->store('products', 'public');
+
+                ProductImage::create([
+                    'product_id' => $product->id,
+                    'image_path' => $path,
+                ]);
+            }
+        }
+
+        return redirect()
+            ->route('products.show', $product)
+            ->with('success', 'Product succesvol bijgewerkt.');
     }
 }
