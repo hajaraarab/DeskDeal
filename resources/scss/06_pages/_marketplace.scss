@@ -117,8 +117,8 @@
         display:flex; 
         flex-direction: column;
         gap: variables.$gap-4; 
-        padding-left: variables.$padding-16; 
-        padding-right: variables.$padding-16; 
+        padding-left: variables.$padding-8; 
+        padding-right: variables.$padding-8; 
         padding-bottom: variables.$padding-24; 
     }
     .product-meta {
@@ -146,5 +146,10 @@
     }
     .marketplace-container {
         flex-direction: row;
+    }
+    .product-card .product-details { 
+        padding-left: variables.$padding-16; 
+        padding-right: variables.$padding-16; 
+        padding-bottom: variables.$padding-24; 
     }
 }
