@@ -2,24 +2,24 @@
 
 .auth-container {
     position: relative;
+    z-index: -2;
 
     .background {
         background-color: variables.$primary-color-light; 
-        position: absolute; 
-        padding-top: 250px;
         margin-top: -140px;
-        margin-left: -64px;
-        z-index: -1;
+        padding: -20px; 
+        margin-left: -16px;
+        margin-right: -16px;
+        padding-top: 5%;
 
         img {
-            height: 70%;
-            width: 70%; 
+            width: 30%; 
         }
     }
 }
+
 .form-container {
     display: flex; 
-    width: 55%; 
     flex-direction: column;
     margin-left: auto; 
 }
@@ -32,8 +32,8 @@
     display: flex; 
     gap: variables.$gap-8; 
     align-items: center;
-    padding-top: variables.$padding-64; 
-    padding-bottom: variables.$padding-32; 
+    padding-top: variables.$padding-32; 
+    padding-bottom: variables.$padding-24; 
 
     .back-link h6 {
         font-weight: 600; 
@@ -46,4 +46,41 @@
 
 .form-field.error input {
     border: 2px solid variables.$error-color;
+}
+
+@media (min-width: 768px) {
+    .auth-container {
+    position: relative;
+
+    .background {
+        position: absolute; 
+        padding-top: 20%;
+        margin-top: -140px;
+        margin-left: -64px;
+        width: 45%; 
+
+        img {
+            height: 70%;
+            width: 70%; 
+        }
+    }
+    .form-container {
+        width: 55%; 
+    }
+    .auth-redirect {
+        padding-top: variables.$padding-64; 
+    }
+}
+}
+//tablet 
+@media (min-width: 768px) and (max-width: 1023px) {
+    .auth-container .background {
+        padding-top: 40%;
+    }
+}
+//desktop
+@media (min-width: 1024px) {
+    .auth-container .background {
+        padding-top: 20%; 
+    }
 }
