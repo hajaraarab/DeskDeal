@@ -91,6 +91,10 @@ a {
     color: inherit;  
     text-decoration: none;
 }
+p {
+    font-family: variables.$primary-font;
+    font-size: 13px; 
+}
 
 .info-message {
     font-family: variables.$secondary-font;
@@ -100,7 +104,7 @@ a {
 }
 
 //OVERALTOEGEPAST
-h1, h2, h3, h4, h5, h6, .subtitle, .body-lg, .body-md, .body-sm {
+h1, h2, h3, h4, h5, h6, .subtitle, .body-lg, .body-md, .body-sm, p {
     margin: 0; 
     padding: 0;
 }

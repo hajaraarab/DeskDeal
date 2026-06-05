@@ -47,7 +47,17 @@
 .round-btn.accept:hover {
     border: 2px solid variables.$success-color;
     background-color: transparent; 
-     color: variables.$success-color;;
+    color: variables.$success-color;;
+}
+.round-btn.logout {
+    border: 2px solid variables.$error-color;
+    background-color: variables.$error-color;
+    color: variables.$white;
+}
+.round-btn.logout:hover {
+    border: 2px solid variables.$error-color;
+    background-color: transparent;
+    color: variables.$error-color;
 }
 .round-btn.border {
     background-color: variables.$white;

@@ -6,13 +6,20 @@ html {
 body {
     margin: 0;
     padding: 0;
+    width: 100%; 
+    box-sizing: border-box;
 }
 .content {
     padding-left: variables.$padding-16;
     padding-right: variables.$padding-16;
 
-    //Vanaf mobile
-    @media (min-width: 768px) {
+    //vanaf tablet
+    @media (min-width: 768px) and (max-width: 1023px) {
+        padding-left: variables.$padding-32; 
+        padding-right: variables.$padding-32;
+    }
+    //vanaf desktop
+    @media (min-width: 1024px) {
         padding-left: variables.$padding-64; 
         padding-right: variables.$padding-64;
     }
