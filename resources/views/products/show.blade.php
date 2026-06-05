@@ -103,22 +103,76 @@
         </div>
     </div>
 
-    @if($relatedProducts->isNotEmpty())
-        <div class="info-block">
-            <div class="related-products-block">
-                <div class="product-detail-header">
-                    <p class="subtitle">Ontdek meer</p>
-                    <h3>Misschien ook interessant </h3>
-                </div>
-                
-                <div class="related-products">
-                    @include('partials.product-list', [
-                        'products' => $relatedProducts
-                    ])
-                </div>
+@if($relatedProducts->isNotEmpty())
+    <div class="info-block related-products">
+
+        <div class="product-detail-header">
+            <p class="subtitle">Ontdek meer</p>
+            <h3>Misschien ook interessant</h3>
+        </div>
+
+        <div class="swiper related-products-swiper">
+            <div class="swiper-wrapper">
+
+                @foreach($relatedProducts as $relatedProduct)
+                    <div class="swiper-slide">
+
+                        <a
+                            href="{{ route('products.show', $relatedProduct) }}"
+                            class="product-card-link"
+                        >
+                            <div class="product-card">
+
+                                @if($relatedProduct->images->isNotEmpty())
+                                    <div class="reserved-status body-sm">
+                                        <p>
+                                            {{ $relatedProduct->status === 'available'
+                                                ? 'Beschikbaar'
+                                                : 'Niet beschikbaar' }}
+                                        </p>
+                                    </div>
+
+                                    <img
+                                        src="{{ asset('storage/' . $relatedProduct->images->first()->image_path) }}"
+                                        alt="{{ $relatedProduct->title }}"
+                                    >
+                                @endif
+
+                                <div class="product-details">
+                                    <h6>{{ $relatedProduct->title }}</h6>
+
+                                    <div class="product-meta">
+
+                                        <div class="meta-item">
+                                            <img
+                                                src="{{ asset('images/icons/pricetag.png') }}"
+                                                alt=""
+                                            >
+                                            <p>{{ $relatedProduct->category?->name }}</p>
+                                        </div>
+
+                                        <div class="meta-item">
+                                            <img
+                                                src="{{ asset('images/icons/location.png') }}"
+                                                alt=""
+                                            >
+                                            <p>{{ $relatedProduct->location }}</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </a>
+
+                    </div>
+                @endforeach
+
             </div>
         </div>
-    @endif
+
+    </div>
+@endif
 </div>
 
 @include('partials.footer')

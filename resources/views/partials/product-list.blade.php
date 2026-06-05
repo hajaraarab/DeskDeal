@@ -1,6 +1,6 @@
 
 @forelse($products as $product)
-    <a href="{{ route('products.show', $product) }}" class="product-card-link">
+    <a href="{{ route('products.show', $product) }}" class="product-card-link swiper-slide">
         <div class="product-card">
             @if($product->images->isNotEmpty())
             
@@ -30,9 +30,9 @@
                 </div>
             </div>
         </div>
-    @empty 
-    <div class="empty-state">
-        <h3>Er zijn momenteel geen producten beschikbaar.</h3>
-    </div>
-</a>
+   </a> 
+@empty 
+<div class="empty-state">
+    <h3>Er zijn momenteel geen producten beschikbaar.</h3>
+</div>
 @endforelse

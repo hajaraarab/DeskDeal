@@ -77,9 +77,14 @@
     max-width: 100%;
     align-items: stretch; 
 }
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1023px) {
   div#product-listing {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+    div#product-listing {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 .product-card {
