@@ -65,31 +65,6 @@
     }
 }
 
-//CHAT
-/*
-.user-menu-side {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 70%;
-    max-width: 300px;
-    height: 100vh;
-    background-color: variables.$primary-color-light;
-    border-left: 3px solid variables.$primary-color;
-    padding: variables.$padding-32;
-    z-index: 999;
-    transition: right 0.3s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    gap: variables.$gap-32;
-    overflow-y: auto;
-
-
-    &.open {
-        right: 0;
-    }
-}
-*/
 .user-menu-side {
     position: fixed;
     top: 5%;
@@ -308,6 +283,11 @@
         margin-left: variables.$margin-64;
         margin-right: variables.$margin-64;
         margin-top: variables.$margin-32;
+
+        padding-bottom: variables.$padding-4;
+        padding-left: variables.$padding-24;
+        padding-right: variables.$padding-24;
+        padding-top: variables.$padding-4;
     }
 }
 
