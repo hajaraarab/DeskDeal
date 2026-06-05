@@ -24,7 +24,7 @@
 
     <div class="search-container">
         <input type="text" placeholder="🔍   Search for products...">
-        <button class="button-with-icon body-sm" type="submit">
+        <button class="button-with-icon border body-sm" type="submit">
             <img src="{{ asset('images/icons/filter-icon.png') }}" alt="Filter Icon">
             Filter
         </button>

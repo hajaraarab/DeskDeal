@@ -1,3 +1,25 @@
+@php
+    $notifications = $reservations->filter(function ($reservation) {
+        return
+            ($reservation->seller_id === auth()->id() && $reservation->status === 'pending')
+            || ($reservation->buyer_id === auth()->id() && in_array($reservation->status, ['accepted', 'rejected']));
+    })->take(4);
+@endphp
+
+@if($notifications->isEmpty())
+
+    <div class="empty-state">
+        <div class="profile-picture">
+            <img src="{{ asset('/images/icons/box-darkblue.png') }}" alt="">
+        </div>
+
+        <div class="empty-state-text">
+            <h5>U heeft geen nieuwe meldingen</h5>
+            <p class="body-sm">Wanneer er iets belangrijks gebeurt — zoals een nieuwe reservering of bericht — zie je het hier.</p>
+        </div>
+    </div>
+
+@else
 @foreach($reservations->take(4) as $reservation)
 
     @if($reservation->seller_id === auth()->id() && $reservation->status === 'pending')
@@ -33,7 +55,8 @@
                     @csrf
                     @method('PATCH')
 
-                    <button class="round-btn accept body-lg" type="submit">
+                    <button class="button-with-icon success body-lg" type="submit">
+                        <img src="{{ asset('images/icons/check-mark-white.png') }}" alt="">
                         Accepteren
                     </button>
                 </form>
@@ -42,7 +65,8 @@
                     @csrf
                     @method('PATCH')
 
-                    <button class="round-btn border body-lg" type="submit">
+                    <button class="button-with-icon border body-lg" type="submit">
+                        <img src="{{ asset('/images/icons/close.png') }}" alt="">
                         Weigeren
                     </button>
                 </form>
@@ -111,4 +135,4 @@
     @endif
 
 @endforeach
-
+@endif

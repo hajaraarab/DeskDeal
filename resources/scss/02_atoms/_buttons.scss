@@ -96,24 +96,51 @@
     display: flex; 
     align-items: center;
     gap: variables.$gap-8;
-    background-color: variables.$white;
-    border: 2px solid rgba(variables.$primary-color, 0.5);
 
     padding-left: variables.$padding-16; 
     padding-right: variables.$padding-16;
     padding-top: variables.$padding-8;
     padding-bottom: variables.$padding-8;
     border-radius: variables.$radius-16;
-    color: variables.$secondary-color;
+    cursor: pointer; 
 
     img {
         width: 20px;
         height: 20px;
     }
 }
-.button-with-icon:hover {
-    background-color: rgba(variables.$primary-color, 0.5); 
+.button-with-icon.success {
+    background-color: variables.$success-color;
+    border: 2px solid variables.$success-color; 
+    color: variables.$white; 
+    padding-top: variables.$padding-4;
+    padding-bottom: variables.$padding-4;
+}
+.button-with-icon.success:hover {
+    border: 2px solid variables.$success-color;
+    background-color: transparent; 
+    color: variables.$success-color;
+
+    img {
+        filter: brightness(0) saturate(100%) invert(58%) sepia(19%) saturate(856%) hue-rotate(96deg) brightness(92%) contrast(88%);
+    }
+}
+.button-with-icon.border {
+    background-color: variables.$white;
+    border: 2px solid rgba(variables.$primary-color, 0.5);
+    color: variables.$secondary-color;
+
+    padding-top: variables.$padding-4;
+    padding-bottom: variables.$padding-4;
+}
+.button-with-icon.border:hover {
+    background-color: variables.$secondary-color; 
+    color: variables.$white; 
+    border: 2px solid variables.$secondary-color; 
     font-weight: 500;
+    img {
+        filter: brightness(0) invert(1);
+    }
 }
 
 //LINKS
@@ -143,6 +170,10 @@
 }
 .notification-btn.success {
     background-color: variables.$success-color;
+    color: variables.$white; 
+}
+.notification-btn.rejected {
+    background-color: variables.$error-color;
     color: variables.$white; 
 }
 .notification-btn.border {

@@ -1,0 +1,27 @@
+@use '../01_fundaments/variables';
+
+.empty-state {
+    display:flex; 
+    flex-direction: column;
+    border: 2px solid variables.$primary-color-light; 
+    padding: variables.$padding-32; 
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: variables.$gap-16; 
+    border-radius: variables.$radius-16;
+    margin-top: variables.$margin-32; 
+
+    .profile-picture {
+        width: 35px; 
+        height: 35px; 
+
+        img {
+            width: 100%; 
+        }
+    }
+
+    .body-sm {
+        color: variables.$main-grey; 
+    }
+}

@@ -4,13 +4,13 @@
     margin-top: variables.$margin-64; 
     border: 2px solid variables.$primary-color-light; 
     border-radius: variables.$radius-16; 
-    padding: variables.$padding-32; 
+    padding: variables.$padding-16; 
 }
 
 .profile-top {
     display: flex; 
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: variables.$gap-32; 
 
     a {
         align-self: center;
@@ -18,12 +18,17 @@
 }
 .profile-picture {
     background: variables.$primary-color-light; 
-    width: fit-content; 
+    width: 30px; 
+    height: 30px; 
+    display:flex; 
+    justify-content: center;
+    align-items: center;
     padding-left: variables.$padding-16; 
     padding-right: variables.$padding-16; 
     padding-top: variables.$padding-12; 
     padding-bottom: variables.$padding-12; 
     border-radius: 50%; 
+
 }
 .profile-header {
     display: flex; 
@@ -62,6 +67,15 @@
 
 .reserve-messages {
     margin-top: variables.$margin-64; 
+
+    .marketplace-description{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .marketplace-description .notification-btn {
+        box-sizing: border-box;
+        height: fit-content;
+    }
 }
 .reserve-message {
     border: 2px solid variables.$primary-color-light; 
@@ -69,23 +83,24 @@
     border-radius: variables.$radius-16; 
     margin-top: variables.$margin-24; 
     display: flex; 
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: variables.$gap-24; 
 }
-.reservation-info, .reservation-action {
+.reservation-info {
     display: flex; 
     flex-direction: column;
     gap: variables.$gap-8; 
 }
+.profile-actions a {
+    display: inline-block;
+}
+
 .reservation-content {
     display:flex; 
     align-items: center;
     gap:variables.$gap-24; 
 
     .profile-picture {
-        width: 5%; 
-        height: 5%; 
 
         img {
             width: 100%; 
@@ -98,19 +113,20 @@
     }
 }
 .reservation-action {
-    text-align: right;
+    display:flex; 
+    flex-direction: row;
+    gap: variables.$gap-8; 
+    align-items: flex-end;
+    justify-content: center;
 }
 
 .profile-page {
 
-    .grey {
-        color: variables.$main-grey; 
-    }
     .body-sm {
         font-size: 14px; 
     }
     .section-header {
-    padding-bottom: variables.$padding-4; 
+        padding-bottom: variables.$padding-4; 
     } 
 }
 
@@ -124,4 +140,22 @@
     margin-top: variables.$margin-16; 
     width: fit-content; 
     font-style: italic;
+}
+
+@media (min-width: 768px) {
+    .profile-top {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .profile-info {
+        padding: variables.$padding-32; 
+    }
+    .reserve-message {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .reservation-action {
+        flex-direction: column;
+    }
 }

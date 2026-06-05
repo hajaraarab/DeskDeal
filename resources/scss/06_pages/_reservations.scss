@@ -3,10 +3,47 @@
 .reservations-index {
     display: flex; 
     flex-direction: column;
-    gap: variables.$gap-64; 
-    margin-top: variables.$margin-64; 
+    gap: variables.$gap-48; 
+    margin-top: variables.$margin-48; 
 
     h2 {
         font-weight: 600; 
     }
+    .section-header {
+        padding-bottom: 0px; 
+    }
+    .reserve-info {
+        display:flex; 
+        flex-direction: column;
+        gap: variables.$gap-12; 
+    }
+    .reserve-messages {
+        margin-top: 0; 
+    }
+    .icon-and-title img{
+        width: 20px; 
+        height: 20px; 
+    }
+    .accepted-reservation h5 {
+        color: variables.$success-color; 
+    }
+    .accepted-reservation .body-sm, .rejected-reservation .body-sm {
+        color: variables.$main-grey; 
+    }
+    .rejected-reservation h5{
+        color: variables.$error-color; 
+    }
+}
+
+.product-reserved-image {
+    width: 100px; 
+    height: auto; 
+    border-radius: variables.$radius-16; 
+}
+
+@media (min-width: 768px) {
+    .reservations-index {
+        margin-top: variables.$margin-48; 
+    }
+
 }
