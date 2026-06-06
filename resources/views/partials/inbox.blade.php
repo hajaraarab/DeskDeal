@@ -28,7 +28,7 @@
 
             <div class="reservation-info">
 
-                <p class="body-sm grey">{{ $reservation->created_at->diffForHumans() }}</p>
+                <p class="body-sm time">{{ $reservation->created_at->diffForHumans() }}</p>
 
                 <h5>
                     {{ $reservation->buyer->firstname }}

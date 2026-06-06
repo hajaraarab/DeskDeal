@@ -2,11 +2,8 @@
 
 .icon-container {
     background-color: rgba(variables.$success-color, 0.2); 
-    width: fit-content;
-    padding-top: variables.$padding-16; 
-    padding-bottom: variables.$padding-16; 
-    padding-right: variables.$padding-4; 
-    padding-left: variables.$padding-4; 
+    width: 70px; 
+    height: 70px; 
     display:flex; 
     align-items: center;
     justify-content: center;

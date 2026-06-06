@@ -28,17 +28,17 @@
             <div class="reservation-product-info">
                 <div class="attributes">
                     <img src="{{ asset('images/icons/box-green.png') }}" alt="">
-                    <p class="subtitle">product</p>
+                    <p class="subtitle">verkoper</p>
                 </div>
-                <p class="body-lg">{{ $product->title }} </p>
+                <p class="body-lg">{{ $product->user->firstname }} {{ $product->user->lastname }} </p>
             </div>
 
             <div class="reservation-product-info">
                 <div class="attributes">
                     <img src="{{ asset('images/icons/box-green.png') }}" alt="">
-                    <p class="subtitle">product</p>
+                    <p class="subtitle">locatie</p>
                 </div>
-                <p class="body-lg">{{ $product->title }} </p>
+                <p class="body-lg">{{ $product->location }} </p>
             </div>
         </div>
     </div>
@@ -53,7 +53,7 @@
 
                 <div class="transport-options">
 
-                    <label class="transport-option">
+                    <label class="transport-option deliveryservice">
                         <div class="icon-wrapper">
                             <img src="{{ asset('images/icons/truck.png') }}" alt="">
                         </div>
@@ -67,7 +67,7 @@
         
                     </label>
 
-                    <label class="transport-option">
+                    <label class="transport-option selfpickup">
                         <div class="icon-wrapper">
                             <img src="{{ asset('images/icons/location-darkblue.png') }}" alt="">
                         </div>
@@ -80,6 +80,29 @@
                         <input type="radio" name="delivery_method" value="delivery">
         
                     </label>
+                </div>
+
+                <div class="transport-output deliveryservice">
+                    <div class="form-field required">
+                        <label for="deliveryadres">Leveringsadres</label>
+                        <input type="text" name="deliveryadres" placeholder="Straat, nummer, postcode, stad" >
+                    </div>
+
+                    <div class="deliveryservice-info">
+                        <div class="icon-and-title">
+                            <img src="{{ asset('images/icons/check-mark.png') }}" alt="">
+                            <h5>Eerstvolgende beschikbare leverdatum</h5>
+                        </div>
+        
+                        <p class="body-md">maandag 17 juni - tussen 14:00 en 16:00</p>
+                        <p class="body-sm">Automatisch ingepland door bezorgservice</p>
+                    </div>
+                </div>
+
+                <div class="transport-output selfpickup">
+                    <div class="delivery-withservice">
+                        <h5>Selfpickup</h5>
+                    </div>
                 </div>
 
             </div>

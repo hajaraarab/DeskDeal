@@ -10,7 +10,7 @@
     background: rgba(variables.$primary-color, 0.6); 
     p {
         margin: 0; 
-        color: black; 
+        color: variables.$secondary-color; 
     }
 }
 
