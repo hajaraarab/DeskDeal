@@ -26,6 +26,9 @@
     background-color: variables.$white;
     align-items: center;
 
+    position: relative; 
+    z-index: 2; 
+
     padding-top: variables.$padding-4;
     padding-bottom: variables.$padding-4;
     padding-left: variables.$padding-16; 
@@ -267,7 +270,7 @@
 
 //tablet 
 @media (min-width: 768px) and (max-width: 1023px) {
-    .nav {
+    nav .nav {
         margin-left: variables.$margin-32;
         margin-right: variables.$margin-32;
         margin-top: variables.$margin-32;
@@ -276,6 +279,12 @@
         padding-left: variables.$padding-8;
         padding-right: variables.$padding-8;
         padding-top: variables.$padding-4;
+    }
+    .background {
+        z-index: -2; 
+        position: absolute; 
+        margin-top: 0; 
+
     }
 }
 @media (min-width: 1024px) {
