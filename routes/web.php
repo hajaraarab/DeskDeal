@@ -88,3 +88,8 @@ Route::get('/products/{product}/edit', [ProductController::class, 'edit'])
 
 Route::patch('/products/{product}', [ProductController::class, 'update'])
     ->name('products.update');
+
+Route::post(
+    '/reservation/{reservation}/appointment',
+    [ReservationController::class, 'storeAppointment']
+)->name('reservation.appointment');

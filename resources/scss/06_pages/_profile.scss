@@ -43,11 +43,12 @@
 
 .stat-cards {
     display: flex; 
-    justify-content: space-between;
-    margin-top: variables.$margin-48; 
+    flex-direction: column;
+    width: 100%; 
+    margin-top: variables.$margin-24; 
+    gap: variables.$gap-12; 
 }
 .stat-card {
-    width: 25%; 
     border: 2px solid variables.$primary-color-light; 
     padding: variables.$padding-12; 
     display: flex; 
@@ -55,7 +56,7 @@
     justify-content: center;
     align-items: center;
     border-radius: variables.$radius-16; 
-    gap: variables.$gap-12; 
+    gap: variables.$gap-4; 
 
     img {
         width: 25px; 
@@ -128,6 +129,10 @@
     .section-header {
         padding-bottom: variables.$padding-4; 
     } 
+    .profile-picture {
+        width: 40px; 
+        height: 45px; 
+    }
 }
 
 .reservation-message {
@@ -141,8 +146,15 @@
     width: fit-content; 
     font-style: italic;
 }
-
+.profile-page .attributes {
+    flex-direction: column;
+    gap: variables.$gap-8; 
+}
 @media (min-width: 768px) {
+    .profile-page .attributes {
+        flex-direction: row;
+        gap: inherit; 
+    }
     .profile-top {
         flex-direction: row;
         justify-content: space-between;
@@ -157,5 +169,16 @@
     }
     .reservation-action {
         flex-direction: column;
+    }
+    .stat-cards {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: variables.$margin-48; 
+        gap: 0; 
+        margin-top: variables.$margin-48; 
+    }
+    .stat-card {
+        width: 25%; 
+        gap: variables.$gap-12; 
     }
 }

@@ -13,6 +13,11 @@ use Illuminate\Database\Eloquent\Model;
     'seller_id',
     'status',
     'message', 
+    'delivery_method',
+    'delivery_address',
+    'pickup_date',
+    'pickup_time',
+    'appointment_status',
 ])]
 
 class Reservation extends Model

@@ -28,25 +28,39 @@
 
             <div class="reservation-info">
 
-                <p class="body-sm time">{{ $reservation->created_at->diffForHumans() }}</p>
+             <div class="reservation-content">
 
-                <h5>
-                    {{ $reservation->buyer->firstname }}
-                    {{ $reservation->buyer->lastname }}
-                </h5>
-
-                <p class="body-sm">
-                    Wilt
-                    <strong>{{ $reservation->product->title }}</strong>
-                    reserveren
-                </p>
-
-                @if($reservation->message)
-                    <p class="reservation-message">
-                        "{{ $reservation->message }}"
-                    </p>
+                @if($reservation->product->images->isNotEmpty())
+                    <img
+                        src="{{ asset('storage/' . $reservation->product->images->first()->image_path) }}"
+                        alt=""
+                        class="product-reserved-image"
+                    >
                 @endif
 
+                <div class="reserve-message-info">
+
+                    <p class="body-sm time">{{ $reservation->created_at->diffForHumans() }}</p>
+
+                    <h5>
+                        {{ $reservation->buyer->firstname }}
+                        {{ $reservation->buyer->lastname }}
+                    </h5>
+
+                    <p class="body-sm">
+                        Wilt
+                        <strong>{{ $reservation->product->title }}</strong>
+                        reserveren
+                    </p>
+
+                    @if($reservation->message)
+                        <p class="reservation-message">
+                            "{{ $reservation->message }}"
+                        </p>
+                    @endif
+                </div>
+
+            </div>
             </div>
 
             <div class="reservation-action">
@@ -81,9 +95,13 @@
 
             <div class="reservation-content">
 
-                <div class="profile-picture">
-                    <img src="{{ asset('images/icons/box-darkblue.png') }} " alt="">
-                </div>
+                @if($reservation->product->images->isNotEmpty())
+                    <img
+                        src="{{ asset('storage/' . $reservation->product->images->first()->image_path) }}"
+                        alt=""
+                        class="product-reserved-image"
+                    >
+                @endif
 
                 <div class="reserve-message-info">
                     <h5>Reservatie geaccepteerd 🎉</h5>
@@ -115,14 +133,26 @@
         <div class="reserve-message">
 
             <div class="reservation-info">
+                <div class="reservation-content">
+                    @if($reservation->product->images->isNotEmpty())
+                        <img
+                            src="{{ asset('storage/' . $reservation->product->images->first()->image_path) }}"
+                            alt=""
+                            class="product-reserved-image"
+                        >
+                    @endif
+            
+                <div class="reserve-message-info">
+                    <h5>Reservatie geweigerd</h5>
 
-                <h5>Reservatie geweigerd</h5>
+                    <p class="body-sm">
+                        Jouw reservatie voor
+                        <strong>{{ $reservation->product->title }}</strong>
+                        werd geweigerd.
+                    </p>
+                </div>
 
-                <p class="body-sm">
-                    Jouw reservatie voor
-                    <strong>{{ $reservation->product->title }}</strong>
-                    werd geweigerd.
-                </p>
+                </div>
 
             </div>
 

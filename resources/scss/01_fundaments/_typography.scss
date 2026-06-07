@@ -116,3 +116,12 @@ h1, h2, h3, h4, h5, h6, .subtitle, .body-lg, .body-md, .body-sm, p {
     color: variables.$main-grey; 
     font-size: 14px; 
 }
+.grey {
+    color: variables.$main-grey; 
+}
+
+.error-message {
+    color: variables.$error-color; 
+    font-size: 13px; 
+    font-style: italic;
+}

@@ -102,4 +102,48 @@ class ReservationController extends Controller
             'tab' => $tab,
         ]);
     }
+    public function storeAppointment(Request $request, Reservation $reservation)
+    {
+        if ($request->delivery_method === 'delivery') {
+
+            $validated = $request->validate([
+                'deliveryadres' => [
+                    'required',
+                    'string',
+                    'min:5'
+                ]
+            ]);
+
+            $reservation->update([
+                'delivery_method' => 'delivery',
+                'delivery_address' => $validated['deliveryadres'],
+                'appointment_status' => 'pending'
+            ]);
+        }
+        if ($request->delivery_method === 'pickup') {
+
+            $validated = $request->validate([
+                'pickup-date' => [
+                    'required',
+                    'date',
+                    'after_or_equal:today'
+                ],
+
+                'pickup_time' => [
+                    'required',
+                    'date_format:H:i'
+                ]
+            ]);
+
+            $reservation->update([
+                'delivery_method' => 'pickup',
+                'pickup_date' => $validated['pickup-date'],
+                'pickup_time' => $validated['pickup_time'],
+                'appointment_status' => 'pending'
+            ]);
+        }
+        return redirect()
+        ->with('success', 'Afspraak verzonden.');
+
+    }
 }

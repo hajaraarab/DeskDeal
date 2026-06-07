@@ -8,26 +8,23 @@
 }
 .product-reserved {
     border: 2px solid variables.$primary-color-light; 
-    padding: variables.$padding-32;
+    padding: variables.$padding-24;
     display: flex; 
     flex-direction: column;
-    gap: variables.$gap-64; 
+    gap: variables.$gap-32; 
     border-radius: variables.$radius-16;
 }
 .product-reserved-top {
     display: flex; 
     gap: variables.$gap-32; 
+    flex-direction: column;
+    align-items: center;
 
-    p {
-        color: variables.$main-grey; 
-    }
-    .subtitle {
-        color: variables.$primary-color; 
-    }
 }
 .reservation-product-bottom {
     display: flex; 
-    gap: variables.$gap-32; 
+    flex-direction: column;
+    gap: variables.$gap-16; 
 
     img {
         width: 20px; 
@@ -36,7 +33,6 @@
 }
 .reservation-product-info {
     border: 2px solid variables.$primary-color-light; 
-    width: 100%; 
     padding: variables.$padding-12; 
     border-radius: variables.$radius-16;
     display: flex; 
@@ -57,7 +53,7 @@
 
 .transport {
     border: 2px solid variables.$primary-color-light; 
-    padding: variables.$padding-32;
+    padding: variables.$padding-24;
     display: flex; 
     flex-direction: column;
     border-radius: variables.$radius-16;
@@ -65,8 +61,9 @@
 
 .transport-options {
     display: flex; 
+    flex-direction: column;
     width: 100%; 
-    gap: variables.$gap-32; 
+    gap: variables.$gap-16; 
     margin-top: variables.$margin-32; 
 }
 .transport-option {
@@ -76,11 +73,18 @@
     justify-content: space-between;
     padding: variables.$padding-16;
     cursor: pointer; 
-    width: 100%; 
+    gap: variables.$gap-16; 
 
     .body-sm {
         color: variables.$main-grey; 
     }
+}
+.transport-option-info p{
+    font-size: 14px; 
+}
+.transport-option-text {
+    display:flex; 
+    gap: variables.$gap-16; 
 }
 .transport-option.selected {
     border: 2px solid variables.$secondary-color;
@@ -113,8 +117,8 @@
     display: none;
 }
 
-.transport-output.deliveryservice {
-    padding-top: variables.$padding-24; 
+.transport-output.deliveryservice, .transport-output.selfpickup {
+    padding-top: variables.$padding-48; 
     flex-direction: column;
     gap: variables.$gap-16; 
 }
@@ -130,5 +134,88 @@
     .body-sm {
         font-size: 14px; 
         font-style: italic;
+    }
+}
+.selfpickup-info {
+    margin-top: variables.$margin-32; 
+} 
+.selfpickup-inputs {
+    margin-bottom: variables.$margin-32; 
+}
+.selfpickup-inputs form{
+    display:flex; 
+    flex-direction: column;
+    width: 100%; 
+    gap: variables.$gap-16; 
+}
+.deliveryservice button {
+    margin-top: variables.$margin-24; 
+}
+.selfpickup-info .form-field {
+    width: 100%; 
+    box-sizing: border-box;
+}
+
+.checkout .icon-and-title img{
+    width: 25px; 
+    height: 25px; 
+}
+.deliveryservice-info {
+    display:flex; 
+    flex-direction: row;
+    align-items: flex-start;
+    gap: variables.$gap-16; 
+}
+
+
+@media (min-width: 768px) {
+    .product-reserved-top {
+        flex-direction: row;
+        align-items: left;
+    }
+    .reservation-product-bottom {
+        flex-direction: row;
+        gap: variables.$gap-32; 
+    }
+    .product-reserved {
+        padding: variables.$padding-32;
+        gap: variables.$gap-64; 
+    }
+    .reservation-product-info {
+        width: 100%; 
+    }
+    .transport-options { 
+        flex-direction: row;
+        gap: variables.$gap-32; 
+    }
+    .transport-option {
+        width: 100%; 
+    }
+    .transport {
+        padding: variables.$padding-32;
+    }
+    .transport-option-info p{
+        font-size: inherit; 
+    }
+    .selfpickup-inputs{
+        display:flex; 
+        flex-direction: row;
+        gap: variables.$gap-32; 
+    }
+    
+}
+
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .product-reserved {
+        padding: variables.$padding-16;
+        gap: variables.$gap-32; 
+    }
+    .reservation-product-bottom {
+        gap: variables.$gap-16; 
+    }
+    .checkout .icon-container {
+        width: 100px; 
+        height: 70px; 
     }
 }
