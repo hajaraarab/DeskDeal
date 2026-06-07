@@ -30,7 +30,7 @@
             </div>
 
             <div class="profile-actions">
-                <a class="round-btn darkblue body-lg" href="">Edit profile</a>
+                <a class="round-btn darkblue body-lg" href="{{ route('profile.edit') }}">Edit profile</a>
             </div>
         </div>
 
