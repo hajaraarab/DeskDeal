@@ -157,7 +157,7 @@
             </div>
 
             <div class="reservation-action">
-                <p class="notification-btn border">Geweigerd</p>
+                <p class="notification-btn rejected">Geweigerd</p>
             </div>
 
         </div>

@@ -150,6 +150,39 @@
     flex-direction: column;
     gap: variables.$gap-8; 
 }
+
+.reserve-message .notification-btn {
+    width: 100%; 
+    text-align: center;
+}
+
+.confirmation-step {
+    border: 2px solid variables.$primary-color-light; 
+    border-radius: variables.$radius-16; 
+    padding: variables.$padding-24; 
+    background-color: variables.$primary-color-light; 
+
+}
+.delivery-confirmation-info {
+    display:flex; 
+    justify-content: space-between;
+
+    .body-md {
+        color: variables.$primary-color; 
+    }
+    .body-lg {
+        color: variables.$secondary-color; 
+    }
+}
+.delivery-confirmation {
+    margin-top: variables.$margin-24; 
+}
+
+.confirm-reservation-action {
+    display:flex; 
+    justify-content: space-between;
+    margin-top:variables.$margin-32; 
+}
 @media (min-width: 768px) {
     .profile-page .attributes {
         flex-direction: row;

@@ -58,7 +58,7 @@
         <div class="section-header">
             <p class="subtitle">inbox</p>
             <div class="marketplace-description">
-                <h3>Reservaties</h3>
+                <h3>Recente reserveringsaanvragen</h3>
                 <a class="notification-btn darkblue body-md" href="{{ route('reservations.index') }}">Bekijk alle reservaties</a>
             </div>
         </div>

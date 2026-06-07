@@ -93,3 +93,18 @@ Route::post(
     '/reservation/{reservation}/appointment',
     [ReservationController::class, 'storeAppointment']
 )->name('reservation.appointment');
+
+Route::post(
+    '/reservation/{reservation}/appointment-preview',
+    [ReservationController::class, 'appointmentPreview']
+)->name('reservation.appointment.preview');
+
+Route::post(
+    '/reservations/{reservation}/make',
+    [ReservationController::class, 'confirmAppointment']
+)->name('reservation.make');
+
+Route::get(
+    '/reservations/{reservation}/completed',
+    [ReservationController::class, 'make']
+)->name('reservation.completed');

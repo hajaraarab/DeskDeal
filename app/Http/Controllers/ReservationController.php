@@ -75,54 +75,55 @@ class ReservationController extends Controller
         $user = auth()->user();
 
         $tab = $request->get('tab', 'requests');
+        $status = $request->get('status', 'all');
 
         if ($tab === 'my-reservations') {
 
-            $reservations = Reservation::with([
+            $query = Reservation::with([
                 'product',
                 'seller'
             ])
-            ->where('buyer_id', $user->id)
-            ->latest()
-            ->get();
+            ->where('buyer_id', $user->id);
 
         } else {
 
-            $reservations = Reservation::with([
+            $query = Reservation::with([
                 'buyer',
                 'product'
             ])
-            ->where('seller_id', $user->id)
-            ->latest()
-            ->get();
+            ->where('seller_id', $user->id);
         }
+
+        if ($status !== 'all') {
+            $query->where('status', $status);
+        }
+
+        $reservations = $query
+        ->latest()
+        ->get();
 
         return view('reservations.index', [
             'reservations' => $reservations,
             'tab' => $tab,
+            'status' => $status,
         ]);
     }
-    public function storeAppointment(Request $request, Reservation $reservation)
+    public function appointmentPreview(Request $request, Reservation $reservation)
     {
         if ($request->delivery_method === 'delivery') {
 
-            $validated = $request->validate([
+            $request->validate([
                 'deliveryadres' => [
                     'required',
                     'string',
                     'min:5'
                 ]
             ]);
-
-            $reservation->update([
-                'delivery_method' => 'delivery',
-                'delivery_address' => $validated['deliveryadres'],
-                'appointment_status' => 'pending'
-            ]);
         }
+
         if ($request->delivery_method === 'pickup') {
 
-            $validated = $request->validate([
+            $request->validate([
                 'pickup-date' => [
                     'required',
                     'date',
@@ -134,16 +135,50 @@ class ReservationController extends Controller
                     'date_format:H:i'
                 ]
             ]);
-
-            $reservation->update([
-                'delivery_method' => 'pickup',
-                'pickup_date' => $validated['pickup-date'],
-                'pickup_time' => $validated['pickup_time'],
-                'appointment_status' => 'pending'
-            ]);
         }
-        return redirect()
-        ->with('success', 'Afspraak verzonden.');
 
+        session([
+            'checkout_appointment' => [
+                'delivery_method' => $request->delivery_method,
+                'delivery_address' => $request->deliveryadres,
+                'pickup_date' => $request->input('pickup-date'),
+                'pickup_time' => $request->pickup_time,
+            ]
+        ]);
+
+        return view('reservations.confirmation', [
+            'reservation' => $reservation,
+            'product' => $reservation->product,
+        ]);
+    }
+
+    public function confirmAppointment(Reservation $reservation)
+    {
+        $appointment = session('checkout_appointment');
+
+        if (!$appointment) {
+            return redirect()
+                ->route('reservations.checkout', $reservation)
+                ->with('error', 'Geen afspraak gevonden.');
+        }
+
+        $reservation->update([
+            'delivery_method' => $appointment['delivery_method'],
+            'delivery_address' => $appointment['delivery_address'],
+            'pickup_date' => $appointment['pickup_date'],
+            'pickup_time' => $appointment['pickup_time'],
+            'appointment_status' => 'pending',
+        ]);
+
+        session()->forget('checkout_appointment');
+
+        return redirect()
+        ->route('reservation.completed', $reservation);
+    }
+    public function make(Reservation $reservation)
+    {
+        return view('reservations.make', [
+            'reservation' => $reservation,
+        ]);
     }
 }

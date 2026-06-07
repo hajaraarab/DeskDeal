@@ -1,65 +1,9 @@
-@include('partials.header')
+@include ('partials.header')
 
 <div class="content checkout">
+    @include ('partials.checkout-header')
 
-    <div class="product-reserved">
-        <div class="product-reserved-top">
-            
-            <div class="icon-container">
-                <img src="{{ asset('images/icons/check-mark.png') }} " alt="Checkmark icon">
-            </div>
-
-            <div class="product-reserved-header">
-                <p class="subtitle">Reservering geaccepteerd</p>
-                <h3>Goed nieuws - je mag {{ $product->title }} je kopen</h3>
-                <p class="body-sm grey">{{ $product->user->firstname }} heeft je reservering goedgekeurd. Plan hieronder een afspraak en kies hoe je het product wil ontvangen.</p>
-            </div>
-        </div>
-
-        <div class="reservation-product-bottom">
-            <div class="reservation-product-info">
-                <div class="attributes">
-                    <img src="{{ asset('images/icons/box-green.png') }}" alt="">
-                    <p class="subtitle">product</p>
-                </div>
-                <p class="body-lg">{{ $product->title }} </p>
-            </div>
-
-            <div class="reservation-product-info">
-                <div class="attributes">
-                    <img src="{{ asset('images/icons/box-green.png') }}" alt="">
-                    <p class="subtitle">verkoper</p>
-                </div>
-                <p class="body-lg">{{ $product->user->firstname }} {{ $product->user->lastname }} </p>
-            </div>
-
-            <div class="reservation-product-info">
-                <div class="attributes">
-                    <img src="{{ asset('images/icons/box-green.png') }}" alt="">
-                    <p class="subtitle">locatie</p>
-                </div>
-                <p class="body-lg">{{ $product->location }} </p>
-            </div>
-        </div>
-    </div>
-
-    <!-- STEPS -->
-    <div class="checkout-steps">
-        <div class="step active" id="step-appointment">
-            <span>1</span>
-            <p>Afspraak</p>
-        </div>
-
-        <div class="step-line"></div>
-
-        <div class="step" id="step-confirmation">
-            <span>2</span>
-            <p>Bevestiging</p>
-        </div>
-    </div>
-    <!-- END STEPS -->
-
-    <div class="transport">
+        <div class="transport">
             <div class="product-reserved-header">
                 <div class="icon-and-title">
                     <img src="{{ asset('images/icons/truck-green.png') }}" alt="">
@@ -82,7 +26,12 @@
                         </div>
                     </div>
 
-                    <input type="radio" name="delivery_method" value="delivery">
+                    <input 
+                        type="radio" 
+                        name="delivery_method" 
+                        value="delivery"
+                        {{ ($appointment['delivery_method'] ?? '') === 'delivery' ? 'checked' : '' }}
+                    >
     
                 </label>
 
@@ -98,7 +47,13 @@
                         </div>
                     </div>
 
-                    <input type="radio" name="delivery_method" value="pickup">
+                    <input 
+                        type="radio" 
+                        name="delivery_method" 
+                        value="pickup"
+                        {{ ($appointment['delivery_method'] ?? '') === 'pickup' ? 'checked' : '' }}
+
+                    >
     
                 </label>
             </div>
@@ -107,7 +62,7 @@
                 <form 
                     id="delivery-form" 
                     method="POST"
-                    action="{{ route('reservation.appointment', $reservation) }}"
+                    action="{{ route('reservation.appointment.preview', $reservation) }}"
                 >
                     @csrf
 
@@ -118,23 +73,28 @@
                     >
                     <div class="form-field required">
                         <label for="deliveryadres">Leveringsadres</label>
-                        <input type="text" name="deliveryadres" placeholder="Straat, nummer, postcode, stad" >
+                        <input 
+                            type="text" 
+                            name="deliveryadres" 
+                            placeholder="Straat, nummer, postcode, stad" 
+                            value="{{ old('deliveryadres', $appointment['delivery_address'] ?? '') }}"
+                        >
                         <p class="error-message"></p>
+                    </div>
+
+                    <div class="deliveryservice-info">
+                        <div class="icon-and-title">
+                            <img src="{{ asset('images/icons/calender.png') }}" alt="">
+                        </div>
+                        <div class="transport-info">
+                            <h5>Eerstvolgende beschikbare leverdatum</h5>
+                            <p class="body-md">maandag 17 juni - tussen 14:00 en 16:00</p>
+                            <p class="body-sm">Automatisch ingepland door bezorgservice</p>
+                        </div>
                     </div>
 
                     <button type="submit" class="round-btn darkblue body-lg">Volgende</button>
                 </form>
-
-                <div class="deliveryservice-info">
-                    <div class="icon-and-title">
-                        <img src="{{ asset('images/icons/calender.png') }}" alt="">
-                    </div>
-                    <div class="transport-info">
-                        <h5>Eerstvolgende beschikbare leverdatum</h5>
-                        <p class="body-md">maandag 17 juni - tussen 14:00 en 16:00</p>
-                        <p class="body-sm">Automatisch ingepland door bezorgservice</p>
-                    </div>
-                </div>
             </div>
 
             <div class="transport-output selfpickup">
@@ -152,7 +112,7 @@
                         <form 
                             id="pickup-form" 
                             method="POST"
-                            action="{{ route('reservation.appointment', $reservation) }}"
+                            action="{{ route('reservation.appointment.preview', $reservation) }}"
                         >
                         @csrf
 
@@ -165,7 +125,12 @@
                             <div class="selfpickup-inputs">
                                 <div class="form-field required">
                                     <label for="pickup-date">Pick up datum: </label>
-                                    <input type="date" name="pickup-date" placeholder="19/06/2026" >
+                                    <input 
+                                        type="date" 
+                                        name="pickup-date" 
+                                        placeholder="19/06/2026" 
+                                        value="{{ old('pickup-date', $appointment['pickup_date'] ?? '') }}"
+                                    >
                                     <p class="error-message"></p>
                                 </div>
 
@@ -175,6 +140,7 @@
                                         type="time"
                                         id="pickup-time"
                                         name="pickup_time"
+                                        value="{{ old('pickup_time', $appointment['pickup_time'] ?? '') }}"
                                     >
                                     <p class="error-message"></p>
                                 </div>
@@ -185,20 +151,7 @@
                     </div>
                 </div>
             </div>
-
-            <div class="confirmation-step" style="display:none; ">
-                <h2>Bevestiging</h2>
-                <p>Controleer uw gegevens.</p>
-
-                <button type="submit">
-                    Bestelling bevestigen
-                </button>
-            </div>
-
-
-       
     </div>
-
 </div>
 
-@include('partials.footer')
+@include ('partials.footer')

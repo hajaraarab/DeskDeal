@@ -28,17 +28,16 @@ document.querySelectorAll('.transport-option').forEach(option => {
 
 });
 
-
 function showConfirmation() {
 
-    document.querySelectorAll('.transport-output').forEach(output => {
-        output.style.display = 'none';
-    });
+    // volledige transport sectie verbergen
+    document.querySelector('.transport').style.display = 'none';
+    
 
-    document.querySelector('.transport-options').style.display = 'none';
-
+    // bevestiging tonen
     document.querySelector('.confirmation-step').style.display = 'block';
 
+    // stappen aanpassen
     document.getElementById('step-appointment').classList.remove('active');
     document.getElementById('step-appointment').classList.add('completed');
 
@@ -49,7 +48,7 @@ function showConfirmation() {
 // DELIVERY FORM
 document.getElementById('delivery-form').addEventListener('submit', function(e) {
 
-    e.preventDefault();
+    alert('formulier wordt verstuurd');
 
     const address = this.querySelector('input[name="deliveryadres"]');
 
@@ -57,7 +56,7 @@ document.getElementById('delivery-form').addEventListener('submit', function(e) 
     const label = field.querySelector('label');
     const errorMessage = field.querySelector('.error-message');
 
-    // reset
+    // reset errors
     field.classList.remove('error');
     label.classList.remove('error');
     errorMessage.textContent = '';
@@ -67,8 +66,7 @@ document.getElementById('delivery-form').addEventListener('submit', function(e) 
         field.classList.add('error');
         label.classList.add('error');
 
-        errorMessage.textContent =
-            'Vul een leveringsadres in.';
+        errorMessage.textContent = 'Vul een leveringsadres in.';
 
         return;
     }
@@ -112,8 +110,7 @@ document.getElementById('pickup-form').addEventListener('submit', function(e) {
         dateField.classList.add('error');
         dateLabel.classList.add('error');
 
-        dateError.textContent =
-            'Kies een datum.';
+        dateError.textContent = 'Kies een datum.';
 
         hasError = true;
     }
@@ -124,8 +121,7 @@ document.getElementById('pickup-form').addEventListener('submit', function(e) {
         timeField.classList.add('error');
         timeLabel.classList.add('error');
 
-        timeError.textContent =
-            'Kies een tijdstip.';
+        timeError.textContent = 'Kies een tijdstip.';
 
         hasError = true;
     }
@@ -158,8 +154,7 @@ document.getElementById('pickup-form').addEventListener('submit', function(e) {
 });
 
 
-// Verwijder errors zodra gebruiker begint in te vullen
-
+// Verwijder errors zodra gebruiker begint te typen
 document.querySelectorAll('.form-field input').forEach(input => {
 
     input.addEventListener('input', function() {
@@ -182,5 +177,37 @@ document.querySelectorAll('.form-field input').forEach(input => {
         }
 
     });
+
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    document.querySelectorAll('.transport-output').forEach(output => {
+        output.style.display = 'none';
+    });
+
+    const selectedRadio = document.querySelector(
+        'input[name="delivery_method"]:checked'
+    );
+
+    if (selectedRadio) {
+
+        const option = selectedRadio.closest('.transport-option');
+
+        option.classList.add('selected');
+
+        if (selectedRadio.value === 'delivery') {
+
+            document.querySelector(
+                '.transport-output.deliveryservice'
+            ).style.display = 'flex';
+
+        } else {
+
+            document.querySelector(
+                '.transport-output.selfpickup'
+            ).style.display = 'flex';
+        }
+    }
 
 });
