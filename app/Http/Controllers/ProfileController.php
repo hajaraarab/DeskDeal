@@ -12,9 +12,18 @@ class ProfileController extends Controller
     {
         $user = auth()->user();
 
+        $userProducts = $user->products()
+            ->with([
+                'images',
+                'category',
+                'reservations'
+            ])
+            ->latest()
+            ->get();
+
         $reservations = Reservation::with([
-        'buyer',
-        'product'
+            'buyer',
+            'product'
         ])
         ->where(function ($query) use ($user) {
             $query->where('seller_id', $user->id)
@@ -25,6 +34,7 @@ class ProfileController extends Controller
 
         return view('profile.show', [
             'user' => $user,
+            'userProducts' => $userProducts,
             'reservations' => $reservations,
         ]);
     }

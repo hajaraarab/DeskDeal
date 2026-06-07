@@ -1,20 +1,31 @@
-@php
-    $userProducts = $userProducts ?? auth()->user()?->products ?? collect();
-@endphp
 
 @if($userProducts->isNotEmpty())
-    <div class="info-block user-products">
+    <div class="myproducts">
 
-        <div class="product-detail-header">
-            <p class="subtitle">Mijn producten</p>
-            <h3>Producten die jij plaatste</h3>
+        <div class="section-header">
+            <p class="subtitle">mijn producten</p>
+            <div class="marketplace-description">
+                <h3>Mijn geplaatste producten</h3>
+                <a class="notification-btn darkblue body-md" href="">Bekijk al mijn producten</a>
+            </div>
         </div>
 
         <div class="swiper user-products-swiper">
             <div class="swiper-wrapper">
 
                 @foreach($userProducts as $product)
-                    <div class="swiper-slide">
+
+                    @php
+                        if ($product->status === 'accepted' && $product->appointment_status === 'accepted') {
+                            $filterStatus = 'sold';
+                        } elseif ($product->status === 'reserved') {
+                            $filterStatus = 'reserved';
+                        } else {
+                            $filterStatus = 'available';
+                        }
+                    @endphp
+
+                    <div class="swiper-slide product-item" data-filter-status="{{ $filterStatus }}">
 
                         <a href="{{ route('products.show', $product) }}" class="product-card-link">
                             <div class="product-card">
@@ -22,7 +33,13 @@
                                 @if($product->images->isNotEmpty())
                                     <div class="reserved-status body-sm">
                                         <p>
-                                            {{ $product->status === 'available' ? 'Beschikbaar' : 'Niet beschikbaar' }}
+                                            @if($filterStatus === 'available')
+                                                Beschikbaar
+                                            @elseif($filterStatus === 'reserved')
+                                                Gereserveerd
+                                            @elseif($filterStatus === 'sold')
+                                                Verkocht
+                                            @endif
                                         </p>
                                     </div>
 

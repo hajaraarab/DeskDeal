@@ -195,6 +195,15 @@
     justify-content: space-between;
     margin-top:variables.$margin-32; 
 }
+
+.myproducts {
+    margin-top:variables.$margin-64; 
+
+    .section-header{
+        margin-bottom: variables.$margin-32; 
+    }
+}
+
 @media (min-width: 768px) {
     .profile-page .attributes {
         flex-direction: row;

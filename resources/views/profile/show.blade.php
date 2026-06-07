@@ -37,17 +37,28 @@
         <div class="stat-cards">
             <div class="stat-card">
                 <img src="{{ asset('images/icons/check.png') }}" alt="">
-                <h4>4</h4>
+                <h4>
+                    {{ $userProducts->where('status', 'accepted')
+                                    ->where('appointment_status', 'accepted')
+                                    ->count() }}
+                </h4>
                 <p class="subtitle">aangekocht</p>
             </div>
             <div class="stat-card">
                 <img src="{{ asset('images/icons/box-green.png') }}" alt="">
-                <h4>4</h4>
+                <h4>{{ $userProducts->count() }}</h4>
                 <p class="subtitle">actief</p>
             </div>
             <div class="stat-card">
                 <img src="{{ asset('images/icons/pricetag-green.png') }}" alt="">
-                <h4>4</h4>
+                <h4>
+                    {{
+                        \App\Models\Reservation::where('seller_id', auth()->id())
+                            ->where('status', 'accepted')
+                            ->where('appointment_status', 'accepted')
+                            ->count()
+                    }}
+                </h4>
                 <p class="subtitle">verkocht</p>
             </div>
         </div>
@@ -67,9 +78,8 @@
 
     </div>
 
-    <div class="myproducts">
-        @include('partials.user-products-swiper')
-    </div>
+
+    @include('partials.myproducts')
 
 </div>
 
