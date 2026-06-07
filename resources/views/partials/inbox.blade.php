@@ -1,9 +1,22 @@
 @php
-    $notifications = $reservations->filter(function ($reservation) {
-        return
-            ($reservation->seller_id === auth()->id() && $reservation->status === 'pending')
-            || ($reservation->buyer_id === auth()->id() && in_array($reservation->status, ['accepted', 'rejected']));
-    })->take(4);
+$notifications = $reservations->filter(function ($reservation) {
+    return
+
+        ($reservation->seller_id === auth()->id()
+            && $reservation->status === 'pending')
+
+        ||
+
+        ($reservation->seller_id === auth()->id()
+            && $reservation->status === 'accepted'
+            && $reservation->appointment_status === 'pending')
+
+        ||
+
+        ($reservation->buyer_id === auth()->id()
+            && in_array($reservation->status, ['accepted', 'rejected']));
+
+})->take(4);
 @endphp
 
 @if($notifications->isEmpty())
@@ -20,7 +33,7 @@
     </div>
 
 @else
-@foreach($reservations->take(4) as $reservation)
+@foreach($notifications as $reservation)
 
     @if($reservation->seller_id === auth()->id() && $reservation->status === 'pending')
 
@@ -89,7 +102,7 @@
 
         </div>
 
-    @elseif($reservation->buyer_id === auth()->id() && $reservation->status === 'accepted')
+    @elseif($reservation->buyer_id === auth()->id() && $reservation->status === 'accepted' && !$reservation->appointment_status)
 
         <div class="reserve-message">
 
@@ -162,6 +175,85 @@
 
         </div>
 
+@elseif(
+$reservation->seller_id === auth()->id()
+&& $reservation->status === 'accepted'
+&& $reservation->appointment_status === 'pending'
+)
+
+<div class="reserve-message">
+
+    <div class="reservation-info">
+
+        <div class="reservation-content">
+
+            @if($reservation->product->images->isNotEmpty())
+                <img
+                    src="{{ asset('storage/' . $reservation->product->images->first()->image_path) }}"
+                    alt=""
+                    class="product-reserved-image"
+                >
+            @endif
+
+            <div class="reserve-message-info">
+                <div class="icon-and-title">
+                    <img src="{{ asset('/images/icons/location-green.png') }}" alt="">
+                    <h5>
+                        Onze bezorgservice zal het product ophalen op
+                        <strong>
+                            {{ \Carbon\Carbon::parse($reservation->pickup_date)->format('d/m/Y') }}
+                            om
+                            {{ \Carbon\Carbon::parse($reservation->pickup_time)->format('H:i') }}
+                        </strong>
+                        voor levering naar de aankoper.
+                    </h5>
+                </div>
+
+                @if($reservation->delivery_method === 'pickup')
+
+                    <p class="body-sm">
+                        Ophalen op
+                        {{ \Carbon\Carbon::parse($reservation->pickup_date)->format('d/m/Y') }}
+                        om
+                        {{ \Carbon\Carbon::parse($reservation->pickup_time)->format('H:i') }}
+                    </p>
+
+                @elseif($reservation->delivery_method === 'delivery')
+
+                    <p class="body-sm">
+                        Leveringsadres:
+                        {{ $reservation->delivery_address }}
+                    </p>
+
+                @endif
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="reservation-action">
+
+        <form
+            action=""
+            method="POST"
+        >
+            @csrf
+            @method('PATCH')
+
+            <button
+                class="button-with-icon success body-lg"
+                type="submit"
+            >
+                Afspraak accepteren
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
     @endif
 
 @endforeach

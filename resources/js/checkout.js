@@ -28,27 +28,9 @@ document.querySelectorAll('.transport-option').forEach(option => {
 
 });
 
-function showConfirmation() {
-
-    // volledige transport sectie verbergen
-    document.querySelector('.transport').style.display = 'none';
-    
-
-    // bevestiging tonen
-    document.querySelector('.confirmation-step').style.display = 'block';
-
-    // stappen aanpassen
-    document.getElementById('step-appointment').classList.remove('active');
-    document.getElementById('step-appointment').classList.add('completed');
-
-    document.getElementById('step-confirmation').classList.add('active');
-}
-
 
 // DELIVERY FORM
 document.getElementById('delivery-form').addEventListener('submit', function(e) {
-
-    alert('formulier wordt verstuurd');
 
     const address = this.querySelector('input[name="deliveryadres"]');
 
@@ -78,7 +60,6 @@ document.getElementById('delivery-form').addEventListener('submit', function(e) 
 // PICKUP FORM
 document.getElementById('pickup-form').addEventListener('submit', function(e) {
 
-    e.preventDefault();
 
     const date = this.querySelector('input[name="pickup-date"]');
     const time = this.querySelector('input[name="pickup_time"]');

@@ -13,15 +13,11 @@ return new class extends Migration
     {
         Schema::table('reservations', function (Blueprint $table) {
 
-            $table->string('delivery_method')->nullable();
+            $table->string('appointment_status')
+                ->nullable()
+                ->default(null)
+                ->change();
 
-            $table->string('delivery_address')->nullable();
-
-            $table->date('pickup_date')->nullable();
-
-            $table->time('pickup_time')->nullable();
-
-            $table->string('appointment_status')->nullable(); 
         });
     }
 
@@ -31,7 +27,11 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('reservations', function (Blueprint $table) {
-            //
+
+            $table->string('appointment_status')
+                ->default('pending')
+                ->change();
+
         });
     }
 };

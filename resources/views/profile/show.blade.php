@@ -67,6 +67,10 @@
 
     </div>
 
+    <div class="myproducts">
+        @include('partials.user-products-swiper')
+    </div>
+
 </div>
 
 @include('partials.footer')

@@ -1,0 +1,51 @@
+@use '../01_fundaments/variables';
+
+.make-delivery-confirmation{
+    display:flex; 
+    align-items: center;
+    justify-content: center;
+
+    .message {
+        display:flex; 
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        background-color: white; 
+        border: 2px solid variables.$primary-color-light; 
+        width: 80%; 
+        padding: variables.$padding-32; 
+        border-radius: variables.$radius-16;
+        margin-top: variables.$margin-64; 
+
+    }
+    .message-header {
+        display:flex; 
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: variables.$margin-32; 
+        gap:variables.$gap-16; 
+    }
+    .product-information {
+        width: 90%; 
+        background-color: variables.$primary-color-light;
+        padding: variables.$padding-24; 
+        border-radius: variables.$radius-16;
+
+        p {
+            font-size: 16px; 
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .message {
+        width: 50%; 
+        padding: variables.$padding-64; 
+    }
+    .product-information {
+        width: 100%; 
+    }
+     .message-header {
+        margin-bottom: variables.$margin-64; 
+     }
+}

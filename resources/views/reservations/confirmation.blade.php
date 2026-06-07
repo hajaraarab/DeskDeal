@@ -34,17 +34,10 @@
                 <p class="body-md">Afspraak</p>
 
                 <p class="body-lg">
-                    @if($appointment['delivery_method'] === 'pickup')
 
                         {{ \Carbon\Carbon::parse($appointment['pickup_date'])->format('d/m/Y') }}
                         om
                         {{ \Carbon\Carbon::parse($appointment['pickup_time'])->format('H:i') }}
-
-                    @else
-
-                        Eerstvolgende beschikbare leverdatum
-
-                    @endif
                 </p>
             </div>
 

@@ -94,10 +94,34 @@ class ReservationController extends Controller
             ->where('seller_id', $user->id);
         }
 
-        if ($status !== 'all') {
-            $query->where('status', $status);
-        }
+        if ($status === 'pending') {
 
+            $query->where(function ($q) {
+
+                $q->where('status', 'pending')
+
+                ->orWhere(function ($q) {
+                        $q->where('status', 'accepted')
+                        ->whereNull('appointment_status');
+                })
+
+                ->orWhere(function ($q) {
+                        $q->where('status', 'accepted')
+                        ->where('appointment_status', 'pending');
+                });
+
+            });
+
+        } elseif ($status === 'accepted') {
+
+            $query->where('status', 'accepted')
+                ->where('appointment_status', 'accepted');
+
+        } elseif ($status === 'rejected') {
+
+            $query->where('status', 'rejected');
+
+        }
         $reservations = $query
         ->latest()
         ->get();
@@ -162,12 +186,20 @@ class ReservationController extends Controller
                 ->with('error', 'Geen afspraak gevonden.');
         }
 
+        $pickupDate = $appointment['pickup_date'];
+        $pickupTime = $appointment['pickup_time'];
+
+        if ($appointment['delivery_method'] === 'delivery') {
+            $pickupDate = '2026-06-19';
+            $pickupTime = '10:30';
+        }
+
         $reservation->update([
             'delivery_method' => $appointment['delivery_method'],
             'delivery_address' => $appointment['delivery_address'],
             'pickup_date' => $appointment['pickup_date'],
             'pickup_time' => $appointment['pickup_time'],
-            'appointment_status' => 'pending',
+            'appointment_status' => 'accepted',
         ]);
 
         session()->forget('checkout_appointment');
@@ -178,6 +210,8 @@ class ReservationController extends Controller
     public function make(Reservation $reservation)
     {
         return view('reservations.make', [
+            'reservation' => $reservation,
+            'product' => $reservation->product,
             'reservation' => $reservation,
         ]);
     }
