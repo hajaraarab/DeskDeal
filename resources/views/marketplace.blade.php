@@ -23,8 +23,8 @@
     </div>
 
     <div class="search-container">
-        <input type="text" placeholder="🔍   Search for products...">
-        <button class="button-with-icon border body-sm" type="submit">
+        <input id="search-input" type="text" placeholder="🔍   Search for products...">
+        <button class="button-with-icon border body-sm" type="button">
             <img src="{{ asset('images/icons/filter-icon.png') }}" alt="Filter Icon">
             Filter
         </button>

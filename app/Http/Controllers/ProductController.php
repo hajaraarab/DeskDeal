@@ -105,6 +105,15 @@ class ProductController extends Controller
             $products->where('category_id', $request->category);
         }
 
+        if ($request->filled('q')) {
+            $query = $request->get('q');
+
+            $products->where(function ($builder) use ($query) {
+                $builder->where('title', 'like', "%{$query}%")
+                    ->orWhere('description', 'like', "%{$query}%");
+            });
+        }
+
         return view('partials.product-list', [
             'products' => $products->latest()->get()
         ]);

@@ -17,7 +17,7 @@
             @if($product->images->isNotEmpty())
             
                 <div class="reserved-status body-sm">
-                    <p>{{ $product->status === 'available' ? 'Beschikbaar' : 'Niet beschikbaar' }}</p>
+                    <p>{{ $product->status === 'available' ? 'Beschikbaar' : 'Gereserveerd' }}</p>
                 </div>
 
                 <img
