@@ -26,7 +26,7 @@
 
 <nav class="nav">
     <div class="logo">
-        <img class="logo-img" src="{{ asset('/images/logo.png') }}" alt="DeskDeal Logo">
+        <img class="logo-img" src="{{ asset('/images/favicon.png') }}" alt="DeskDeal Logo">
         <h4><a href="{{ route('home') }}">DeskDeal</a></h4>
     </div>
 

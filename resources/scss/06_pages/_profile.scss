@@ -207,7 +207,7 @@
 @media (min-width: 768px) {
     .profile-page .attributes {
         flex-direction: row;
-        gap: inherit; 
+        gap: variables.$gap-16; 
     }
     .profile-top {
         flex-direction: row;

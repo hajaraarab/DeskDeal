@@ -13,9 +13,8 @@
     height: 25px;
 
     @media (min-width: 768px) {
-        width: 35px;
-        height: 35px;
-        margin-top: -5px;
+        width: 29px;
+        height: 29px;
     }
 }
 .nav {
@@ -42,6 +41,16 @@
     display: flex; 
     align-items: center;
     gap: variables.$gap-8;
+}
+.user-menu form {
+  display: flex !important;
+  align-items: center !important;
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  height: auto !important; /* Zorgt dat het de hoogte van de knop volgt */
+}
+.user-menu .logout-btn {
+  margin: 0;
 }
 .desktop-menu {
     display: none; 
