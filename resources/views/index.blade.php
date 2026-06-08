@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="hero-section-img">
-            <img src="{{ asset('images/homepage-image.png') }}" alt="">
+            <img src="{{ asset('images/homepage-image.png') }}" alt="DeskDeal homepage afbeelding">
         </div>
     </div>
 
@@ -33,7 +33,7 @@
         <div class="cards">
             <div class="card">
                 <div class="icon-container">
-                    <img src="{{ asset('images/icons/savings.png') }}" alt="">
+                    <img src="{{ asset('images/icons/savings.png') }}" alt="Bespaar slim icoon">
                 </div>
 
                 <h5>Bespaar slim</h5>
@@ -43,7 +43,7 @@
             </div>
             <div class="card">
                 <div class="icon-container">
-                    <img src="{{ asset('images/icons/rise.png') }}" alt="">
+                    <img src="{{ asset('images/icons/rise.png') }}" alt="Efficiëntie icoon">
                 </div>
 
                 <h5>Efficiënt</h5>
@@ -53,7 +53,7 @@
             </div>
             <div class="card">
                 <div class="icon-container">
-                    <img src="{{ asset('images/icons/recyclable.png') }}" alt="">
+                    <img src="{{ asset('images/icons/recyclable.png') }}" alt="Duurzaamheidsicoon">
                 </div>
 
                 <h5>Duurzaam</h5>
@@ -64,7 +64,7 @@
 
             <div class="card">
                 <div class="icon-container">
-                    <img src="{{ asset('images/icons/delivery-truck.png') }}" alt="">
+                    <img src="{{ asset('images/icons/delivery-truck.png') }}" alt="Snelle levering icoon">
                 </div>
 
                 <h5>Snel</h5>

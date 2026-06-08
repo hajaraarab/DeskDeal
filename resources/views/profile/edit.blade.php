@@ -3,7 +3,7 @@
 <div class="content create-product">
 
     <a href="{{ route('profile.show') }}" class="back-link body-md">
-        <img src="{{ asset('images/icons/back.png') }}" alt="">
+        <img src="{{ asset('images/icons/back.png') }}" alt="Terug naar profiel">
         Terug naar profiel
     </a>
 

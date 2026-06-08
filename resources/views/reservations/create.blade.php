@@ -7,7 +7,7 @@
 <div class="content create-reservation">
 
     <a href="{{ route('products.show', $product) }}" class="back-link body-md">
-        <img src="{{ asset('images/icons/back.png') }} " alt="">
+        <img src="{{ asset('images/icons/back.png') }} " alt="Terug naar product">
          Terug naar product
     </a>
 
@@ -33,11 +33,11 @@
 
                     <div class="attributes">
                         <div class="single-attribute">
-                            <img src="{{ asset('images/icons/location-green.png') }}" alt="">
+                            <img src="{{ asset('images/icons/location-green.png') }}" alt="Locatie">
                             <p class="body-sm">Locatie: {{ $product->location }}</p>
                         </div>
                         <div class="single-attribute">
-                            <img src="{{ asset('images/icons/clock.png') }}" alt="">
+                            <img src="{{ asset('images/icons/clock.png') }}" alt="Gepost op">
                             <p class="body-sm">Geplaatst {{ $product->created_at->diffForHumans() }}</p>
                         </div>
                     </div>
@@ -54,14 +54,14 @@
 
                 <div class="attributes">
                     <div class="single-attribute">
-                        <img src="{{ asset('images/icons/location-green.png') }}" alt="">
+                        <img src="{{ asset('images/icons/location-green.png') }}" alt="Locatie">
                         <p class="body-sm">
                             {{ $product->location }}
                         </p>
                     </div>
 
                     <div class="single-attribute">
-                        <img src="{{ asset('images/icons/user.png') }}" alt="">
+                        <img src="{{ asset('images/icons/user.png') }}" alt="Verkoper">
                         <p class="body-sm">
                             Actief sinds {{ $product->user->created_at->format('Y') }}
                         </p>

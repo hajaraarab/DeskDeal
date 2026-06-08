@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" href="{{ asset('favicon.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,17 +49,17 @@
         @auth
         <div class="user-menu">
             <a class="header-actions" href="">
-                <img src="{{ asset('/images/icons/notifications.png') }}" alt="">
+                <img src="{{ asset('/images/icons/notifications.png') }}" alt="Meldingen">
             </a>
 
             <a class="header-actions" href="{{ route('profile.show') }}">
-                <img src="{{ asset('/images/icons/people.png') }}" alt="">
+                <img src="{{ asset('/images/icons/people.png') }}" alt="Profiel">
             </a>
 
             <form action="{{ route('logout') }}" method="POST">
                 @csrf
                 <button class="logout-btn" type="submit">
-                    <img src="{{ asset('/images/icons/logout.png') }}" alt="">
+                    <img src="{{ asset('/images/icons/logout.png') }}" alt="Uitloggen">
                 </button>
             </form> 
         </div>
@@ -70,14 +70,14 @@
     <div class="user-menu">
 
         <a class="header-actions mobile" href="{{ route('profile.show') }}">
-            <img src="{{ asset('/images/icons/people.png') }}" alt="">
+            <img src="{{ asset('/images/icons/people.png') }}" alt="Profiel">
         </a>
 
     </div>
     @endauth
 
     <button id="hamburger-btn" class="hamburger-btn">
-        <img src="{{ asset('/images/icons/hamburger.png') }}" alt="">
+        <img src="{{ asset('/images/icons/hamburger.png') }}" alt="Open menu">
     </button>
 </nav>
 
@@ -109,7 +109,7 @@
 
     <div class="link-to-page" data-href=" {{ route('home')}} ">
         <div class="icon-wrapper">
-            <img src="{{ asset('/images/icons/home.png') }}" alt="">
+            <img src="{{ asset('/images/icons/home.png') }}" alt="Home">
         </div>
 
         <a href="{{ route('home') }}" class="h6 {{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
@@ -117,7 +117,7 @@
 
     <div class="link-to-page" data-href=" {{ route('about') }}">
         <div class="icon-wrapper">
-            <img src="{{ asset('/images/icons/about.png') }}" alt="">
+            <img src="{{ asset('/images/icons/about.png') }}" alt="About">
         </div>
 
         <a href="{{ route('about') }}" class="h6 {{ request()->routeIs('about') ? 'active' : '' }}">About</a>
@@ -125,7 +125,7 @@
 
     <div class="link-to-page" data-href=" {{ route('marketplace') }}">
         <div class="icon-wrapper">
-            <img src="{{ asset('/images/icons/marketplace.png') }}" alt="">
+            <img src="{{ asset('/images/icons/marketplace.png') }}" alt="Marketplace">
         </div>
 
         <a href="{{ route('marketplace') }}" class="h6 {{ request()->routeIs('marketplace') ? 'active' : '' }}">Marketplace</a>
@@ -134,7 +134,7 @@
 
     <div class="link-to-page" data-href=" {{ route('contact') }}">
         <div class="icon-wrapper">
-            <img src="{{ asset('/images/icons/mail.png') }}" alt="">
+            <img src="{{ asset('/images/icons/mail.png') }}" alt="Contact">
         </div>
 
         <a href="{{ route('contact') }}" class="h6 {{ request()->routeIs('contact') ? 'active' : '' }}">Contact</a>

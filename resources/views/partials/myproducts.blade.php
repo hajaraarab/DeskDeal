@@ -57,7 +57,7 @@
                                         <div class="meta-item">
                                             <img
                                                 src="{{ asset('images/icons/pricetag.png') }}"
-                                                alt=""
+                                                alt="Prijs"
                                             >
                                             <p>{{ $product->category?->name }}</p>
                                         </div>
@@ -65,7 +65,7 @@
                                         <div class="meta-item">
                                             <img
                                                 src="{{ asset('images/icons/location.png') }}"
-                                                alt=""
+                                                alt="Locatie"
                                             >
                                             <p>{{ $product->location }}</p>
                                         </div>

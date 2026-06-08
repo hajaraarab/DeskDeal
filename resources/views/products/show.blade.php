@@ -2,7 +2,7 @@
 
 <div class="content view-product">
         <a href="{{ route('marketplace') }}" class="back-link body-md">
-            <img src="{{ asset('images/icons/back.png') }} " alt="">
+            <img src="{{ asset('images/icons/back.png') }} " alt="Terug naar Marketplace">
             Terug naar Marketplace
         </a>
 
@@ -46,11 +46,11 @@
 
                 <div class="attributes">
                     <div class="single-attribute">
-                        <img src="{{ asset('images/icons/location-green.png') }}" alt="">
+                        <img src="{{ asset('images/icons/location-green.png') }}" alt="Locatie">
                         <p class="body-sm">Locatie: {{ $product->location }}</p>
                     </div>
                     <div class="single-attribute">
-                        <img src="{{ asset('images/icons/clock.png') }}" alt="">
+                        <img src="{{ asset('images/icons/clock.png') }}" alt="Gepost op">
                         <p class="body-sm">Geplaatst {{ $product->created_at->diffForHumans() }}</p>
                     </div>
                 </div>
@@ -146,7 +146,7 @@
                                         <div class="meta-item">
                                             <img
                                                 src="{{ asset('images/icons/pricetag.png') }}"
-                                                alt=""
+                                                alt="Prijs"
                                             >
                                             <p>{{ $relatedProduct->category?->name }}</p>
                                         </div>
@@ -154,7 +154,7 @@
                                         <div class="meta-item">
                                             <img
                                                 src="{{ asset('images/icons/location.png') }}"
-                                                alt=""
+                                                alt="Locatie"
                                             >
                                             <p>{{ $relatedProduct->location }}</p>
                                         </div>

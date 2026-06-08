@@ -3,9 +3,7 @@
 
 <div class="empty-state">
     <div class="profile-picture">
-        <img src="{{ asset('/images/icons/box-darkblue.png') }}" alt="">
-    </div>
-
+            <img src="{{ asset('/images/icons/box-darkblue.png') }}" alt="Geen verzoeken">
     <div class="empty-state-text">
         <h5>Je hebt momenteel geen verzoeken</h5>
 
@@ -85,7 +83,7 @@
                         class="button-with-icon success body-lg"
                         type="submit"
                     >
-                        <img src="{{ asset('images/icons/check-mark-white.png') }}" alt="">
+                        <img src="{{ asset('images/icons/check-mark-white.png') }}" alt="Accepteren">
                         Accepteren
                     </button>
 
@@ -102,7 +100,7 @@
                         class="button-with-icon border body-lg"
                         type="submit"
                     >
-                        <img src="{{ asset('/images/icons/close.png') }}" alt="">
+                        <img src="{{ asset('/images/icons/close.png') }}" alt="Weigeren">
                         Weigeren
                     </button>
 
@@ -128,7 +126,7 @@
                     @if($reservation->product->images->isNotEmpty())
                         <img
                             src="{{ asset('storage/' . $reservation->product->images->first()->image_path) }}"
-                            alt=""
+                            alt="{{ $reservation->product->title }}"
                             class="product-reserved-image"
                         >
                     @endif
@@ -136,7 +134,7 @@
                     <div class="reserve-message-info">
 
                         <div class="icon-and-title">
-                            <img src="{{ asset('/images/icons/clock.png') }}" alt="">
+                            <img src="{{ asset('/images/icons/clock.png') }}" alt="Wachten op aankoper">
                             <h5>Wachten op de aankoper...</h5>
                         </div>
 
@@ -177,7 +175,7 @@
                     @if($reservation->product->images->isNotEmpty())
                         <img
                             src="{{ asset('storage/' . $reservation->product->images->first()->image_path) }}"
-                            alt=""
+                            alt="{{ $reservation->product->title }}"
                             class="product-reserved-image"
                         >
                     @endif
@@ -188,7 +186,7 @@
 
                             <img
                                 src="{{ asset('/images/icons/location-green.png') }}"
-                                alt=""
+                                alt="Locatie"
                             >
 
                             <h5>
@@ -259,7 +257,7 @@
                     @if($reservation->product->images->isNotEmpty())
                         <img
                             src="{{ asset('storage/' . $reservation->product->images->first()->image_path) }}"
-                            alt=""
+                            alt="{{ $reservation->product->title }}"
                             class="product-reserved-image"
                         >
                     @endif

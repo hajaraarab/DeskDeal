@@ -6,7 +6,7 @@
         <div class="transport">
             <div class="product-reserved-header">
                 <div class="icon-and-title">
-                    <img src="{{ asset('images/icons/truck-green.png') }}" alt="">
+                    <img src="{{ asset('images/icons/truck-green.png') }}" alt="Bezorgservice">
                     <h4>Hoe wil je het ontvangen ?</h4>
                 </div>
                 <p class="body-sm grey">Kies de optie die voor jou het beste werkt. </p> 
@@ -17,7 +17,7 @@
                 <label class="transport-option deliveryservice">
                     <div class="transport-option-text">
                         <div class="icon-wrapper">
-                            <img src="{{ asset('images/icons/truck.png') }}" alt="">
+                            <img src="{{ asset('images/icons/truck.png') }}" alt="Bezorgoptie">
                         </div>
 
                         <div class="transport-option-info">
@@ -38,7 +38,7 @@
                 <label class="transport-option selfpickup">
                     <div class="transport-option-text">
                         <div class="icon-wrapper">
-                            <img src="{{ asset('images/icons/location-darkblue.png') }}" alt="">
+                            <img src="{{ asset('images/icons/location-darkblue.png') }}" alt="Zelf ophalen">
                         </div>
 
                         <div class="transport-option-info">
@@ -84,7 +84,7 @@
 
                     <div class="deliveryservice-info">
                         <div class="icon-and-title">
-                            <img src="{{ asset('images/icons/calender.png') }}" alt="">
+                            <img src="{{ asset('images/icons/calender.png') }}" alt="Beschikbare datum">
                         </div>
                         <div class="transport-info">
                             <h5>Eerstvolgende beschikbare leverdatum</h5>
@@ -101,8 +101,7 @@
                 <div class="delivery-selfpickup">
 
                     <div class="icon-and-title">
-                        <img src="{{ asset('images/icons/clock.png') }}" alt="">
-                        <h4>Kies een datum en tijd</h4>
+                            <img src="{{ asset('images/icons/clock.png') }}" alt="Kies tijd">
                     </div>
 
                     <p class="body-sm grey">Spreek af op een moment dat voor jou past. </p> 

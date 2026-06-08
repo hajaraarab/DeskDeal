@@ -2,7 +2,7 @@
 
 <div class="empty-state">
     <div class="profile-picture">
-        <img src="{{ asset('/images/icons/box-darkblue.png') }}" alt="">
+        <img src="{{ asset('/images/icons/box-darkblue.png') }}" alt="Geen actieve reservaties">
     </div>
 
     <div class="empty-state-text">
@@ -45,7 +45,7 @@
                     @if($reservation->product->images->isNotEmpty())
                         <img
                             src="{{ asset('storage/' . $reservation->product->images->first()->image_path) }}"
-                            alt=""
+                            alt="{{ $reservation->product->title }}"
                             class="product-reserved-image"
                         >
                     @endif
@@ -53,7 +53,7 @@
                     <div class="reserve-message-info">
 
                         <div class="icon-and-title">
-                            <img src="{{ asset('/images/icons/hourglass.png') }}" alt="">
+                            <img src="{{ asset('/images/icons/hourglass.png') }}" alt="In behandeling">
                             <h5>Reservatie in behandeling...</h5>
                         </div>
 
@@ -89,7 +89,7 @@
                     @if($reservation->product->images->isNotEmpty())
                         <img
                             src="{{ asset('storage/' . $reservation->product->images->first()->image_path) }}"
-                            alt=""
+                            alt="{{ $reservation->product->title }}"
                             class="product-reserved-image"
                         >
                     @endif
@@ -125,7 +125,7 @@
                     @if($reservation->product->images->isNotEmpty())
                         <img
                             src="{{ asset('storage/' . $reservation->product->images->first()->image_path) }}"
-                            alt=""
+                            alt="{{ $reservation->product->title }}"
                             class="product-reserved-image"
                         >
                     @endif
@@ -133,7 +133,7 @@
                     <div class="reserve-message-info">
 
                         <div class="icon-and-title">
-                            <img src="{{ asset('/images/icons/check-mark-green.png') }}" alt="">
+                            <img src="{{ asset('/images/icons/check-mark-green.png') }}" alt="Geverifieerd">
                             <h5>Leveringsgegevens doorgestuurd</h5>
                         </div>
 
@@ -181,7 +181,7 @@
                     @if($reservation->product->images->isNotEmpty())
                         <img
                             src="{{ asset('storage/' . $reservation->product->images->first()->image_path) }}"
-                            alt=""
+                            alt="{{ $reservation->product->title }}"
                             class="product-reserved-image"
                         >
                     @endif

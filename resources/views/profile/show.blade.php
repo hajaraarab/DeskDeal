@@ -18,11 +18,11 @@
 
                     <div class="attributes">
                         <div class="single-attribute">
-                            <img src="{{ asset('images/icons/location-green.png') }}" alt="">
+                            <img src="{{ asset('images/icons/location-green.png') }}" alt="Emailadres">
                             <p class="body-sm">{{ $user->email }}</p>
                         </div>
                         <div class="single-attribute">
-                            <img src="{{ asset('images/icons/clock.png') }}" alt="">
+                            <img src="{{ asset('images/icons/clock.png') }}" alt="Lid sinds">
                             <p class="body-sm">Lid sinds {{ $user->created_at->diffForHumans() }}</p>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
 
         <div class="stat-cards">
             <div class="stat-card">
-                <img src="{{ asset('images/icons/check.png') }}" alt="">
+                <img src="{{ asset('images/icons/check.png') }}" alt="Aangekocht">
                 <h4>
                     {{ $userProducts->where('status', 'accepted')
                                     ->where('appointment_status', 'accepted')
@@ -45,12 +45,12 @@
                 <p class="subtitle">aangekocht</p>
             </div>
             <div class="stat-card">
-                <img src="{{ asset('images/icons/box-green.png') }}" alt="">
+                <img src="{{ asset('images/icons/box-green.png') }}" alt="Actief">
                 <h4>{{ $userProducts->count() }}</h4>
                 <p class="subtitle">actief</p>
             </div>
             <div class="stat-card">
-                <img src="{{ asset('images/icons/pricetag-green.png') }}" alt="">
+                <img src="{{ asset('images/icons/pricetag-green.png') }}" alt="Verkocht">
                 <h4>
                     {{
                         \App\Models\Reservation::where('seller_id', auth()->id())

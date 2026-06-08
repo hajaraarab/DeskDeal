@@ -19,7 +19,7 @@
         <div class="reservation-product-bottom">
             <div class="reservation-product-info">
                 <div class="attributes">
-                    <img src="{{ asset('images/icons/box-green.png') }}" alt="">
+                    <img src="{{ asset('images/icons/box-green.png') }}" alt="Product">
                     <p class="subtitle">product</p>
                 </div>
                 <p class="body-lg">{{ $product->title }} </p>
@@ -27,7 +27,7 @@
 
             <div class="reservation-product-info">
                 <div class="attributes">
-                    <img src="{{ asset('images/icons/box-green.png') }}" alt="">
+                    <img src="{{ asset('images/icons/box-green.png') }}" alt="Product">
                     <p class="subtitle">verkoper</p>
                 </div>
                 <p class="body-lg">{{ $product->user->firstname }} {{ $product->user->lastname }} </p>
@@ -35,7 +35,7 @@
 
             <div class="reservation-product-info">
                 <div class="attributes">
-                    <img src="{{ asset('images/icons/box-green.png') }}" alt="">
+                    <img src="{{ asset('images/icons/box-green.png') }}" alt="Product">
                     <p class="subtitle">locatie</p>
                 </div>
                 <p class="body-lg">{{ $product->location }} </p>

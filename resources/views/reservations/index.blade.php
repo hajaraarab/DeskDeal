@@ -3,7 +3,7 @@
 <div class="content reservations-index">
 
     <a href="{{ route('profile.show') }}" class="back-link body-md">
-        <img src="{{ asset('images/icons/back.png') }} " alt="">
+        <img src="{{ asset('images/icons/back.png') }} " alt="Terug naar mijn profiel">
          Terug naar mijn profiel
     </a>
 

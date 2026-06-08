@@ -23,7 +23,7 @@ $notifications = $reservations->filter(function ($reservation) {
 
     <div class="empty-state">
         <div class="profile-picture">
-            <img src="{{ asset('/images/icons/box-darkblue.png') }}" alt="">
+            <img src="{{ asset('/images/icons/box-darkblue.png') }}" alt="Geen meldingen">
         </div>
 
         <div class="empty-state-text">
@@ -46,7 +46,7 @@ $notifications = $reservations->filter(function ($reservation) {
                 @if($reservation->product->images->isNotEmpty())
                     <img
                         src="{{ asset('storage/' . $reservation->product->images->first()->image_path) }}"
-                        alt=""
+                        alt="{{ $reservation->product->title }}"
                         class="product-reserved-image"
                     >
                 @endif
@@ -83,7 +83,7 @@ $notifications = $reservations->filter(function ($reservation) {
                     @method('PATCH')
 
                     <button class="button-with-icon success body-lg" type="submit">
-                        <img src="{{ asset('images/icons/check-mark-white.png') }}" alt="">
+                        <img src="{{ asset('images/icons/check-mark-white.png') }}" alt="Accepteren">
                         Accepteren
                     </button>
                 </form>
@@ -93,7 +93,7 @@ $notifications = $reservations->filter(function ($reservation) {
                     @method('PATCH')
 
                     <button class="button-with-icon border body-lg" type="submit">
-                        <img src="{{ asset('/images/icons/close.png') }}" alt="">
+                        <img src="{{ asset('/images/icons/close.png') }}" alt="Weigeren">
                         Weigeren
                     </button>
                 </form>
@@ -111,7 +111,7 @@ $notifications = $reservations->filter(function ($reservation) {
                 @if($reservation->product->images->isNotEmpty())
                     <img
                         src="{{ asset('storage/' . $reservation->product->images->first()->image_path) }}"
-                        alt=""
+                        alt="{{ $reservation->product->title }}"
                         class="product-reserved-image"
                     >
                 @endif
@@ -150,7 +150,7 @@ $notifications = $reservations->filter(function ($reservation) {
                     @if($reservation->product->images->isNotEmpty())
                         <img
                             src="{{ asset('storage/' . $reservation->product->images->first()->image_path) }}"
-                            alt=""
+                            alt="{{ $reservation->product->title }}"
                             class="product-reserved-image"
                         >
                     @endif
@@ -190,14 +190,14 @@ $reservation->seller_id === auth()->id()
             @if($reservation->product->images->isNotEmpty())
                 <img
                     src="{{ asset('storage/' . $reservation->product->images->first()->image_path) }}"
-                    alt=""
+                    alt="{{ $reservation->product->title }}"
                     class="product-reserved-image"
                 >
             @endif
 
             <div class="reserve-message-info">
                 <div class="icon-and-title">
-                    <img src="{{ asset('/images/icons/location-green.png') }}" alt="">
+                    <img src="{{ asset('/images/icons/location-green.png') }}" alt="Locatie">
                     <h5>
                         Onze bezorgservice zal het product ophalen op
                         <strong>

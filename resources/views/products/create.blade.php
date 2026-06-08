@@ -9,7 +9,7 @@
 <div class="content create-product">
 
     <a href="{{ route('marketplace') }}" class="back-link body-md">
-        <img src="{{ asset('images/icons/back.png') }} " alt="">
+        <img src="{{ asset('images/icons/back.png') }} " alt="Terug naar Marketplace">
          Terug naar Marketplace
     </a>
 
@@ -46,7 +46,7 @@
             <label for="product-images">Foto's</label>
 
             <div class="image-upload-wrapper">
-                <img class="icon" src="{{ asset('images/icons/upload.png') }}" alt="Filter Icon">
+                <img class="icon" src="{{ asset('images/icons/upload.png') }}" alt="Upload foto">
                 <p class="body-md">Sleep foto's hierheen of klik om te uploaden</p>
                 <p class="body-sm">PNG, JPG of JPEG, max 2 MB per foto</p>
                 <input
@@ -74,15 +74,7 @@
                     <img
                         src="{{ asset('storage/' . $image->image_path) }}"
                         class="preview-image"
-                        alt=""
-                    >
-
-                    <button
-                        type="button"
-                        class="delete-preview-btn delete-existing-btn"
-                    >
-                        &times;
-                    </button>
+                            alt="{{ $product->title ?? 'Huidige productfoto' }}"
 
                 </div>
             @endforeach
