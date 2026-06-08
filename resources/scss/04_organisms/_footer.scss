@@ -3,9 +3,9 @@
 .footer {
     margin-top: variables.$margin-64; 
     background-color: variables.$primary-color;
-    padding: variables.$padding-64; 
+    padding: variables.$padding-32; 
     display:flex; 
-    flex-direction: row;
+    flex-direction: column;
     gap:variables.$gap-32; 
 
     .deskdeal-info {
@@ -22,10 +22,9 @@
         margin-bottom: variables.$margin-12; 
     }
     .body-md {
-        color: variables.$white; 
+        color: rgba(variables.$white, 0.7); 
     }
     .footer-part-one, .footer-part-two {
-        width: 50%; 
         display: flex; 
         flex-direction: column;
         gap: variables.$gap-48; 
@@ -40,5 +39,15 @@
         width: fit-content; 
         color: variables.$secondary-color; 
         font-weight: 700; 
+    }
+}
+
+@media (min-width: 768px) {
+    .footer {
+        padding: variables.$padding-64; 
+        flex-direction: row;
+    }
+    .footer-part-one, .footer-part-two {
+        width: 50%; 
     }
 }
