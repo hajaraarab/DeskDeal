@@ -113,3 +113,7 @@ Route::get(
     '/reservations/{reservation}/completed',
     [ReservationController::class, 'make']
 )->name('reservation.completed');
+
+Route::get('/mijn-producten', [ProductController::class, 'myProducts'])
+    ->middleware('auth')
+    ->name('products.mine');

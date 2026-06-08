@@ -1,0 +1,9 @@
+@use '../01_fundaments/variables';
+
+.myproducts-page {
+    margin-top: variables.$margin-64; 
+
+    .back-link {
+        margin-bottom: variables.$margin-48; 
+    }
+}

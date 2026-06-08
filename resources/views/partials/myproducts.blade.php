@@ -6,7 +6,7 @@
             <p class="subtitle">mijn producten</p>
             <div class="marketplace-description">
                 <h3>Mijn geplaatste producten</h3>
-                <a class="notification-btn darkblue body-md" href="">Bekijk al mijn producten</a>
+                <a class="notification-btn darkblue body-md" href="{{ route('products.mine') }}">Bekijk al mijn producten</a>
             </div>
         </div>
 

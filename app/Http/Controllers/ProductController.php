@@ -198,4 +198,22 @@ class ProductController extends Controller
             ->route('products.show', $product)
             ->with('success', 'Product succesvol bijgewerkt.');
     }
+    public function myProducts()
+    {
+        $products = Product::with([
+            'user',
+            'category',
+            'images'
+        ])
+        ->where('user_id', Auth::id())
+        ->latest()
+        ->get();
+
+        $categories = Category::all();
+
+        return view('products.mine', compact(
+            'products',
+            'categories'
+        ));
+    }
 }
