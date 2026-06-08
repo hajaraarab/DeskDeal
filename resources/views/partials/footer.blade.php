@@ -22,10 +22,10 @@
     <div class="footer-part-two">
         <div class="links">
             <p class="subtitle">navigatie</p>
-            <a class="link-to-page body-md" href="">Home</a>
-            <a class="link-to-page body-md" href="">Over ons</a>
-            <a class="link-to-page body-md" href="">Marketplace</a>
-            <a class="link-to-page body-md" href="">Contact</a>
+            <a class="link-to-page body-md" href="{{ route('home') }}">Home</a>
+            <a class="link-to-page body-md" href="{{ route('about') }}">Over ons</a>
+            <a class="link-to-page body-md" href="{{ route('marketplace') }}">Marketplace</a>
+            <a class="link-to-page body-md" href="{{ route('contact') }}">Contact</a>
         </div>
         <div class="links">
             <p class="subtitle">contact</p>

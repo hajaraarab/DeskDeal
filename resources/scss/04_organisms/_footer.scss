@@ -35,4 +35,10 @@
         margin-bottom: variables.$margin-8; 
         padding: 0; 
     }
+    .link-to-page:hover {
+        padding: variables.$padding-8; 
+        width: fit-content; 
+        color: variables.$secondary-color; 
+        font-weight: 700; 
+    }
 }

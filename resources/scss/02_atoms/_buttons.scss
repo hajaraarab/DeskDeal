@@ -39,6 +39,15 @@
     border-radius: variables.$radius-16;
     cursor: pointer; 
 }
+.round-btn.white {
+    background-color: variables.$white;
+    color: variables.$secondary-color; 
+    width: fit-content; 
+}
+.round-btn.white:hover {
+    background-color: rgba(variables.$primary-color, 0.5);
+    color: variables.$white; 
+}
 .round-btn.accept {
     background-color: variables.$success-color;
     color: variables.$white;

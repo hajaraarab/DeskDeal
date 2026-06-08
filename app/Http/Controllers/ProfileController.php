@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reservation;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -69,6 +70,19 @@ class ProfileController extends Controller
 
         return redirect()->route('profile.show')
             ->with('success', 'Je profiel is succesvol bijgewerkt.');
+    }
+    public function home()
+    {
+        $userCount = User::count();
+
+        $soldProductsCount = Reservation::where('status', 'accepted')
+            ->where('appointment_status', 'accepted')
+            ->count();
+
+        return view('index', [
+            'userCount' => $userCount,
+            'soldProductsCount' => $soldProductsCount,
+        ]);
     }
 
 }

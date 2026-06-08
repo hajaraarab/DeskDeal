@@ -1,0 +1,148 @@
+@use '../01_fundaments/variables';
+
+.homepage {
+    display:flex; 
+    flex-direction: column;
+    gap:variables.$gap-64; 
+    margin-top: variables.$margin-64; 
+
+    h1 {
+        color: variables.$primary-color;
+    }
+}
+.count {
+    margin-top: variables.$margin-32; 
+    display:flex; 
+    gap: variables.$gap-32; 
+
+    h1 {
+        color: rgba(variables.$primary-color, 0.5); 
+        font-weight: 300; 
+    }
+    .subtitle {
+        color: variables.$secondary-color; 
+    }
+}
+.hero-section {
+    display:flex; 
+    justify-content: space-between;
+    gap: variables.$gap-32; 
+
+    img {
+        display:none; 
+        height: 400px; 
+    }
+}
+.cards {
+    display:flex; 
+    flex-direction: column;
+    border-radius: variables.$radius-16;
+    gap: variables.$gap-16; 
+}
+.card {
+    display:flex; 
+    flex-direction: column;
+    gap: variables.$gap-8; 
+    border: 2px solid rgba(variables.$primary-color, 0.5); 
+    padding: variables.$padding-16; 
+    border-radius: variables.$radius-16;
+
+    .icon-container {
+        background-color: rgba(variables.$primary-color, 0.5); 
+        border-radius: variables.$radius-8; 
+        width: 40px; 
+        height: 40px; 
+    }
+    h5 { 
+        color: variables.$secondary-color; 
+    }
+}
+
+.zo-werkt-het {
+    margin-top: variables.$margin-32; 
+}
+.zo-werkt-het-steps {
+    display:flex; 
+    flex-direction: column;
+    gap: variables.$gap-32; 
+
+    h6 {
+        font-weight: 700; 
+        color: variables.$secondary-color; 
+        font-size: 20px; 
+    }
+    h2 {
+        color: rgba(variables.$primary-color, 0.5)
+    }
+}
+.zo-werkt-het-step {
+    flex: 1; 
+}
+
+.go-to-marketplace {
+    background-color: variables.$secondary-color; 
+    color: rgba(variables.$white, 0.7); 
+    padding: variables.$padding-32; 
+    border-radius: variables.$radius-16; 
+    display:flex; 
+    flex-direction: column;
+    gap: variables.$gap-64; 
+
+    h2 {
+        color: white; 
+    }
+}
+.go-to-marketplace-info {
+    display:flex; 
+    flex-direction: column;
+    gap: variables.$gap-8; 
+}
+
+@media (min-width: 768px) {
+    .hero-section img {
+        display:block 
+    }
+    .cards {
+        flex-direction: row;
+        background: variables.$primary-color;
+        margin-top: variables.$margin-16; 
+    }
+    .card {
+        position: relative;
+        z-index: 1;
+        padding:variables.$padding-24; 
+        border: none; 
+
+        .body-sm {
+            color: rgba(variables.$white, 0.7); 
+        }
+        h5 {
+            color: white; 
+        }
+        .icon-container {
+            background-color: rgba(variables.$white, 0.5); 
+        }
+    }
+
+    .card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        z-index: -1;
+        transition: all 0.3s ease;
+    }
+
+    .card:hover::before {
+        top: -30px;
+        bottom: -30px;
+        border-radius: variables.$radius-16; 
+        background: variables.$secondary-color;
+    }
+    .zo-werkt-het-steps {
+    flex-direction: row;
+    }
+    .go-to-marketplace {
+        padding: variables.$padding-64; 
+    }
+}

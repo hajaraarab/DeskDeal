@@ -4,3 +4,4 @@ import './newproduct';
 import './menu'; 
 import './swiper'; 
 import './checkout'; 
+import './countdown'; 
