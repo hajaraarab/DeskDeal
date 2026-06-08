@@ -14,7 +14,7 @@
         </div>
 
         <div class="message-header">
-            <h2>Bestelling bevestigd</h2>
+            <h2>Leveringsmethode bevestigd</h2>
             <p class="body-lg grey">
                 Je krijgt zo dadelijk een mail met alle details. Veel plezier met je nieuwe aankoop !
             </p>
@@ -63,3 +63,6 @@
         </div>
     </div>
 </div>
+
+
+@include('partials.footer')

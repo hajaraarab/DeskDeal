@@ -1,0 +1,11 @@
+@use '../01_fundaments/variables';
+
+.reschedule-page {
+
+    .delivery-confirmation {
+        margin-top: 0; 
+        background-color: variables.$primary-color-light;
+        padding:variables.$padding-24; 
+        border-radius: variables.$radius-8;
+    }
+}

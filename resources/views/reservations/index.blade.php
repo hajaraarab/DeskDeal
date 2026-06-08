@@ -85,7 +85,7 @@
         @include('reservations.partials.my-reservations')
 
     @endif
-
+</div>
 
 
 @include('partials.footer')

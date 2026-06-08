@@ -20,5 +20,18 @@ class Order extends Model
         'pickup_date',
         'pickup_time',
         'status',
+        'rescheduled_by_user_id',
     ];
+    public function reservation()
+    {
+        return $this->belongsTo(Reservation::class);
+    }
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+    public function rescheduledBy()
+    {
+        return $this->belongsTo(User::class, 'rescheduled_by_user_id');
+    }
 }

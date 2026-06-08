@@ -1,20 +1,23 @@
 
 @if($reservations->isEmpty())
 
-<div class="empty-state">
-    <div class="profile-picture">
+    <div class="empty-state">
+        <div class="profile-picture">
             <img src="{{ asset('/images/icons/box-darkblue.png') }}" alt="Geen verzoeken">
-    <div class="empty-state-text">
-        <h5>Je hebt momenteel geen verzoeken</h5>
+        </div>
 
-        <p class="body-sm">
-            Zodra iemand een product van jou wil reserveren,
-            verschijnt het verzoek hier.
-            Je vindt hier een overzicht van alle reservatieverzoeken,
-            zowel lopende als afgehandelde aanvragen.
-        </p>
+        <div class="empty-state-text">
+            <h5>Je hebt momenteel geen verzoeken</h5>
+
+            <p class="body-sm">
+                Zodra iemand een product van jou wil reserveren,
+                verschijnt het verzoek hier.
+                Je vindt hier een overzicht van alle reservatieverzoeken,
+                zowel lopende als afgehandelde aanvragen.
+            </p>
+        </div>
     </div>
-</div>
+
 
 @else
 
@@ -184,6 +187,21 @@
 
                         <div class="icon-and-title">
 
+                            @if(
+                                $reservation->order &&
+                                $reservation->order->updated_at != $reservation->order->created_at
+                            )
+                            <img
+                                src="{{ asset('/images/icons/location-red.png') }}"
+                                alt="Locatie"
+                            >
+                            <h5 class="edit-delivery-moment">
+                                {{ $reservation->order->rescheduledBy->firstname }}
+                                {{ $reservation->order->rescheduledBy->lastname }}
+                                heeft het leveringsmoment aangepast.
+                            </h5>
+
+                            @else
                             <img
                                 src="{{ asset('/images/icons/location-green.png') }}"
                                 alt="Locatie"
@@ -192,7 +210,7 @@
                             <h5>
                                 Leveringsgegevens ontvangen
                             </h5>
-
+                            @endif
                         </div>
 
                         <p class="body-sm">
@@ -232,7 +250,7 @@
             <div class="reservation-action">
 
                 <a
-                    href="#"
+                    href="{{ route('orders.reschedule', $reservation->order) }}"
                     class="round-btn darkblue body-lg"
                 >
                     Ander moment voorstellen

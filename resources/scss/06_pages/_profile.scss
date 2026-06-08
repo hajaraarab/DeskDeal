@@ -178,8 +178,10 @@
 .delivery-confirmation-info {
     display:flex; 
     justify-content: space-between;
+    border-bottom: 1px solid variables.$primary-color-light;
+    margin-bottom: variables.$margin-8;  
 
-    .body-md {
+    .body-md.title {
         color: variables.$primary-color; 
     }
     .body-lg {

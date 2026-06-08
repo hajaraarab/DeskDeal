@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
@@ -117,3 +118,18 @@ Route::get(
 Route::get('/mijn-producten', [ProductController::class, 'myProducts'])
     ->middleware('auth')
     ->name('products.mine');
+
+Route::get(
+    '/orders/{order}/reschedule',
+    [OrderController::class, 'reschedule']
+)->name('orders.reschedule');
+
+Route::post(
+    '/orders/{order}/reschedule',
+    [OrderController::class, 'storeReschedule']
+)->name('orders.reschedule.store');
+
+Route::get(
+    '/orders/{order}/reschedule/confirm',
+    [OrderController::class, 'rescheduleConfirm']
+)->name('orders.reschedule.confirm');

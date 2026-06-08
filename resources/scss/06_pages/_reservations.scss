@@ -41,6 +41,10 @@
     border-radius: variables.$radius-16; 
 }
 
+.edit-delivery-moment {
+    color: variables.$error-color !important;  
+}
+
 @media (min-width: 768px) {
     .reservations-index {
         margin-top: variables.$margin-48; 

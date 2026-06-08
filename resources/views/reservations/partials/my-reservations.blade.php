@@ -21,14 +21,6 @@
 
     @foreach($reservations as $reservation)
 
-        <p>
-        ID: {{ $reservation->id }}
-        |
-        Status: {{ $reservation->status }}
-        |
-        Appointment: {{ $reservation->appointment_status ?? 'NULL' }}
-    </p>
-
     <div class="reserve-message">
         <a
             href="{{ route('products.show', $reservation->product) }}"
@@ -133,12 +125,38 @@
                     <div class="reserve-message-info">
 
                         <div class="icon-and-title">
-                            <img src="{{ asset('/images/icons/check-mark-green.png') }}" alt="Geverifieerd">
-                            <h5>Leveringsgegevens doorgestuurd</h5>
-                        </div>
 
+                        @if(
+                        $reservation->order &&
+                        $reservation->order->updated_at != $reservation->order->created_at
+                        )
+                            <img src="{{ asset('/images/icons/location-red.png') }}" alt="Geverifieerd">
+
+                            <h5 class="edit-delivery-moment">
+                                {{ $reservation->order->rescheduledBy->firstname }}
+                                {{ $reservation->order->rescheduledBy->lastname }}
+                                heeft het leveringsmoment aangepast.
+                            </h5>
+                        @else 
+                            <img src="{{ asset('/images/icons/check-mark.png') }}" alt="Geverifieerd">
+                            <h5>Leveringsgegevens doorgestuurd</h5>
+                        @endif
+                        </div>
+                    
                         <p class="body-sm">
 
+                        @if(
+                        $reservation->order &&
+                        $reservation->order->updated_at != $reservation->order->created_at
+                        )
+                        <strong>
+                        Het leveringsmoment werd aangepast. Je kan jouw aankoop ophalen op
+                        {{ \Carbon\Carbon::parse($reservation->pickup_date)->format('d/m/Y') }}
+                        om
+                        {{ \Carbon\Carbon::parse($reservation->pickup_time)->format('H:i') }}
+                        </strong>
+
+                        @else
                             @if($reservation->delivery_method === 'pickup')
 
                                 Je hebt een afspraak voorgesteld op
@@ -147,14 +165,14 @@
                                     {{ \Carbon\Carbon::parse($reservation->pickup_date)->format('d/m/Y') }}
                                     om
                                     {{ \Carbon\Carbon::parse($reservation->pickup_time)->format('H:i') }}
-                                </strong>.
+                                </strong>
 
                             @else
 
                                 Je bezorgaanvraag werd doorgestuurd naar de verkoper.
 
                             @endif
-
+                        @endif
                         </p>
 
                     </div>
@@ -165,9 +183,12 @@
 
             <div class="reservation-action">
 
-                <p class="notification-btn success">
-                    Verzonden
-                </p>
+                <a
+                    href="{{ route('orders.reschedule', $reservation->order) }}"
+                    class="round-btn darkblue body-lg"
+                >
+                    Ander moment voorstellen
+                </a>
 
             </div>
 

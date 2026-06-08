@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Product;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
@@ -200,6 +201,19 @@ class ReservationController extends Controller
             'pickup_date' => $appointment['pickup_date'],
             'pickup_time' => $appointment['pickup_time'],
             'appointment_status' => 'accepted',
+        ]);
+
+        Order::create([
+            'reservation_id'   => $reservation->id,
+            'product_id'       => $reservation->product_id,
+            'buyer_id'         => $reservation->buyer_id,
+            'seller_id'        => $reservation->seller_id,
+            'price'            => $reservation->product->price,
+            'delivery_method'  => $appointment['delivery_method'],
+            'delivery_address' => $appointment['delivery_address'],
+            'pickup_date'      => $appointment['pickup_date'],
+            'pickup_time'      => $appointment['pickup_time'],
+            'status'           => 'placed',
         ]);
 
         session()->forget('checkout_appointment');
