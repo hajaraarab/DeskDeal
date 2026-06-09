@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -140,3 +141,6 @@ Route::get(
     '/orders/{order}/reschedule/confirm',
     [OrderController::class, 'rescheduleConfirm']
 )->name('orders.reschedule.confirm');
+
+Route::post('/contact', [ContactController::class, 'send'])
+    ->name('contact.send');
