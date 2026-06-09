@@ -20,7 +20,7 @@
                 </p>
             </div>
 
-            <form class="login-form" method="POST" action="{{ route('contact.send') }}" >
+            <form class="login-form" method="POST" action="" >
                 @csrf
                 <div class="form-group">
                 <div class="form-field required">
