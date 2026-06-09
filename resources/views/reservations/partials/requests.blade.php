@@ -167,7 +167,7 @@
             && $reservation->appointment_status === 'accepted'
         )
 
-            <div class="reserve-info delivery-accepted-reservation">
+            <div class="reserve-info accepted-reservation">
 
                 <p class="body-sm time">
                     {{ $reservation->created_at->diffForHumans() }}
