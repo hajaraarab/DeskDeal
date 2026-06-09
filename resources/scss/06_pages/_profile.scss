@@ -150,7 +150,18 @@
         width: 40px; 
         height: 45px; 
     }
+    .notification-btn {
+        text-align: center;
+    }
+    .myproducts .marketplace-description {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
 }
+
 
 .reservation-message {
     padding-top: variables.$padding-8; 

@@ -1,6 +1,5 @@
 @include('partials.header')
 
-
 <div class="content create-product reschedule-page">
 
     <a href="{{ route('reservations.index') }}" class="back-link body-md">

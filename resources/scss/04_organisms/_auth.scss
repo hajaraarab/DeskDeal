@@ -2,19 +2,18 @@
 
 .auth-container {
     position: relative;
+}
+.background {
+    background-color: variables.$primary-color-light; 
+    top: -100px;
+    padding: -20px; 
+    margin-left: -16px;
+    margin-right: -16px;
+    padding-top: 5%;
+    z-index: -2;
 
-    .background {
-        background-color: variables.$primary-color-light; 
-        margin-top: -140px;
-        padding: -20px; 
-        margin-left: -16px;
-        margin-right: -16px;
-        padding-top: 5%;
-        z-index: -2;
-
-        img {
-            width: 30%; 
-        }
+    img {
+        width: 30%; 
     }
 }
 
