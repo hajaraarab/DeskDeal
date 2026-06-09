@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
-use app\Support\SustainabilityCalculator;
+use App\Support\SustainabilityCalculator;
 
 class ProductController extends Controller
 {
