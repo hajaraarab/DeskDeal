@@ -192,6 +192,7 @@
     }
 }
 
+
 .header-actions{
     border: 3px solid variables.$primary-color-light; 
     border-radius: 50px;
@@ -206,6 +207,9 @@
         width: 100%; 
     }
 }
+.header-actions:hover {
+    background-color: variables.$primary-color-light;
+}
 
 .logout-btn {
     background: none; 
@@ -219,8 +223,11 @@
     align-items: center;
 
     img {
-        width: 100%; 
+        width: 80%; 
     }
+}
+.logout-btn:hover {
+    background-color: variables.$primary-color-light;
 }
 
 .link-to-page {

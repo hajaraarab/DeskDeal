@@ -24,10 +24,33 @@
 
     <div class="search-container">
         <input id="search-input" type="text" placeholder="🔍   Search for products...">
-        <button class="button-with-icon border body-sm" type="button">
+        <button id="filter-button" class="button-with-icon border body-sm" type="button">
             <img src="{{ asset('images/icons/filter-icon.png') }}" alt="Filter Icon">
             Filter
         </button>
+
+        <div class="filter-popup" id="province-filter-popup" aria-hidden="true">
+            <label for="province-select" class="filter-popup-label body-sm">Selecteer provincie</label>
+            <select id="province-select" class="filter-popup-select body-sm">
+                <option value="">Alle provincies</option>
+                <option value="Antwerpen">Antwerpen</option>
+                <option value="Limburg">Limburg</option>
+                <option value="Oost-Vlaanderen">Oost-Vlaanderen</option>
+                <option value="Vlaams-Brabant">Vlaams-Brabant</option>
+                <option value="West-Vlaanderen">West-Vlaanderen</option>
+                <option value="Brussel">Brussel</option>
+                <option value="Waals-Brabant">Waals-Brabant</option>
+                <option value="Henegouwen">Henegouwen</option>
+                <option value="Luik">Luik</option>
+                <option value="Namen">Namen</option>
+                <option value="Luxemburg">Luxemburg</option>
+            </select>
+            <div class="filter-popup-actions">
+                <button id="apply-province-filter" type="button" class="button-with-icon border body-sm">
+                    Toepassen
+                </button>
+            </div>
+        </div>
     </div>
 
     <div class="marketplace-container">

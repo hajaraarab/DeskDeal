@@ -105,6 +105,11 @@ class ProductController extends Controller
             $products->where('category_id', $request->category);
         }
 
+        if ($request->filled('province')) {
+            $province = $request->get('province');
+            $products->where('location', 'like', "%{$province}%");
+        }
+
         if ($request->filled('q')) {
             $query = $request->get('q');
 

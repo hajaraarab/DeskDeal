@@ -29,7 +29,7 @@
                 <div class="product-info">
                     <p class="subtitle">{{ $product->category?->name }}</p>
                     <h3>{{ $product->title }}</h3>
-                    <h5>€ {{ $product->price }}</h5>
+                    <h5>{{ $product->is_free ? 'Gratis' : '€ ' . $product->price }}</h5>
 
                     <div class="attributes">
                         <div class="single-attribute">
@@ -61,7 +61,7 @@
                     </div>
 
                     <div class="single-attribute">
-                        <img src="{{ asset('images/icons/user.png') }}" alt="Verkoper">
+                        <img src="{{ asset('images/icons/clock.png') }}" alt="Verkoper">
                         <p class="body-sm">
                             Actief sinds {{ $product->user->created_at->format('Y') }}
                         </p>

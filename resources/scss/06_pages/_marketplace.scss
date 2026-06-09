@@ -9,6 +9,7 @@
     flex-direction: column;
 }
 .search-container {
+    position: relative;
     background-color: variables.$white;
     border: 2px solid rgba(variables.$primary-color, 0.5);
     border-radius: 16px;
@@ -27,6 +28,7 @@
         padding-right: variables.$padding-32;
         border-radius: variables.$radius-16;
     }
+
 }
 .marketplace-container {
     padding-top: variables.$padding-32;

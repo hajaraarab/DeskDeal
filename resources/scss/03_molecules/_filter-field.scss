@@ -1,0 +1,58 @@
+@use '../01_fundaments/variables';
+
+.search-container {
+    position: relative;
+}
+
+.filter-popup {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: calc(100% + 12px);
+    width: min(320px, 100%);
+    background: variables.$white;
+    border: 1px solid rgba(variables.$primary-color, 0.15);
+    border-radius: variables.$radius-16;
+    padding: variables.$padding-16;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+    z-index: 12;
+    gap: variables.$gap-12;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 200ms ease, transform 200ms ease, visibility 200ms ease;
+}
+
+.filter-popup.open {
+    display: grid;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.filter-popup-label {
+    margin-bottom: 8px;
+    display: block;
+    color: variables.$secondary-color;
+}
+
+.filter-popup-select {
+    width: 100%;
+    border: 1px solid rgba(variables.$primary-color, 0.25);
+    border-radius: variables.$radius-16;
+    padding: variables.$padding-12;
+    background: #F7F9FB;
+    color: variables.$secondary-color;
+    appearance: auto;
+    box-sizing: border-box;
+}
+.filter-popup-select:hover, .filter-popup-select:focus   {
+    padding: variables.$padding-12;
+    border-radius: variables.$radius-16;
+}
+
+.filter-popup-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: variables.$gap-12;
+}

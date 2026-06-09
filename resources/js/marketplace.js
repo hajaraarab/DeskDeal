@@ -1,12 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
     const categoryLinks = document.querySelectorAll('.category-link');
     const productListing = document.getElementById('product-listing');
-    
+    const searchInput = document.getElementById('search-input');
+    const filterButton = document.getElementById('filter-button');
+    const filterPopup = document.getElementById('province-filter-popup');
+    const provinceSelect = document.getElementById('province-select');
+    const applyProvinceFilterBtn = document.getElementById('apply-province-filter');
+
     if (categoryLinks.length === 0 || !productListing) return;
 
-    const searchInput = document.getElementById('search-input');
-
-    // helper: perform fetch and replace product listing
     async function fetchAndRender(url) {
         try {
             const response = await fetch(url);
@@ -17,16 +19,49 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // debounce utility
     function debounce(fn, wait) {
-        let t;
+        let timeout;
         return (...args) => {
-            clearTimeout(t);
-            t = setTimeout(() => fn(...args), wait);
+            clearTimeout(timeout);
+            timeout = setTimeout(() => fn(...args), wait);
         };
     }
 
-    // When clicking a category, load that category and keep/clear search as desired
+    function buildFilterUrl() {
+        const activeCategoryLink = document.querySelector('.category-link.active-category');
+        let url;
+
+        if (activeCategoryLink) {
+            try {
+                url = new URL(activeCategoryLink.href, window.location.origin);
+            } catch (err) {
+                url = new URL('/marketplace/filter', window.location.origin);
+            }
+        } else {
+            url = new URL('/marketplace/filter', window.location.origin);
+        }
+
+        if (searchInput) {
+            const q = searchInput.value.trim();
+            if (q.length > 0) {
+                url.searchParams.set('q', q);
+            } else {
+                url.searchParams.delete('q');
+            }
+        }
+
+        if (provinceSelect) {
+            const province = provinceSelect.value;
+            if (province.length > 0) {
+                url.searchParams.set('province', province);
+            } else {
+                url.searchParams.delete('province');
+            }
+        }
+
+        return url.href;
+    }
+
     categoryLinks.forEach(link => {
         link.addEventListener('click', async (e) => {
             e.preventDefault();
@@ -36,41 +71,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
             link.classList.add('active-category');
 
-            // build URL: use the link href (already contains category param if any)
-            const url = link.href;
-
-            // clear search input so category-only results show
             if (searchInput) searchInput.value = '';
 
-            await fetchAndRender(url);
-        });
-    });
-
-    if (searchInput) {
-        const doSearch = debounce(async (e) => {
-            const q = e.target.value.trim();
-
-            // find active category link to preserve category filter
-            const activeCat = document.querySelector('.category-link.active-category');
-            let url;
-
-            if (activeCat) {
-                try {
-                    url = new URL(activeCat.href, window.location.origin);
-                } catch (err) {
-                    url = new URL('/marketplace/filter', window.location.origin);
-                }
-            } else {
-                url = new URL('/marketplace/filter', window.location.origin);
-            }
-
-            if (q.length > 0) {
-                url.searchParams.set('q', q);
-            } else {
-                url.searchParams.delete('q');
+            const url = new URL(link.href, window.location.origin);
+            if (provinceSelect && provinceSelect.value) {
+                url.searchParams.set('province', provinceSelect.value);
             }
 
             await fetchAndRender(url.href);
+        });
+    });
+
+    function setFilterPopupState(isOpen) {
+        if (!filterPopup) return;
+        filterPopup.classList.toggle('open', isOpen);
+        filterPopup.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+    }
+
+    if (filterButton && filterPopup) {
+        filterButton.addEventListener('click', () => {
+            const isOpen = !filterPopup.classList.contains('open');
+            setFilterPopupState(isOpen);
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!filterPopup.contains(event.target) && !filterButton.contains(event.target)) {
+                setFilterPopupState(false);
+            }
+        });
+    }
+
+    if (applyProvinceFilterBtn) {
+        applyProvinceFilterBtn.addEventListener('click', async () => {
+            setFilterPopupState(false);
+            await fetchAndRender(buildFilterUrl());
+        });
+    }
+
+    if (searchInput) {
+        const doSearch = debounce(async (e) => {
+            await fetchAndRender(buildFilterUrl());
         }, 300);
 
         searchInput.addEventListener('input', doSearch);
