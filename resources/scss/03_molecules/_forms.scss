@@ -27,6 +27,7 @@ input, textarea, select {
 }
 textarea {
     padding: 0; 
+    height: 150px; 
 }
 input:focus, textarea:focus, select:focus {
     outline: none;

@@ -169,9 +169,7 @@
                 name="description" 
                 placeholder="Beschrijf je item: afmetingen, staat, ..."
                 required
-            >
-                {{ old('description', $product->description ?? '') }}
-            </textarea>
+            >{{ old('description', $product->description ?? '') }}</textarea>
         </div>
 
         <div class="form-actions">
