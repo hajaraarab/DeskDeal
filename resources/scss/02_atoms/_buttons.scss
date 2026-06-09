@@ -39,6 +39,14 @@
     border-radius: variables.$radius-16;
     cursor: pointer; 
 }
+.round-btn.blue {
+    text-align: center;
+    border: 2px solid variables.$primary-color; 
+    color: variables.$secondary-color; 
+}
+.round-btn.blue:hover {
+    background-color: variables.$primary-color-light;
+}
 .round-btn.white {
     background-color: variables.$white;
     color: variables.$secondary-color; 

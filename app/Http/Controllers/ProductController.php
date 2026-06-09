@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
+use App\Support\SustainabilityCalculator;
+
 class ProductController extends Controller
 {
     public function index(Request $request)
@@ -134,7 +136,9 @@ class ProductController extends Controller
                 ->limit(4)
                 ->get();
         
-        return view('products.show', compact('product', 'relatedProducts'));
+        $sustainability = SustainabilityCalculator::calculate($product);
+
+        return view('products.show', compact('product', 'relatedProducts', 'sustainability'));
     }
     public function edit(Product $product)
     {

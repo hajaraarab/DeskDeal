@@ -68,9 +68,18 @@
                         Product bewerken
                     </a>
                 @elseif($product->status === 'available')
-                    <a class="round-btn darkblue body-lg" href="{{ route('reservations.create', $product) }}">
-                        Reserveren
-                    </a>
+                    <div class="product-actions">
+                        <a class="round-btn darkblue body-lg" href="{{ route('reservations.create', $product) }}">
+                            Reserveren
+                        </a>
+                        <a
+                            class="round-btn blue body-md"
+                            href="mailto:{{ $product->user->email }}?subject=Vraag over {{ urlencode($product->title) }}"
+                        >
+                            Contacteer gebruiker
+                        </a>
+                    </div>
+
                 @else 
                     <button
                         class="round-btn disabled body-lg"
@@ -100,6 +109,24 @@
         <div class="product-detail-header">
             <p class="subtitle">duurzaamheid</p>
             <h3>Duurzaamheidsmeter </h3>
+
+            <div class="meter-bar">
+                <div
+                    class="meter-fill"
+                    style="width: {{ $sustainability['score'] }}%"
+                ></div>
+            </div>
+
+            <h4>{{ $sustainability['score'] }}/100</h4>
+
+            <p class="body-md">
+                {{ $sustainability['label'] }}
+            </p>
+
+            <p class="body-sm">
+                🌱 Door dit meubel een tweede leven te geven wordt naar schatting
+                {{ $sustainability['co2_savings'] }} kg CO₂-uitstoot vermeden.
+            </p>
         </div>
     </div>
 

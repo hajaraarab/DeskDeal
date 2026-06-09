@@ -47,6 +47,12 @@
     }
 }
 
+.product-actions {
+    display:flex; 
+    flex-direction: column;
+    gap:variables.$gap-16; 
+}
+
 
 //images
 .product-detail-thumbnails {

@@ -74,8 +74,8 @@
                     <img
                         src="{{ asset('storage/' . $image->image_path) }}"
                         class="preview-image"
-                            alt="{{ $product->title ?? 'Huidige productfoto' }}"
-
+                        alt="{{ $product->title ?? 'Huidge productfoto' }}"
+                    >
                 </div>
             @endforeach
             </div>
@@ -173,7 +173,7 @@
 
         <div class="form-actions">
             <a href="" class="back-link body-lg">Annuleren</a>
-            <button class="round-btn darkblue body-lg"type="submit">{{ isset($isEdit) ? 'Product bijwerken' : 'Product plaatsen' }}</button>
+            <button class="round-btn darkblue body-lg" type="submit">{{ isset($isEdit) ? 'Product bijwerken' : 'Product plaatsen' }}</button>
         </div>
         
     </form>
