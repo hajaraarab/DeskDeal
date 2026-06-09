@@ -143,14 +143,17 @@
             <div class="form-field">
                 <label for="location">Stad:</label>
                 <input 
+                    id="location"
                     type="text" 
                     name="location" 
                     placeholder="Bv. Antwerpen"
                     value="{{ old('location', $product->location ?? '') }}"
+                    data-company-city="{{ auth()->user()->city }}"
                     required
                 >
                 <label class="checkbox-label">
                 <input 
+                    id="use_company_location"
                     type="checkbox"
                     name="use_company_location"
                     value="1"
@@ -180,3 +183,4 @@
 </div>
 
 @include('partials.footer')
+

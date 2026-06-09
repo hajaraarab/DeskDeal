@@ -78,6 +78,23 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    const companyLocationCheckbox = document.getElementById('use_company_location');
+    const locationInput = document.getElementById('location');
+
+    if (companyLocationCheckbox && locationInput) {
+
+        companyLocationCheckbox.addEventListener('change', function() {
+
+            if (this.checked) {
+                locationInput.value = locationInput.dataset.companyCity;
+            } else {
+                locationInput.value = '';
+            }
+
+        });
+
+    }
 });
 
 const deleteImagesInput = document.getElementById('delete-images-input');
@@ -99,3 +116,4 @@ document.addEventListener('click', function(e) {
     }
 
 });
+
