@@ -64,6 +64,8 @@
             background-color: white; 
             flex-direction: column;
             gap: variables.$gap-4; 
+            justify-content: flex-start;
+            align-items: flex-start;
 
             h5 {
                 color: variables.$secondary-color;

@@ -79,6 +79,12 @@
         color: variables.$main-grey; 
     }
 }
+label.transport-option {
+    display: flex;
+    flex-direction: row; /* Zet items onder elkaar */
+    align-items: center; 
+    justify-content: space-between !important;
+}
 .transport-option-info p{
     font-size: 14px; 
 }
@@ -127,6 +133,11 @@
     border: 2px solid rgba(variables.$primary-color-light, 0.2); 
     background-color: rgba(variables.$primary-color-light, 0.5);
     border-radius: variables.$radius-16;
+    display:flex; 
+    flex-direction: row;
+    align-items: flex-start;
+    gap: variables.$gap-16; 
+    margin-top: variables.$margin-32; 
 
     .body-md, .body-sm {
         color: variables.$main-grey; 
@@ -160,12 +171,7 @@
     width: 25px; 
     height: 25px; 
 }
-.deliveryservice-info {
-    display:flex; 
-    flex-direction: row;
-    align-items: flex-start;
-    gap: variables.$gap-16; 
-}
+
 
 
 @media (min-width: 768px) {

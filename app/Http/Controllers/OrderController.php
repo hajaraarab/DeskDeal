@@ -27,10 +27,12 @@ class OrderController extends Controller
             'rescheduled_by_user_id' => auth()->id(),
         ]);
 
-        return redirect()->route(
-            'orders.reschedule.confirm',
-            $order
-        );
+        return redirect()
+            ->route('reservations.index')
+            ->with(
+                'success',
+                'Het nieuwe leveringsmoment werd succesvol voorgesteld.'
+            );
     }
     public function rescheduleConfirm(Order $order)
     {

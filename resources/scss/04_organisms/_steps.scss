@@ -4,29 +4,43 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 2rem;
+    width: 100%; 
+    justify-content: space-between;
+
+    .subtitle{
+        font-size: 14px; 
+        color: variables
+    }
 }
 
 .step {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    gap: variables.$gap-8; 
 }
 
 .step span {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 2px solid #ccc;
+    background: variables.$primary-color-light; 
+    color: variables.$primary-color; 
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.step.active span {
-    background: #000;
-    color: #fff;
-    border-color: #000;
+.step.active {
+
+    span {
+        background: variables.$secondary-color;
+        color: variables.$white;
+        border: none; 
+    }
+    .subtitle {
+        color: variables.$secondary-color; 
+    }
 }
 
 .step.completed span {
@@ -36,8 +50,9 @@
 }
 
 .step-line {
-    width: 100px;
+    width: auto;
     height: 2px;
-    background: #ccc;
+    background: variables.$primary-color-light;
     margin: 0 15px;
+    flex-grow: 1; 
 }

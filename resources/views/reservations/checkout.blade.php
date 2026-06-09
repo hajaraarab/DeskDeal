@@ -3,6 +3,22 @@
 <div class="content checkout">
     @include ('partials.checkout-header')
 
+        <!-- STEPS -->
+    <div class="checkout-steps">
+        <div class="step active" id="step-appointment">
+            <span><p class="body-lg">1</p></span>
+            <p class="subtitle">Afspraak</p>
+        </div>
+
+        <div class="step-line"></div>
+
+        <div class="step" id="step-confirmation">
+            <span><p class="body-lg">2</p></span>
+            <p class="subtitle">Bevestiging</p>
+        </div>
+    </div>
+    <!-- END STEPS -->
+
         <div class="transport">
             <div class="product-reserved-header">
                 <div class="icon-and-title">
@@ -99,12 +115,6 @@
 
             <div class="transport-output selfpickup">
                 <div class="delivery-selfpickup">
-
-                    <div class="icon-and-title">
-                            <img src="{{ asset('images/icons/clock.png') }}" alt="Kies tijd">
-                    </div>
-
-                    <p class="body-sm grey">Spreek af op een moment dat voor jou past. </p> 
 
                     <div class="selfpickup-info">
 

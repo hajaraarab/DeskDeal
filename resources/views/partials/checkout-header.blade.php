@@ -43,18 +43,3 @@
         </div>
     </div>
 
-    <!-- STEPS -->
-    <div class="checkout-steps">
-        <div class="step active" id="step-appointment">
-            <span>1</span>
-            <p>Afspraak</p>
-        </div>
-
-        <div class="step-line"></div>
-
-        <div class="step" id="step-confirmation">
-            <span>2</span>
-            <p>Bevestiging</p>
-        </div>
-    </div>
-    <!-- END STEPS -->

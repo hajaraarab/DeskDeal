@@ -8,6 +8,23 @@
 
 @include('partials.checkout-header')
 
+    <!-- STEPS -->
+    <div class="checkout-steps">
+        <div class="step" id="step-appointment">
+            <span><p class="body-lg">1</p></span>
+            <p class="subtitle">Afspraak</p>
+        </div>
+
+        <div class="step-line"></div>
+
+        <div class="step active" id="step-confirmation">
+            <span><p class="body-lg">2</p></span>
+            <p class="subtitle">Bevestiging</p>
+        </div>
+    </div>
+    <!-- END STEPS -->
+
+
     <div class="confirmation-step">
 
         <h5>Controleer en bevestig</h5>
