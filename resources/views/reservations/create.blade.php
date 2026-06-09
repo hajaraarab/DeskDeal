@@ -128,7 +128,7 @@
 
                     <h4>Reservering bevestigd !</h4>
                     <p class="body-sm">
-                        Thomas de Vries is op de hoogte gesteld. Je ontvangt binnen 24 uur een reactie met een ophaaltijdvoorstel.
+                        {{ $product->user->firstname }} {{ $product->user->lastname }} is op de hoogte gesteld. Je ontvangt binnen 24 uur een reactie met een ophaaltijdvoorstel.
                     </p>
 
                     <a class="round-btn darkblue body-lg" href="{{ route('products.show', $product) }}">
