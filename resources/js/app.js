@@ -5,4 +5,4 @@ import './menu';
 import './swiper'; 
 import './checkout'; 
 import './countdown'; 
-import './filter'; 
+import './faq'; 

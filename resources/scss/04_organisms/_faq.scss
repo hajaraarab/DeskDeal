@@ -1,0 +1,45 @@
+@use '../01_fundaments/variables';
+
+.faq-item {
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+}
+details {
+    cursor: pointer;
+    background-color: rgba(variables.$primary-color-light, 0.3);
+    padding: variables.$padding-16; 
+    border: 2px solid variables.$primary-color-light; 
+    border-radius: variables.$radius-16;
+}
+
+.faq-answer {
+    display: none;
+    margin-top: 10px;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+summary {
+    display:flex; 
+    justify-content: space-between;
+
+    img {
+        width: 25px; 
+        height: 25px;
+    }
+}
+
+.faq-question {
+    display:flex; 
+    flex-direction: column;
+    gap: variables.$gap-16; 
+
+    .body-lg {
+        font-weight: 500; 
+    }
+    .body-md {
+        font-size: 16px; 
+    }
+}

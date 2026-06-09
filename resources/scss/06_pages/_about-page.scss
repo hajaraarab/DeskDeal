@@ -1,0 +1,124 @@
+@use '../01_fundaments/variables';
+
+.about-page {
+    display:flex; 
+    flex-direction: column;
+    gap: variables.$gap-32; 
+    margin-top: variables.$gap-64; 
+
+    .section-header {
+        gap: variables.$gap-4 !important; 
+        padding-bottom: 0; 
+    }
+    .why-choose-deskdeal {
+        margin-top: variables.$margin-32; 
+
+        .section-header {
+            margin-bottom: variables.$margin-32; 
+        }
+    }
+    h4 {
+        color: variables.$secondary-color; 
+    }
+    h2 {
+        font-weight: 600; 
+    }
+}
+.onze-missie {
+    border: 2px solid variables.$primary-color-light; 
+    padding: variables.$padding-32; 
+    border-radius: variables.$radius-16;
+    display:flex; 
+    flex-direction: column;
+    gap: variables.$gap-8; 
+}
+.hoe-werkt-het {
+    margin-top: variables.$margin-32;  
+
+    .section-header {
+        margin-bottom: variables.$margin-32; 
+    }
+}
+.hoe-werkt-het-blocks {
+    display:flex; 
+    flex-direction: column;
+    gap: variables.$gap-16; 
+}
+.block {
+    background-color: rgba(variables.$primary-color-light, 0.5); 
+    padding: variables.$padding-32; 
+    border-radius: variables.$radius-8; 
+    display:flex; 
+    flex-direction: column;
+    gap: variables.$gap-8; 
+    flex: 1; 
+
+    h5 {
+        color: variables.$secondary-color; 
+    }
+}
+.number-container {
+    background-color: variables.$secondary-color;
+    width: 30px; 
+    height: 30px; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    color: variables.$white; 
+    border-radius: variables.$radius-4; 
+}
+.impact-numbers {
+    display:flex; 
+    flex-direction: column;
+    gap: variables.$gap-16; 
+
+    .cijfers {
+        border: 2px solid variables.$primary-color-light; 
+        padding: variables.$padding-32; 
+        border-radius: variables.$radius-8; 
+    }
+}
+.impact .section-header {
+    margin-bottom: variables.$margin-32; 
+}
+.impact, .faq {
+    margin-top: variables.$margin-32; 
+}
+.faq, .faq .section-header {
+    margin-bottom: variables.$margin-32;
+}
+
+@media (min-width: 768px) {
+    .hoe-werkt-het-blocks {
+        flex-direction: row;
+    }
+    .impact-numbers {
+        flex-direction: row;
+        gap: variables.$gap-32; 
+    }
+    .cijfers {
+        width: 100%; 
+    }
+    .about-page {
+        .section-header {
+            padding-bottom: variables.$padding-32; 
+        }
+        .why-choose-deskdeal {
+        margin-top: variables.$margin-64; 
+        }
+    }
+    .hoe-werkt-het {
+        margin-top: variables.$margin-64;  
+
+        .section-header {
+            margin-bottom: 0; 
+        }
+    }
+    .impact, .faq {
+        margin-top: variables.$margin-64; 
+    }
+    .impact .section-header {
+        margin-bottom: 0;  
+    }
+    
+}

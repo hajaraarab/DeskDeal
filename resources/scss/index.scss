@@ -18,6 +18,7 @@
 @use '04_organisms/hero-banner';
 @use '04_organisms/steps'; 
 @use '04_organisms/footer'; 
+@use '04_organisms/faq'; 
 
 @use '06_pages/marketplace';
 @use '06_pages/create-product';
@@ -31,3 +32,4 @@
 @use '06_pages/home';  
 @use '06_pages/myproducts-page'; 
 @use '06_pages/reschedule-page'; 
+@use '06_pages/about-page'; 

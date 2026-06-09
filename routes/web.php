@@ -6,6 +6,9 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
+use App\Models\Order;
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 
@@ -13,7 +16,11 @@ Route::get('/', [ProfileController::class, 'home'])
     ->name('home');
 
 Route::get('/about', function () {
-    return view('about');
+    return view('about', [
+        'registeredUsers' => User::count(),
+        'completedOrders' => Order::whereIn('status', ['done', 'completed'])->count(),
+        'activeProducts' => Product::where('status', 'available')->count(),
+    ]);
 })->name('about');
 
 Route::get('/marketplace', [ProductController::class, 'index'])
