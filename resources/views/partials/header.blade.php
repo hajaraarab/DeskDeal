@@ -48,9 +48,6 @@
 
         @auth
         <div class="user-menu">
-            <a class="header-actions" href="">
-                <img src="{{ asset('/images/icons/notifications.png') }}" alt="Meldingen">
-            </a>
 
             <a class="header-actions" href="{{ route('profile.show') }}">
                 <img src="{{ asset('/images/icons/people.png') }}" alt="Profiel">
@@ -95,7 +92,7 @@
     </div>
 
     @auth
-    <div class="user-info">
+    <a href="{{ route('profile.show') }}" class="user-info">
         <div class="profile-picture">
             <h4>{{ strtoupper(substr($user->firstname, 0, 1)) }}{{ strtoupper(substr($user->lastname, 0, 1)) }}</h4>
         </div>
@@ -104,7 +101,7 @@
             <p class="body-sm">{{ $user->firstname }} {{ $user->lastname }} </p>
             <p class="">Bekijk je profiel</p>
         </div>
-    </div>
+    </a>
     @endauth
 
     <div class="link-to-page" data-href=" {{ route('home')}} ">
