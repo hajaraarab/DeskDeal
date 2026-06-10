@@ -141,6 +141,10 @@
     }
 }
 
+.product-card, .product-card-link {
+    height: auto !important; 
+}
+
 @media (min-width: 768px) {
     .marketplace-description {
         justify-content: space-between;
