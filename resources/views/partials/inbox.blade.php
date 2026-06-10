@@ -19,7 +19,7 @@ $notifications = $reservations->filter(function ($reservation) {
 })->take(4);
 @endphp
 
-@foreach($notifications as $reservation)
+@forelse($notifications as $reservation)
 @if($notifications->isEmpty())
 
     <div class="empty-state">
@@ -253,7 +253,8 @@ $reservation->seller_id === auth()->id()
     </div>
 
 </div>
-@else 
+@endif
+@empty 
     <div class="empty-state">
         <div class="profile-picture">
             <img src="{{ asset('/images/icons/box-darkblue.png') }}" alt="Geen meldingen">
@@ -264,6 +265,5 @@ $reservation->seller_id === auth()->id()
             <p class="body-sm">Wanneer er iets belangrijks gebeurt — zoals een nieuwe reservering of bericht — zie je het hier.</p>
         </div>
     </div>
-@endif
+@endforelse
 
-@endforeach

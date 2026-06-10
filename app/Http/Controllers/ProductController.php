@@ -31,7 +31,7 @@ class ProductController extends Controller
 
         $products = $products
         ->latest()
-        ->paginate(6)
+        ->paginate(18)
         ->withQueryString();
         
         $categories = Category::all();
@@ -135,7 +135,7 @@ class ProductController extends Controller
         return view('partials.product-list', [
             'products' => $products
                 ->latest()
-                ->paginate(6)
+                ->paginate(18)
                 ->withQueryString()
         ]);
     }
