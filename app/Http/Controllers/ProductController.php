@@ -49,16 +49,20 @@ class ProductController extends Controller
             'description' => 'required|string',
             'category_id' => 'required|exists:categories,id',
             'location' => 'required|string|max:255',
-            
+
             'free_product' => 'nullable|boolean',
 
             'price' => [
-                'nullable', 
-                'numeric', 
+                'nullable',
+                'numeric',
                 'min:0'
             ],
 
-            'images.*' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'images.*' => 'nullable|bail|image|mimes:jpeg,png,jpg|max:2048',
+        ], [
+            'images.*.image' => 'Het bestand moet een afbeelding zijn.',
+            'images.*.mimes' => 'Alleen JPG, JPEG en PNG bestanden zijn toegestaan.',
+            'images.*.max' => 'Een afbeelding mag maximaal 2 MB groot zijn.',
         ]);
 
         $isFree = $request->boolean('free_product'); 

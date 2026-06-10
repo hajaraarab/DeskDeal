@@ -9,6 +9,10 @@
     padding-top: variables.$padding-12;
     padding-bottom: variables.$padding-12;
     text-align: center;
+
+    p {
+        font-size: 16px; 
+    }
 }
 .alert.success {
     background-color: #d4edda;

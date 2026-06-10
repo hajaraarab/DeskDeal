@@ -165,9 +165,11 @@
         </div>
     @endif
 
-    @if(session('error'))
-        <div class="alert error body-sm">
-            {{ session('error') }}
-        </div>
-    @endif
+@if ($errors->any())
+    <div class="alert error body-sm">
+        @foreach (collect($errors->all())->unique() as $error)
+            <p>{{ $error }}</p>
+        @endforeach
+    </div>
+@endif
 </div>
