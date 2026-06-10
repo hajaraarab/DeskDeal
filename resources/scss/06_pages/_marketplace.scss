@@ -115,7 +115,7 @@
     img {
         max-width: 100%; 
         height: auto; 
-        object-fit: cover; 
+        object-fit: cover !important; 
     }
     .product-details {
         display:flex; 
