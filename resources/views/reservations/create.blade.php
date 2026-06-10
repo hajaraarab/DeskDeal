@@ -4,8 +4,6 @@
 
 @include('partials.header')
 
-<pre>{{ print_r(old(), true) }}</pre>
-
 <div class="content create-reservation">
 
     <a href="{{ route('products.show', $product) }}" class="back-link body-md">
