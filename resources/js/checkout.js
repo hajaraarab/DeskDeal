@@ -30,6 +30,8 @@ document.querySelectorAll('.transport-option').forEach(option => {
 
 
 // DELIVERY FORM
+const deliveryForm = document.getElementById('delivery-form');
+if(deliveryForm) {
 document.getElementById('delivery-form').addEventListener('submit', function(e) {
 
     const address = this.querySelector('input[name="deliveryadres"]');
@@ -55,9 +57,12 @@ document.getElementById('delivery-form').addEventListener('submit', function(e) 
 
     showConfirmation();
 });
+}
 
 
 // PICKUP FORM
+const pickupForm = document.getElementById('pickup-form');
+if(pickupForm) {
 document.getElementById('pickup-form').addEventListener('submit', function(e) {
 
 
@@ -133,7 +138,7 @@ document.getElementById('pickup-form').addEventListener('submit', function(e) {
 
     showConfirmation();
 });
-
+}
 
 // Verwijder errors zodra gebruiker begint te typen
 document.querySelectorAll('.form-field input').forEach(input => {

@@ -12,6 +12,7 @@
 @use '03_molecules/forms';
 @use '03_molecules/empty-state'; 
 @use '03_molecules/filter-field'; 
+@use '03_molecules/pagination'; 
 
 @use '04_organisms/header';
 @use '04_organisms/auth';

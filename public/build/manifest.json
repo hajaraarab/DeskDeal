@@ -56,7 +56,7 @@
     "src": "public/images/hero-image.jpg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-VV79mgQz.js",
+    "file": "assets/app-C8GhN3VZ.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -65,7 +65,7 @@
     ]
   },
   "resources/scss/index.scss": {
-    "file": "assets/index-52gRtDjW.css",
+    "file": "assets/index-CMaYmm4F.css",
     "name": "index",
     "names": [
       "index.css"

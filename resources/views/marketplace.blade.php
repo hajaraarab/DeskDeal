@@ -18,7 +18,7 @@
         <p class="subtitle">Slim kiezen begint hier</p>
         <div class="marketplace-description">
             <h2>Vind je volgende kantoorvonst</h2>
-            <p class="info-message">{{ $products->count() }} items beschikbaar - bekijk per categorie</p>
+            <p class="info-message">{{ $products->total() }} items beschikbaar - bekijk per categorie</p>
         </div>
     </div>
 
@@ -85,6 +85,12 @@
             @include('partials.product-list')
         </div>
     </div>
+
+            @if(method_exists($products, 'links'))
+                <div class="pagination-wrapper">
+                    {{ $products->links() }}
+                </div>
+            @endif
 </div>
 
 @include('partials.footer')

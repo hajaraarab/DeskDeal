@@ -1,0 +1,84 @@
+@use '../01_fundaments/variables';
+
+.pagination-wrapper {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+
+    nav {
+        display: flex;
+        justify-content: center;
+    }
+
+    /* Verberg Laravel info tekst */
+    p.text-sm,
+    .sm\:hidden {
+        display: none !important;
+    }
+
+    /* Pagination container */
+    .inline-flex {
+        gap: .5rem;
+    }
+
+    /* Alle knoppen */
+    a,
+    span[aria-current="page"] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        min-width: 44px;
+        height: 44px;
+
+        border-radius: variables.$radius-8;
+
+        color: variables.$primary-color;
+
+        text-decoration: none;
+        font-family: variables.$primary-font;
+        font-weight: 600;
+
+        transition: .2s ease;
+    }
+
+    /* Hover */
+    a:hover {
+        background: variables.$primary-color-light;
+        border-color: variables.$primary-color;
+    }
+
+    /* Actieve pagina */
+    span[aria-current="page"] {
+        background: variables.$primary-color;
+        color: variables.$white;
+        border-color: variables.$primary-color;
+    }
+
+    /* Disabled vorige/volgende */
+    span[aria-disabled="true"] {
+        opacity: .4;
+        cursor: not-allowed;
+    }
+
+    svg {
+        width: 18px;
+        height: 18px;
+    }
+    .pagination-wrapper .relative.z-0.inline-flex {
+    display: flex !important;
+    align-items: center;
+    gap: .5rem;
+}
+/* Zorg dat de paginering op één lijn staat */
+.sm\:flex-1.sm\:flex {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Maak de pijlen onzichtbaar */
+.sm\:flex-1.sm\:flex svg {
+    display: none !important;
+}
+}

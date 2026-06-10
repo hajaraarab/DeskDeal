@@ -19,13 +19,20 @@ class ProductController extends Controller
             'user',
             'category',
             'images'
-        ]); 
+        ])
+        ->whereDoesntHave('reservations', function ($query) {
+            $query->where('status', 'accepted')
+                ->where('appointment_status', 'accepted');
+        });
 
         if ($request->filled('category')) {
             $products->where('category_id', $request->category);
         }
 
-        $products = $products->latest()->get();
+        $products = $products
+        ->latest()
+        ->paginate(6)
+        ->withQueryString();
         
         $categories = Category::all();
 
@@ -126,7 +133,10 @@ class ProductController extends Controller
         }
 
         return view('partials.product-list', [
-            'products' => $products->latest()->get()
+            'products' => $products
+                ->latest()
+                ->paginate(6)
+                ->withQueryString()
         ]);
     }
     public function show(Product $product)
